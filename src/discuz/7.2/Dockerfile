@@ -1,4 +1,4 @@
-# 未完成，勿用
+# 未完成，勿用 - PHP 5.4 == dz 崩溃？
 
 FROM openrasp/php:5.4
 
@@ -13,3 +13,5 @@ RUN wget $install_url -O dz72.zip
 
 RUN unzip dz72.zip
 RUN mv upload "$install_path"
+
+# 配置

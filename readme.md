@@ -12,6 +12,12 @@
 make -C src/base/
 ```
 
+构建所有镜像 - 非必须
+
+```
+make -C src
+```
+
 构建，并启动指定应用，e.g
 
 ```
@@ -23,7 +29,7 @@ make -C src/zzcms/8.2
 ```
 [ubuntu-server: /share/docker]
 # make -C src/seacms/6.45/
-make: Entering directory '/mnt/hgfs/share/docker/src/seacms/6.45'
+make: Entering directory '/share/docker/src/seacms/6.45'
 docker build -t openrasp/seacms:6.45 .
 Sending build context to Docker daemon 23.04 kB
 Step 1/14 : FROM openrasp/php:5.4
@@ -38,10 +44,6 @@ Removing intermediate container 586aa2f25f15
 Successfully built 2bc8468709c0
 docker run --rm -it openrasp/seacms:6.45
 [-] Starting Apache
-Passing arguments to httpd using apachectl is no longer supported.
-You can only start/stop/restart httpd using this script.
-If you want to pass extra arguments to httpd, edit the
-/etc/sysconfig/httpd config file.
 AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
 [-] Starting MariaDB
 [-] Dropping shell
