@@ -4,7 +4,7 @@
 
 ## 使用方法
 
-构建基础镜像
+构建基础镜像，e.g
 
 ```
 cd base/php5.4
@@ -22,10 +22,11 @@ docker build -t openrasp/zzcms:8.2 .
 
 请参考以下步骤来执行，
 
-1. 在 `CentOS 7` 虚拟机内安装这个应用
+1. 使用 `CentOS 7` 虚拟机内安装这个应用
 2. 使用 `diff` 找出安装前后的不同之处，比如多了一个 config.php、install.lock
 3. 使用 `mysqldump` 保存数据库内容
 4. 参考 [zzcms/8.2/Dockerfile](zzcms/8.2/Dockerfile) 编写 Dockerfile
+5. 测试没问题后，提交 pull request
 
 ## Poc 列表
 
