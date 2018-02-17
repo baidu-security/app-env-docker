@@ -1,3 +1,5 @@
+# 未完成，勿用
+
 FROM openrasp/php:latest
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
@@ -11,4 +13,5 @@ RUN wget $install_url -O dz72.zip
 
 RUN unzip dz72.zip
 RUN mv upload "$install_path"
+
 

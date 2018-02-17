@@ -20,7 +20,14 @@ docker build -t openrasp/zzcms:8.2 .
 
 ## 添加新的应用环境
 
+请参考以下步骤来执行，
+
 1. 在 CentOS 7 虚拟机内安装这个应用
 2. 使用 diff 找出安装前后的不同之处，比如多了一个 config.php、install.lock
 3. 使用 mysqldump 保存数据库内容
 4. 参考 [zzcms/8.2/Dockerfile](zzcms/8.2/Dockerfile) 编写 Dockerfile
+
+## Poc 列表
+
+请参考 [exploits.md](exploits.md)
+
