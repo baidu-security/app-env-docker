@@ -13,5 +13,3 @@ RUN wget $install_url -O dz72.zip
 
 RUN unzip dz72.zip
 RUN mv upload "$install_path"
-
-
