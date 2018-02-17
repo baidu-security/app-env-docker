@@ -9,19 +9,19 @@
 构建基础镜像，e.g
 
 ```
-make -C base/php5.4
+make -C src/base/php5.4
 ```
 
 构建应用镜像，e.g
 
 ```
-make -C zzcms/8.2
+make -C src/zzcms/8.2
 ```
 
 启动指定应用，e.g
 
 ```
-make -C zzcms/8.2 run
+make -C src/zzcms/8.2 run
 ```
 
 ## 添加新的应用环境
