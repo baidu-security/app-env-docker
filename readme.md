@@ -24,6 +24,10 @@ make -C src/zzcms/8.2
 make -C src/zzcms/8.2 run
 ```
 
+启动后，会直接进入一个 bash shell，可以使用 curl 测试应用是否正常，e.g
+
+![screenshot](https://raw.githubusercontent.com/baidu-security/app-env-docker/master/contrib/run.jpg)
+
 ## 添加新的应用环境
 
 请参考以下步骤来执行，
