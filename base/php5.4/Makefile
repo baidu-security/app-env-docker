@@ -1,2 +1,8 @@
+name=openrasp/php:5.4
+
 default:
-	docker build -t openrasp/php:5.4 .
+	docker build -t $(name) .
+
+run:
+	docker run --rm -it $(name)
+

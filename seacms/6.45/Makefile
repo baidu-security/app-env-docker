@@ -1,5 +1,9 @@
+# name=openrasp/seacms:6.45
+name=$(shell pwd | perl -lne 'print "openrasp/$$1:$$2" if /([^\/]+)\/([^\/]+)$$/')
+
 default:
-	docker build -t openrasp/seacms:6.45 .
+	docker build -t $(name) .
 
 run:
-	docker run --rm -it openrasp/seacms:6.45
+	docker run --rm -it $(name)
+
