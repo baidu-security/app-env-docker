@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# 添加后，可使用这个命令登录
+# mysql -uXXX -pXXX -DXXX
 
 mysql_add_userAndDB ()
 {

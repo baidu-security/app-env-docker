@@ -2,7 +2,8 @@ FROM openrasp/php:5.4
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-ENV install_url  https://github.com/typecho/typecho/releases/download/v1.1-15.5.12-beta/typecho.tar.gz
+# ENV install_url  https://github.com/typecho/typecho/releases/download/v1.1-15.5.12-beta/typecho.tar.gz
+ENV install_url  https://packages.baidu.com/app/typecho-v1.1-15.5.12-beta.tar.gz
 ENV install_path /var/www/html/
 
 # 下载
