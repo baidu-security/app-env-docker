@@ -1,6 +1,6 @@
 # 未完成，勿用
 
-FROM openrasp/php:latest
+FROM openrasp/php:5.4
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 

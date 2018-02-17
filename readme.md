@@ -8,7 +8,7 @@
 
 ```
 cd base/php
-docker build -t openrasp/php .
+docker build -t openrasp/php:5.4 .
 ```
 
 构建应用镜像，e.g
