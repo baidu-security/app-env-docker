@@ -6,10 +6,10 @@
 
 ## 使用方法
 
-构建基础镜像，e.g
+构建所有基础镜像，PHP、Java、NodeJS etc.
 
 ```
-make -C src/base/php5.4
+make -C src/base/
 ```
 
 构建，并启动指定应用，e.g
@@ -55,6 +55,6 @@ AH00558: httpd: Could not reliably determine the server's fully qualified domain
 1. 使用 `CentOS 7` 虚拟机内安装这个应用
 2. 使用 `diff` 找出安装前后的不同之处，比如多了一个 config.php、install.lock
 3. 使用 `mysqldump` 保存数据库内容
-4. 参考 [zzcms/8.2/Dockerfile](zzcms/8.2/Dockerfile) 编写 Dockerfile
+4. 参考 [zzcms/8.2/Dockerfile](zzcms/8.2/Dockerfile) 编写 Dockerfile，写好注释
 5. 测试没问题后，提交 pull request
 
