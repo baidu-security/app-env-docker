@@ -1,8 +1,10 @@
 name=openrasp/php:5.4
 
-default:
+default: build run
+
+build:
 	docker build -t $(name) .
 
-run:
+run: build
 	docker run --rm -it $(name)
 
