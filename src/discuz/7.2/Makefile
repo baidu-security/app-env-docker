@@ -1,0 +1,3 @@
+default: build
+
+build:
