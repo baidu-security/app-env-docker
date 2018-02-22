@@ -10,7 +10,8 @@ ENV install_path /var/www/html/
 RUN rm -rf "$install_path"
 RUN wget $install_url -O seacms-6.45.tar.gz \
 	&& tar -xf seacms-6.45.tar.gz \
-	&& mv seacms_6.45 "$install_path"
+	&& mv seacms_6.45 "$install_path" \
+	&& rm -f seacms-6.45.tar.gz
 
 # 模拟安装步骤
 COPY common.inc.php /var/www/html/data/
@@ -20,5 +21,6 @@ RUN touch /var/www/html/install/install.lock \
 # 安装数据库
 COPY seacms-mysqldb.tar.gz /tmp/
 RUN tar -xf /tmp/seacms-mysqldb.tar.gz -C /var/lib/mysql \
-	&& chown mysql -R /var/lib/mysql
+	&& chown mysql -R /var/lib/mysql \
+	&& rm -f /tmp/seacms-mysqldb.tar.gz
 

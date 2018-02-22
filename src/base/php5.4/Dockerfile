@@ -9,9 +9,7 @@ RUN mysql_install_db \
 
 RUN echo '<?php echo "OpenRASP for PHP\n"; ?>' > /var/www/html/index.php
 
-COPY *.sh /root/
-COPY bash_history /root/.bash_history
-COPY vimrc /root/.vimrc
+COPY *.sh .bash_history .vimrc /root/
 COPY php.ini /etc/php.ini
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]

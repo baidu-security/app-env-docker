@@ -50,13 +50,17 @@ AH00558: httpd: Could not reliably determine the server's fully qualified domain
 [root@4d12c4920c80 /]#
 ```
 
+大部分情况下，后台密码都是 `admin:admin`
+
 ## 添加新的应用环境
 
 请参考以下步骤来执行，
 
 1. 使用 `CentOS 7` 虚拟机内安装这个应用
 2. 使用 `diff` 找出安装前后的不同之处，比如多了一个 config.php、install.lock
-3. 使用 `mysqldump` 保存数据库内容
+3. 打包 `/var/lib/mysql` 数据库
+   * 对于 MyIASM，复制指定文件夹即可
+   * 对于 InnoDB，需要同时复制 `/var/lib/mysql/ib*`
 4. 参考 [zzcms/8.2/Dockerfile](zzcms/8.2/Dockerfile) 编写 Dockerfile，写好注释
 5. 测试没问题后，提交 pull request
 

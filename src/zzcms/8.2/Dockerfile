@@ -7,20 +7,20 @@ ENV install_url  https://packages.baidu.com/app/zzcms8.2.zip
 ENV install_path /var/www/html/
 
 # 下载
-RUN rm -rf "$install_path"
-RUN wget $install_url -O zzcms8.2.zip
-
-# 解压缩
-RUN unzip zzcms8.2.zip
-RUN mv zzcms8.2 "$install_path"
+RUN rm -rf "$install_path" \
+	&& wget $install_url -O zzcms8.2.zip \
+	&& unzip zzcms8.2.zip \
+	&& mv zzcms8.2 "$install_path" \
+	&& rm -f zzcms8.2.zip \
+	&& touch "$install_path"/install/install.lock \
+	&& chmod 777 -R "$install_path"
 
 # 模拟安装步骤
 COPY config.php /var/www/html/inc/config.php
-RUN touch /var/www/html/install/install.lock
-RUN chmod 777 -R /var/www/html
 
 # 安装数据库
-COPY zzcms-mysqldb.tar.gz /tmp/
-RUN tar -xf /tmp/zzcms-mysqldb.tar.gz -C /var/lib/mysql
-RUN chown mysql -R /var/lib/mysql
+COPY mysql.tar.gz /tmp/
+RUN tar -xf /tmp/mysql.tar.gz -C /var/lib/mysql \
+	&& chown mysql -R /var/lib/mysql \
+	&& rm -f /tmp/mysql.tar.gz
 
