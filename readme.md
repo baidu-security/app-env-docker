@@ -6,7 +6,7 @@
 
 ## 使用方法
 
-构建所有基础镜像，PHP、Java、NodeJS etc.
+构建所有基础镜像，`PHP`、`Java`、`NodeJS` etc.
 
 ```
 make -C src/base/
