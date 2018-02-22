@@ -46,6 +46,7 @@ docker run --rm -it openrasp/seacms:6.45
 [-] Starting Apache
 AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
 [-] Starting MariaDB
+[-] Waiting for MySQL to start ...
 [-] Dropping shell
 [root@4d12c4920c80 /]#
 ```
