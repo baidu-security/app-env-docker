@@ -12,6 +12,9 @@ do
 	mysql -uroot -e 'select 1' &>/dev/null && break
 done
 
+echo '[-] Accessing 127.0.0.1 for the first time'
+curl 127.0.0.1
+
 echo '[-] Dropping shell'
 /bin/bash
 
