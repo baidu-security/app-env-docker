@@ -13,7 +13,7 @@ do
 done
 
 echo '[-] Accessing 127.0.0.1 for the first time'
-curl 127.0.0.1
+curl 127.0.0.1 &>/dev/null
 
 echo '[-] Dropping shell'
 /bin/bash

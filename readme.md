@@ -47,6 +47,7 @@ docker run --rm -it openrasp/seacms:6.45
 AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
 [-] Starting MariaDB
 [-] Waiting for MySQL to start ...
+[-] Accessing 127.0.0.1 for the first time
 [-] Dropping shell
 [root@4d12c4920c80 /]#
 ```
@@ -58,10 +59,10 @@ AH00558: httpd: Could not reliably determine the server's fully qualified domain
 请参考以下步骤来执行，
 
 1. 使用 `CentOS 7` 虚拟机内安装这个应用
-2. 使用 `diff` 找出安装前后的不同之处，比如多了一个 config.php、install.lock
+2. 使用 `diff` 找出安装前后的不同之处，比如多了一个 `config.php`、`install.lock`
 3. 打包 MySQL 数据库
    * 对于 MyIASM，打包指定文件夹，e.g `/var/lib/mysql/joomla`
-   * 对于 InnoDB，还需要同时打包 `/var/lib/mysql/ib*`
+   * 对于 InnoDB，需要同时打包 `/var/lib/mysql/ib*`
 4. 参考 [src/zzcms/8.2/Dockerfile](src/zzcms/8.2/Dockerfile) 编写 Dockerfile，写好注释
 5. 测试没问题后，提交 pull request
 
