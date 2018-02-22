@@ -7,11 +7,12 @@ ENV install_url  https://packages.baidu.com/app/typecho-v1.1-15.5.12-beta.tar.gz
 ENV install_path /var/www/html/
 
 # 下载
-RUN rm -rf "$install_path"
-RUN wget $install_url -O /tmp/typecho.tar.gz
+RUN rm -rf "$install_path" \
+	&& wget $install_url -O /tmp/typecho.tar.gz \
+	&& tar -xf /tmp/typecho.tar.gz \
+	&& mv build "$install_path" \
+	&& touch "$install_path/config.inc.php" \
+	&& rm -f /tmp/typecho.tar.gz
 
-# 安装，生成假的配置文件
-RUN tar -xf /tmp/typecho.tar.gz
-RUN mv build "$install_path"
-RUN touch "$install_path/config.inc.php"
+# 没做配置 - 只是测试反序列化漏洞，无需数据库
 

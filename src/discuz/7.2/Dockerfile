@@ -18,6 +18,6 @@ RUN rm -rf "$install_path" \
 COPY config.inc.php "$install_path"
 
 COPY mysql.tar.gz /tmp/
-RUN tar xvf /tmp/mysql.tar.gz -C /var/lib/mysql \
+RUN tar xf /tmp/mysql.tar.gz -C /var/lib/mysql \
 	&& rm -f /tmp/mysql.tar.gz \
 	&& chown mysql -R /var/lib/mysql
