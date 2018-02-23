@@ -59,6 +59,7 @@ AH00558: httpd: Could not reliably determine the server's fully qualified domain
 请参考以下步骤来执行，
 
 1. 使用 `CentOS 7` 虚拟机内安装这个应用
+   * 请使用 `root:空密码` 连接 MySQL
 2. 使用 `diff` 找出安装前后的不同之处，比如多了一个 `config.php`、`install.lock`
 3. 打包 MySQL 数据库
    * 对于 MyIASM，打包指定文件夹，e.g `/var/lib/mysql/joomla`

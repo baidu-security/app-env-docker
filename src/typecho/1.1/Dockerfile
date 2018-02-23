@@ -14,5 +14,12 @@ RUN rm -rf "$install_path" \
 	&& touch "$install_path/config.inc.php" \
 	&& rm -f /tmp/typecho.tar.gz
 
-# 没做配置 - 只是测试反序列化漏洞，无需数据库
+# 配置
+COPY config.inc.php "$install_path"/config.inc.php
+COPY mysql.tar.gz /tmp/mysql.tar.gz
+
+RUN tar xf /tmp/mysql.tar.gz -C /var/lib/mysql \
+	&& chown mysql -R /var/lib/mysql \
+	&& rm -f /tmp/mysql.tar.gz
+
 
