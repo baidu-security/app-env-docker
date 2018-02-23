@@ -49,7 +49,10 @@ AH00558: httpd: Could not reliably determine the server's fully qualified domain
 [-] Waiting for MySQL to start ...
 [-] Accessing 127.0.0.1 for the first time
 [-] Dropping shell
-[root@4d12c4920c80 /]#
+ -  HostName:    f615004ffa66
+ -  IP address:  172.17.0.2
+
+[OpenRASP] root@f615004ffa66:/var/www/html #
 ```
 
 大部分情况下，后台密码都是 `admin:admin`
