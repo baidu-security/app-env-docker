@@ -4,7 +4,7 @@ MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 # ENV install_url  http://www.zzcms.net/download/zzcms8.2.zip
 ENV install_url  https://packages.baidu.com/app/zzcms8.2.zip
-ENV install_path /var/www/html/
+ENV install_path /var/www/html
 
 # 下载
 RUN rm -rf "$install_path" \
@@ -16,7 +16,7 @@ RUN rm -rf "$install_path" \
 	&& chmod 777 -R "$install_path"
 
 # 模拟安装步骤
-COPY config.php /var/www/html/inc/config.php
+COPY config.php "$install_path"/inc/config.php
 
 # 安装数据库
 COPY mysql.tar.gz /tmp/
