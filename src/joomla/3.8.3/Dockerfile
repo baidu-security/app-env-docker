@@ -3,7 +3,7 @@ FROM openrasp/php:5.4
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 # ENV install_url  http://www.zzcms.net/download/zzcms8.2.zip
-ENV install_url  https://downloads.joomla.org/cms/joomla3/3-8-3/Joomla_3-8-3-Stable-Full_Package.tar.bz2?format=bz2
+ENV install_url  https://packages.baidu.com/app/Joomla_3-8-3-Stable-Full_Package.tar.bz2
 ENV install_path /var/www/html
 
 # 下载
