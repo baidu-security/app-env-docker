@@ -3,7 +3,7 @@ FROM openrasp/php:5.4
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 ENV install_url  http://download.comsenz.com/Discuz/7.2/Discuz_7.2_FULL_SC_UTF8.zip
-ENV install_path /var/www/html/
+ENV install_path /var/www/html
 
 # 下载
 RUN rm -rf "$install_path" \
