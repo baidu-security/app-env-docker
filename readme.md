@@ -2,7 +2,10 @@
 
 基于 Docker，真实应用测试环境。我们构建这个仓库是为了快速测试大量漏洞，并补充到 [CVE 漏洞覆盖说明](https://rasp.baidu.com/doc/usage/cve.html) 列表里。欢迎大家提交 pull request~
 
-至于本仓库的 Poc 列表，请查看 [exploits.md](exploits.md)
+其他说明文档
+
+* [漏洞列表 - exploits](exploits.md)
+* [环境说明 - apps](apps.md)
 
 ## 使用方法
 
@@ -54,8 +57,6 @@ AH00558: httpd: Could not reliably determine the server's fully qualified domain
 
 [OpenRASP] root@f615004ffa66:/var/www/html #
 ```
-
-大部分情况下，后台密码都是 `admin:admin`
 
 ## 添加新的应用环境
 
