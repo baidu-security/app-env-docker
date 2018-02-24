@@ -10,3 +10,11 @@
 http://127.0.0.1/index.php/Admin/Index/index
 ```
 
+### MetInfo
+
+后台地址
+
+```
+http://127.0.0.1/admin/
+```
+

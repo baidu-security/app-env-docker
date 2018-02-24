@@ -12,6 +12,7 @@ RUN mysql_install_db \
 
 COPY *.sh .bash* .vimrc /root/
 COPY php.ini /etc/
+COPY httpd.conf /etc/httpd/conf/httpd.conf
 COPY extensions/* /usr/lib64/php/modules/
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
