@@ -2,7 +2,6 @@ FROM openrasp/php:5.4
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-# ENV install_url  http://www.zzcms.net/download/zzcms8.2.zip
 ENV install_url  https://packages.baidu.com/app/zzcms8.2.zip
 ENV install_path /var/www/html
 
