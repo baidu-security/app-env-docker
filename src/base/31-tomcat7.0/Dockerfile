@@ -22,9 +22,10 @@ RUN curl http://central.maven.org/maven2/org/apache/tomcat/tomcat-catalina-jmx-r
 # 其他配置
 COPY start.sh /root/
 COPY conf/* /tomcat/conf/
+COPY bin/* /tomcat/bin/
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
 
 EXPOSE 80
 EXPOSE 8080
-
+EXPOSE 10001
