@@ -20,3 +20,5 @@ COPY start.sh /root/
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
 
 EXPOSE 80
+EXPOSE 8080
+
