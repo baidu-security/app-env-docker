@@ -1,4 +1,4 @@
-name=openrasp/php:5.4
+name=openrasp/tomcat:6.0
 
 default: build run
 

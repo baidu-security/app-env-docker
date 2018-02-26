@@ -6,12 +6,12 @@ ENV tomcat_url https://packages.baidu.com/app/apache-tomcat-6.0.43.tar.gz
 ENV jdk_url    https://packages.baidu.com/app/jdk1.6.0_45.tar.bz2
 
 # 下载JDK、Tomcat
-RUN wget "$jdk_url" \
+RUN curl "$jdk_url" -o jdk1.6.0_45.tar.bz2 \
 	&& tar -xf jdk1.6.0_45.tar.bz2 \
 	&& mv jdk1.6.0_45 /jdk/ \
 	&& rm -f jdk1.6.0_45.tar.bz2
 
-RUN wget "$tomcat_url" \
+RUN curl "$tomcat_url" -o apache-tomcat-6.0.43.tar.gz \
 	&& tar -xf apache-tomcat-6.0.43.tar.gz \
 	&& mv apache-tomcat-6.0.43 /tomcat/ \
 	&& rm -f apache-tomcat-6.0.43.tar.gz
