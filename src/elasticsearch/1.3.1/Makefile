@@ -1,4 +1,4 @@
-name=openrasp/jboss:4.0
+name=openrasp/elasticsearch:1.3.1
 
 default: build run
 
