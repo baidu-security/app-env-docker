@@ -6,7 +6,7 @@ ENV install_url  https://packages.baidu.com/app/metinfo-5.3.17.tar.gz
 ENV install_path /var/www/html
 
 # 下载
-RUN wget $install_url -O package.tar.gz \
+RUN curl "$install_url" -o package.tar.gz \
 	&& tar xf package.tar.gz -C "$install_path" \
 	&& rm -f package.tar.gz \
 	&& touch "$install_path"/config/install.lock \

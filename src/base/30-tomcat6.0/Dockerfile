@@ -1,16 +1,10 @@
-FROM openrasp/centos7
+FROM openrasp/java:6
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 ENV tomcat_url https://packages.baidu.com/app/apache-tomcat-6.0.43.tar.gz
-ENV jdk_url    https://packages.baidu.com/app/jdk1.6.0_45.tar.bz2
 
-# 下载JDK、Tomcat
-RUN curl "$jdk_url" -o jdk1.6.0_45.tar.bz2 \
-	&& tar -xf jdk1.6.0_45.tar.bz2 \
-	&& mv jdk1.6.0_45 /jdk/ \
-	&& rm -f jdk1.6.0_45.tar.bz2
-
+# 下载 Tomcat
 RUN curl "$tomcat_url" -o apache-tomcat-6.0.43.tar.gz \
 	&& tar -xf apache-tomcat-6.0.43.tar.gz \
 	&& mv apache-tomcat-6.0.43 /tomcat/ \
