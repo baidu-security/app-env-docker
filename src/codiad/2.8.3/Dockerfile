@@ -8,7 +8,7 @@ ENV install_path /var/www/html
 
 # 下载
 RUN rm -rf "$install_path" \
-	&& wget $install_url -O package.tar.gz \
+	&& curl "$install_url" -o package.tar.gz \
 	&& tar xf package.tar.gz \
 	&& mv Codiad-v.2.8.3 "$install_path" \
 	&& rm -f package.tar.gz \
