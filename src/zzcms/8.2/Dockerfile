@@ -8,7 +8,7 @@ ENV install_path /var/www/html
 # 下载
 RUN rm -rf "$install_path" \
 	&& curl "$install_url" -o zzcms8.2.zip \
-	&& unzip zzcms8.2.zip \
+	&& unzip -q zzcms8.2.zip \
 	&& mv zzcms8.2 "$install_path" \
 	&& rm -f zzcms8.2.zip \
 	&& touch "$install_path"/install/install.lock \

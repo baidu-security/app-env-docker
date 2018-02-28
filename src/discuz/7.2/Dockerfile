@@ -7,9 +7,9 @@ ENV install_path /var/www/html
 
 # 下载
 RUN rm -rf "$install_path" \
-	&& curl "$install_url" -o dz72.zip \
-	&& unzip dz72.zip \
-	&& rm -f dz72.zip \
+	&& curl "$install_url" -o dz.zip \
+	&& unzip -q dz.zip \
+	&& rm -f dz.zip \
 	&& mv upload "$install_path" \
 	&& touch "$install_path"/forumdata/install.lock \
 	&& chmod 777 -R "$install_path"
