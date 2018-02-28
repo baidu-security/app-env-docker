@@ -14,7 +14,6 @@ RUN yum install -y epel-release \
 RUN yum install -y php56 php56-php php56-php-fpm php56-php-cli \
 	php56-php-mysqlnd php56-php-gd php56-php-soap php56-php-bcmath \
 	php56-php-mcrypt php56-php-mbstring php56-php-xml php56-php-pecl-yaml \
-	php56-php-devel \
 	php56-php-ioncube-loader
 
 RUN ln -s /opt/remi/php56/root/bin/php /usr/bin
