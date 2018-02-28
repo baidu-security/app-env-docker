@@ -10,6 +10,4 @@ RUN curl "$jdk_url" -o jdk-7u80-linux-x64.tar.gz \
 	&& mv jdk1.7.0_80 /jdk/ \
 	&& rm -f jdk-7u80-linux-x64.tar.gz
 
-RUN ln -s /jdk/bin/java /usr/bin \
-	&& ln -s /jdk/bin/javac /usr/bin
 
