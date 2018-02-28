@@ -7,8 +7,8 @@ ENV install_url  https://packages.baidu.com/app/TPshop_20171106_v2.0.8.tar.gz
 ENV install_path /var/www/html
 
 # 下载
-RUN wget $install_url -O /tmp/tpshop.tar.gz
-RUN rm -rf "$install_path" \
+RUN curl "$install_url" -o /tmp/tpshop.tar.gz \
+	&& rm -rf "$install_path" \
 	&& tar -zxf /tmp/tpshop.tar.gz \
 	&& mv TPshop_20171106_v2.0.8/ "$install_path" \
 	&& touch "$install_path"/install/install.lock \

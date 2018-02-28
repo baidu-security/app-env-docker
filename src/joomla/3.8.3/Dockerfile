@@ -7,8 +7,8 @@ ENV install_url  https://packages.baidu.com/app/Joomla_3-8-3-Stable-Full_Package
 ENV install_path /var/www/html
 
 # 下载
-RUN wget $install_url -O /tmp/joomla.tar.bz2
-RUN cd "$install_path" \
+RUN curl "$install_url" -o /tmp/joomla.tar.bz2 \
+	&& cd "$install_path" \
 	&& tar -jxf /tmp/joomla.tar.bz2 \
 	&& chmod 777 -R "$install_path" \
 	&& rm -fr /tmp/joomla.tar.bz2 "$install_path"/installation/

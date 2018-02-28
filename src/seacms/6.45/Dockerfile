@@ -8,7 +8,7 @@ ENV install_path /var/www/html
 
 # 下载
 RUN rm -rf "$install_path"
-RUN wget $install_url -O seacms-6.45.tar.gz \
+RUN curl "$install_url" -o seacms-6.45.tar.gz \
 	&& tar -xf seacms-6.45.tar.gz \
 	&& mv seacms_6.45 "$install_path" \
 	&& rm -f seacms-6.45.tar.gz

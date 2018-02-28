@@ -8,7 +8,7 @@ ENV install_path /var/www/html/
 
 # 下载
 RUN rm -rf "$install_path" \
-	&& wget $install_url -O /tmp/typecho.tar.gz \
+	&& curl "$install_url" -o /tmp/typecho.tar.gz \
 	&& tar -xf /tmp/typecho.tar.gz \
 	&& mv build "$install_path" \
 	&& touch "$install_path/config.inc.php" \

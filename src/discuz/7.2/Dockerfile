@@ -7,7 +7,7 @@ ENV install_path /var/www/html
 
 # 下载
 RUN rm -rf "$install_path" \
-	&& wget $install_url -O dz72.zip \
+	&& curl "$install_url" -o dz72.zip \
 	&& unzip dz72.zip \
 	&& rm -f dz72.zip \
 	&& mv upload "$install_path" \
