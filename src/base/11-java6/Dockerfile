@@ -10,3 +10,5 @@ RUN curl "$jdk_url" -o jdk1.6.0_45.tar.bz2 \
 	&& mv jdk1.6.0_45 /jdk/ \
 	&& rm -f jdk1.6.0_45.tar.bz2
 
+RUN ln -s /jdk/bin/java /usr/bin \
+	&& ln -s /jdk/bin/javac /usr/bin
