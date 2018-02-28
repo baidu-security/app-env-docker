@@ -1,5 +1,5 @@
 <?php
-include_once('./smarty/libs/Smarty.class.php');
+include_once('vendor/smarty/smarty/libs/Smarty.class.php');
 define('SMARTY_COMPILE_DIR','/tmp/templates_c');
 define('SMARTY_CACHE_DIR','/tmp/cache');
 
