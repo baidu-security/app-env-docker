@@ -13,7 +13,7 @@ ENV bin_url     https://packages.baidu.com/app/spring-boot-1.2.5-demo.jar
 # 	&& cd /tmp/spring-1.2.5.BUILD-SNAPSHOT \
 # 	&& ./bin/spring run /tmp/index.groovy
 
-RUN curl "$bin_url" -o /springboot.jar
+RUN curl "$bin_url" -o /root/springboot.jar
 COPY start.sh /root/
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
