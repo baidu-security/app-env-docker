@@ -1,4 +1,4 @@
-name=openrasp/php:5.6
+name=openrasp/php:5.5
 
 default: build run
 
