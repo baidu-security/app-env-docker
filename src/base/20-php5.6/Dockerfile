@@ -17,6 +17,7 @@ RUN yum install -y php56 php56-php php56-php-fpm php56-php-cli \
 	php56-php-ioncube-loader
 
 RUN ln -s /opt/remi/php56/root/bin/php /usr/bin
+COPY php.ini /opt/remi/php56/root/etc/php.ini
 
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer | php \
