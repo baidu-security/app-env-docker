@@ -1,4 +1,4 @@
-FROM openrasp/java:7
+FROM openrasp/java7
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 

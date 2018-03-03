@@ -1,4 +1,4 @@
-FROM openrasp/php:5.6
+FROM openrasp/php5.6
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 

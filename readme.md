@@ -23,7 +23,7 @@ make -C src/zzcms/8.2
 make: Entering directory '/share/docker/src/seacms/6.45'
 docker build -t openrasp/seacms:6.45 .
 Sending build context to Docker daemon 23.04 kB
-Step 1/14 : FROM openrasp/php:5.4
+Step 1/14 : FROM openrasp/php5.4
  ---> 0c8fc9d4a64a
 
 -- 精简掉的内容 --

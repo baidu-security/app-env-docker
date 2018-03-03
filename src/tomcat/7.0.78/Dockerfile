@@ -1,4 +1,4 @@
-FROM openrasp/tomcat:7.0
+FROM openrasp/tomcat7.0
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
