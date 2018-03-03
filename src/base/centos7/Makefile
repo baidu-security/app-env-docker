@@ -1,4 +1,4 @@
-name=$(shell pwd | perl -lne 'print "openrasp/$$1:$$2" if /([^\/]+)\/([^\/]+)$$/')
+name=openrasp/centos7
 
 default: build run
 
