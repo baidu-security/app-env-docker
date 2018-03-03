@@ -1,4 +1,4 @@
-name=openrasp/java:8
+name=$(shell pwd | perl -lne 'print "openrasp/$$1:$$2" if /([^\/]+)\/([^\/]+)$$/')
 
 default: build run
 
@@ -7,4 +7,3 @@ build:
 
 run: build
 	docker run --rm -it $(name)
-
