@@ -1,5 +1,3 @@
-# https://blog.hostonnet.com/install-php-5-6-on-centos-7-server
-
 FROM openrasp/centos7
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
