@@ -16,6 +16,7 @@ ENV bin_url     https://packages.baidu.com/app/spring-boot-1.2.5-demo.jar
 # RUN curl "https://packages.baidu.com/app/commons-io-2.6.jar" -o commons-io-2.6.jar
 
 RUN curl "$bin_url" -o /root/springboot.jar
+RUN pip install requests
 COPY *.sh *.py /root/
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
