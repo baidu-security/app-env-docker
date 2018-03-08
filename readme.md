@@ -5,7 +5,7 @@
 其他说明文档
 
 * [漏洞列表 - exploits](exploits)
-* [环境说明 - apps](apps.md)
+* [环境列表 - src](src)
 
 ## 使用方法
 
