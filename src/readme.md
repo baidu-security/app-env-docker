@@ -14,6 +14,14 @@
 http://127.0.0.1/index.php/Admin/Index/index
 ```
 
+### Tomcat
+
+后台密码 `tomcat:tomcat`，监听端口改为 `80`
+
+### Apache
+
+默认开启 `/server-status`
+
 ### MetInfo
 
 后台地址

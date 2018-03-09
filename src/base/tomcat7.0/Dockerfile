@@ -12,6 +12,7 @@ RUN curl "$tomcat_url" -o apache-tomcat-7.0.78.tar.gz \
 
 # 其他配置
 COPY start.sh /root/
+COPY conf/* /tomcat/conf/
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
 
