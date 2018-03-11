@@ -5,6 +5,8 @@ MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 ENV install_url  https://packages.baidu.com/app/wordpress-4.6.1.tar.gz
 ENV install_path /var/www/html
 
+RUN yum install gettext
+
 # 下载
 RUN rm -rf "$install_path" \
 	&& curl "$install_url" -o package.tar.gz \
@@ -20,7 +22,10 @@ RUN tar -xf /tmp/mysql.tar.bz2 -C /var/lib/mysql \
 	&& rm -f /tmp/mysql.tar.bz2
 
 COPY wp-config.php "$install_path"/
+COPY works.po /tmp
 
 # 打补丁，禁止跳转
 RUN echo "remove_filter('template_redirect', 'redirect_canonical');" >> "$install_path"/wp-content/themes/twentysixteen/functions.php
 
+# 复制语言文件
+RUN msgfmt /tmp/works.po -o /var/www/html/wp-content/languages/zh-CN.mo
