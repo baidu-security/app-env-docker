@@ -26,9 +26,6 @@ EOF
 mysql -uroot < /tmp/test.sql
 rm -f /tmp/test.sql
 
-echo '[-] Accessing 127.0.0.1 for the first time'
-curl 127.0.0.1 &>/dev/null
-
 echo '[-] Dropping shell'
 echo ' -  HostName:   ' $(hostname)
 echo ' -  IP address: ' $(ifconfig eth0 | awk '/inet / {print $2}')
