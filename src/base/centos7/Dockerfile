@@ -6,7 +6,7 @@ MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 RUN yum install -y epel-release
 RUN yum install -y httpd mariadb-server mariadb \
 	wget curl unzip vim bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils psmisc \
-	python-pip
+	python-pip gettext
 
 # 安装数据库
 RUN mysql_install_db \

@@ -1,3 +1,3 @@
-deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse
+deb http://cn.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse
+deb http://cn.archive.ubuntu.com/ubuntu/ xenial-security main restricted universe multiverse
+deb http://cn.archive.ubuntu.com/ubuntu/ xenial-updates main restricted universe multiverse
