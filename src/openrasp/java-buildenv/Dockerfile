@@ -13,6 +13,8 @@ RUN cd /tmp \
 COPY settings.xml /root/.m2/
 COPY *.sh /root/
 
-# 使用 /root/build-openrasp.sh 编译
+# 使用 /root/build.sh 编译
 RUN ln -s /maven/bin/mvn /usr/bin \
 	&& chmod +x /root/*.sh
+
+ENTRYPOINT ["/bin/bash", "/root/start.sh"]
