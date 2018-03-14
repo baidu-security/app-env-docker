@@ -11,6 +11,7 @@ RUN cd /tmp \
 
 RUN cd /var/www/html \
 	&& tar -xf php-vulns.tar.gz \
+	&& mv vulns/* . \
 	&& rm -f php-vulns.tar.gz \
 	&& echo '<?php phpinfo(); ?>' > /var/www/html/info.php
 
