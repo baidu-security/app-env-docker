@@ -8,4 +8,4 @@ build:
 	docker build -t $(name) .
 
 run: build
-	docker run --rm -it $(name)
+	docker run --rm -v /tmp:/tmp -it $(name)

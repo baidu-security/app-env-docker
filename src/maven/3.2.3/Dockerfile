@@ -10,3 +10,6 @@ RUN cd /tmp \
 	&& rm -f mvn.tar.gz
 
 RUN ln -s /maven/bin/mvn /usr/bin
+COPY settings.xml /root/.m2/
+COPY *.sh /root/
+
