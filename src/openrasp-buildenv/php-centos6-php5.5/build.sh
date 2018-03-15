@@ -13,4 +13,4 @@ make
 
 mkdir -p "$output"
 cp modules/openrasp.so "$output"/
-
+phpize --clean

@@ -1,7 +1,8 @@
 #!/bin/bash
 
 set -ex
-output=/tmp/openrasp-release/centos6-php5.3-x64
+version=$(php -r 'echo PHP_MAJOR_VERSION, ".", PHP_MINOR_VERSION;')
+output=/tmp/openrasp-release/centos6-php${version}-x64
 source /opt/rh/devtoolset-3/enable
 
 cd /tmp/openrasp-php
@@ -12,4 +13,4 @@ make
 
 mkdir -p "$output"
 cp modules/openrasp.so "$output"/
-
+phpize --clean
