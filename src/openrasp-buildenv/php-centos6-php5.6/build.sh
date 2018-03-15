@@ -8,7 +8,7 @@ source /opt/rh/devtoolset-3/enable
 cd /tmp/openrasp-php
 phpize --clean
 phpize
-./configure --with-v8=/libv8 -q
+./configure --with-v8=/libv8 --with-gettext -q
 make
 
 mkdir -p "$output"
