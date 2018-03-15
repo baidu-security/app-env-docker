@@ -10,6 +10,5 @@ build:
 run: build
 	docker run --rm -v /tmp:/tmp -it $(name)
 
-java: build
+compile: build
 	docker run --rm -v /tmp:/tmp -it $(name) /root/build.sh
-		
