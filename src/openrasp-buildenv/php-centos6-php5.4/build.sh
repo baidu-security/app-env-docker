@@ -1,8 +1,10 @@
 #!/bin/bash
 
 set -ex
-version=$(php -r 'echo PHP_MAJOR_VERSION, ".", PHP_MINOR_VERSION;')
-output=/tmp/openrasp-release/centos6-php${version}-x64
+php_version=$(php -r 'echo PHP_MAJOR_VERSION, ".", PHP_MINOR_VERSION;')
+php_arch=$(uname -m)
+
+output=/tmp/openrasp-release/linux-php${php_version}-${php_arch}
 source /opt/rh/devtoolset-3/enable
 
 cd /tmp/openrasp-php
