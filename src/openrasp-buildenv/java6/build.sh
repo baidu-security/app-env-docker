@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export JAVA_HOME=/jdk/
+
 set -ex
 
 dest=/tmp/openrasp
