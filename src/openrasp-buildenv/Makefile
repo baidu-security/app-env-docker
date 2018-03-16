@@ -16,4 +16,7 @@ compile_php:
         $(MAKE) -C $$dir compile; \
     done
 
+	cp php-centos6-php5.3/package/* /tmp/openrasp-release
+	cd /tmp && tar cjpvf openrasp-release.tar.bz2 openrasp-release
+
 compile: compile_java compile_php

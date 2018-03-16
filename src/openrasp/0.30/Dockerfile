@@ -7,7 +7,7 @@ ADD https://packages.baidu.com/app/php-vulns.tar.gz /var/www/html
 
 RUN cd /tmp \
 	&& tar -xf openrasp-php-beta.tar.bz2 \
-	&& bash openrasp-php-beta/install-centos7.sh
+	&& bash openrasp-php-beta/install.sh
 
 RUN cd /var/www/html \
 	&& tar -xf php-vulns.tar.gz \
