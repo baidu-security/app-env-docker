@@ -2,9 +2,6 @@
 
 export JAVA_HOME=/jdk/
 
-echo '[-] Starting Apache'
-apachectl -k start
-
 echo '[-] Starting Tomcat 6.0'
 bash /tomcat/bin/startup.sh
 
@@ -18,7 +15,7 @@ do
 done
 
 echo '[-] Waiting for Tomcat to start ...'
-sleep 3 && curl -I 127.0.0.1:8080
+sleep 3 && curl -I 127.0.0.1
 
 echo '[-] Dropping shell'
 echo ' -  HostName:   ' $(hostname)

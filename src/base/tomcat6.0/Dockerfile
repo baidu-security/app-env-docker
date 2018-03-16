@@ -11,7 +11,8 @@ RUN curl "$tomcat_url" -o apache-tomcat-6.0.43.tar.gz \
 	&& rm -f apache-tomcat-6.0.43.tar.gz
 
 # 其他配置
-COPY start.sh /root/
+COPY *.sh /root/
+COPY conf/* /tomcat/conf/
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
 
