@@ -15,4 +15,4 @@ COPY *.sh /root/
 COPY jetty.xml /activemq/conf
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
-EXPOSE 8161
+EXPOSE 80 8161

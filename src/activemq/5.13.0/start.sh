@@ -8,7 +8,7 @@ echo '[-] Starting Apache ActiveMQ'
 echo '[-] Waiting for ActiveMQ to start'
 while true
 do
-	curl -I 127.0.0.1:8161 2>/dev/null && break
+	curl -I 127.0.0.1:80 2>/dev/null && break
 	sleep 1
 done
 
