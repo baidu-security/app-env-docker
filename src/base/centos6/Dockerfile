@@ -5,8 +5,8 @@ MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 # 安装软件
 RUN yum install -y epel-release yum-utils
 RUN yum install -y httpd mysql-server mysql \
-	wget curl unzip vim bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils psmisc \
-	python-pip gettext git file
+	wget curl unzip vim bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils \
+	python-pip gettext git file lftp
 
 # 安装数据库
 RUN mysql_install_db \
