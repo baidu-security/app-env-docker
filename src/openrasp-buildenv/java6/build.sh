@@ -14,5 +14,5 @@ fi
 
 time bash /tmp/openrasp/build.sh
 
-mkdir -p /tmp/openrasp-release
-cp /tmp/openrasp/rasp-java.* /tmp/openrasp-release
+mkdir -p /tmp/openrasp-release/java
+cp /tmp/openrasp/rasp-java.* /tmp/openrasp-release/java/
