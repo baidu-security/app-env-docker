@@ -9,11 +9,12 @@ $(SUBDIRS):
 
 # 编译java版本
 compile_java:
+	rm -rf $(RELEASE_DIR)/java/
 	make -C java6 compile
 
 # 编译PHP 5.X版本
 compile_php:
-	rm -rf $(RELEASE_DIR)
+	rm -rf $(RELEASE_DIR)/php/
 
 	for dir in $(wildcard php*/.); do \
         $(MAKE) -C $$dir compile; \
