@@ -1,6 +1,6 @@
 SUBDIRS     := $(wildcard */.)
 RELEASE_DIR := /tmp/openrasp-release
-PLUGIN_URL  := https://raw.githubusercontent.com/baidu/openrasp/master/plugins/official/plugin.js
+PLUGIN_URL  := https://packages.baidu.com/app/openrasp/plugin.js
 
 default: $(SUBDIRS)
 $(SUBDIRS):

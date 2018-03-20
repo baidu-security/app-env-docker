@@ -2,8 +2,8 @@ FROM openrasp/php5.4
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-ADD https://packages.baidu.com/app/openrasp-release.tar.bz2 /tmp
-ADD https://packages.baidu.com/app/php-vulns.tar.gz /var/www/html
+ADD https://packages.baidu.com/app/openrasp/openrasp-release.tar.bz2 /tmp
+ADD https://packages.baidu.com/app/openrasp/php-vulns.tar.gz /var/www/html
 
 RUN cd /tmp \
 	&& tar -xf openrasp-release.tar.bz2 \
