@@ -14,5 +14,5 @@ source /opt/rh/devtoolset-3/enable
 time bash build-php.sh
 
 mkdir -p /tmp/openrasp-release/php
-cp -R /tmp/openrasp/rasp-php-*/* /tmp/openrasp-release/php/
+cp -R /tmp/openrasp/rasp-php-*/* /tmp/rasp-php/
 
