@@ -4,7 +4,7 @@ set -ex
 php_version=$(php -r 'echo PHP_MAJOR_VERSION, ".", PHP_MINOR_VERSION;')
 php_arch=$(uname -m)
 
-output=/tmp/rasp-php-$(date +%Y%m%d)/php/linux-php${php_version}-${php_arch}
+output=/tmp/rasp-php-$(date +%Y-%m-%d)/php/linux-php${php_version}-${php_arch}
 source /opt/rh/devtoolset-3/enable
 
 cd /tmp/openrasp-php

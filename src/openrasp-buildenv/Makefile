@@ -1,5 +1,5 @@
 SUBDIRS     := $(wildcard */.)
-RELEASE_DIR := /tmp/rasp-php-$(shell date +%Y%m%d)
+RELEASE_DIR := /tmp/rasp-php-$(shell date +%Y-%m-%d)
 PLUGIN_URL  := https://packages.baidu.com/app/openrasp/plugin.js
 
 default: $(SUBDIRS)
