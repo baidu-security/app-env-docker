@@ -1,8 +1,7 @@
 #!/bin/bash
 
-export JAVA_HOME=/jdk/
-
 set -ex
+export JAVA_HOME=/jdk/
 
 dest=/tmp/openrasp
 if [[ -d "$dest" ]]; then

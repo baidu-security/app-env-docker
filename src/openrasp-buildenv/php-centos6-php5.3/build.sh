@@ -1,19 +1,19 @@
 #!/bin/bash
 
 set -ex
-php_version=$(php -r 'echo PHP_MAJOR_VERSION, ".", PHP_MINOR_VERSION;')
-php_arch=$(uname -m)
+export JAVA_HOME=/jdk/
 
-output=/tmp/rasp-php-$(date +%Y-%m-%d)/php/linux-php${php_version}-${php_arch}
+dest=/tmp/openrasp
+if [[ -d "$dest" ]]; then
+	cd "$dest"
+	git pull
+else
+	git clone https://github.com/baidu/openrasp.git /tmp/openrasp
+fi
+
 source /opt/rh/devtoolset-3/enable
+time bash build-php.sh
 
-cd /tmp/openrasp-php
-phpize --clean
-phpize
-./configure --with-v8=/libv8 --with-gettext -q
-make
+mkdir -p /tmp/openrasp-release/php
+cp /tmp/openrasp/rasp-php.tar.bz2 /tmp/openrasp-release/php/
 
-mkdir -p "$output"
-cp modules/openrasp.so "$output"/
-make distclean
-phpize --clean

@@ -1,5 +1,5 @@
 SUBDIRS     := $(wildcard */.)
-RELEASE_DIR := /tmp/rasp-php-$(shell date +%Y-%m-%d)
+RELEASE_DIR := /tmp/openrasp-release
 PLUGIN_URL  := https://packages.baidu.com/app/openrasp/plugin.js
 
 default: $(SUBDIRS)
@@ -20,11 +20,6 @@ compile_php:
 	for dir in $(wildcard php*/.); do \
         $(MAKE) -C $$dir compile; \
     done
-
-	cp -R php-centos6-php5.3/package/* $(RELEASE_DIR)
-	mkdir -p $(RELEASE_DIR)/plugins
-	curl $(PLUGIN_URL) -o $(RELEASE_DIR)/plugins/official.js
-	cd /tmp && tar cjpvf $(basename $(RELEASE_DIR)).tar.bz2 $(RELEASE_DIR)
 
 # 编译全部
 compile: compile_java compile_php
