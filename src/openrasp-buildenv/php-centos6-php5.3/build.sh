@@ -13,6 +13,6 @@ fi
 source /opt/rh/devtoolset-3/enable
 time bash build-php.sh
 
-mkdir -p /tmp/openrasp-release/php
-cp -R /tmp/openrasp/rasp-php-*/* /tmp/rasp-php/
+mkdir -p /tmp/rasp-php-$(date +%Y-%m-%d)/
+cp -R /tmp/openrasp/rasp-php-*/* /tmp/rasp-php-$(date +%Y-%m-%d)/
 
