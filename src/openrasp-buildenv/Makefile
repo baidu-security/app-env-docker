@@ -22,7 +22,7 @@ compile_php:
     done
 
 	cp -R php-centos6-php5.3/package/* $(RELEASE_DIR)
-	mkdir -p $(RELEASE_DIR)/{conf,plugins,assets,locale,logs}
+	mkdir -p $(RELEASE_DIR)/plugins
 	curl $(PLUGIN_URL) -o $(RELEASE_DIR)/plugins/official.js
 	cd /tmp && tar cjpvf openrasp-release.tar.bz2 $(RELEASE_DIR)
 
