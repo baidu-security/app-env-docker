@@ -10,6 +10,7 @@ RUN cd /tmp \
 	&& mv apache-maven-3.2.3/ /maven \
 	&& rm -f mvn.tar.gz
 
+# 安装需要的 maven 包
 RUN tar -xf /tmp/openrasp-maven-bootstrap.tar.bz2 -C /root/	
 
 # 使用阿里云镜像
