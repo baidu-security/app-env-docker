@@ -1,5 +1,4 @@
 SUBDIRS     := $(wildcard */.)
-RELEASE_DIR := /tmp/openrasp-release
 PLUGIN_URL  := https://packages.baidu.com/app/openrasp/plugin.js
 
 default: $(SUBDIRS)
@@ -15,8 +14,6 @@ compile_java:
 
 # 编译PHP 5.X版本
 compile_php:
-	rm -rf $(RELEASE_DIR)/php/
-
 	for dir in $(wildcard php*/.); do \
         $(MAKE) -C $$dir compile; \
     done
