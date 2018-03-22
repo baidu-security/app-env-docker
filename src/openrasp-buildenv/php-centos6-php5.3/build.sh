@@ -11,7 +11,7 @@ else
 fi
 
 source /opt/rh/devtoolset-3/enable
-time bash build-php.sh
+time bash /tmp/openrasp/build-php.sh
 
 mkdir -p /tmp/rasp-php-$(date +%Y-%m-%d)/
 cp -R /tmp/openrasp/rasp-php-*/* /tmp/rasp-php-$(date +%Y-%m-%d)/
