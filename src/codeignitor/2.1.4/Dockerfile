@@ -13,3 +13,4 @@ RUN curl "$install_url" -o package.zip \
 
 COPY news.php "$install_path"/application/controllers/
 COPY config.php "$install_path"/application/config/
+COPY .htaccess "$install_path"/
