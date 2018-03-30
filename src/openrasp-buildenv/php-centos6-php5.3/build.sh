@@ -13,6 +13,10 @@ fi
 source /opt/rh/devtoolset-3/enable
 time bash /tmp/openrasp/build-php.sh
 
-mkdir -p /tmp/rasp-php-$(date +%Y-%m-%d)/
-cp -R /tmp/openrasp/rasp-php-*/* /tmp/rasp-php-$(date +%Y-%m-%d)/
+release=/tmp/rasp-php-$(date +%Y-%m-%d)/
+for x in /tmp/openrasp/rasp-php-*/*
+do
+	cp -R "$x" "$release"/
+done
+
 
