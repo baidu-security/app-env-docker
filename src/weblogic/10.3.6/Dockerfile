@@ -12,6 +12,7 @@ RUN curl https://packages.baidu.com/app/weblogic-bea-10.3.6.tar.bz2 -o bea.tar.b
 RUN sed -i 's#<listen-address/>#<listen-address>0.0.0.0</listen-address>#' /opt/bea/wlserver_10.3/samples/domains/medrec/config/config.xml
 
 COPY start.sh /root/
+COPY exploit  /exploit/
 
 EXPOSE 7011 7012
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
