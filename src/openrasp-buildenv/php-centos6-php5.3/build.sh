@@ -18,5 +18,3 @@ for x in /tmp/openrasp/rasp-php-*/*
 do
 	cp -R "$x" "$release"/
 done
-
-
