@@ -8,7 +8,7 @@ build:
 	docker build -t $(name) .
 
 run: build
-	docker run --rm -v /tmp:/tmp -it $(name)
+	docker run --rm --cap-add=SYS_PTRACE -v /tmp:/tmp -it $(name)
 
 compile: build
-	docker run --rm -v /tmp:/tmp -it $(name) /root/build.sh
+	docker run --rm --cap-add=SYS_PTRACE -v /tmp:/tmp -it $(name) /root/build.sh

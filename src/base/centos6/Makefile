@@ -6,4 +6,4 @@ build:
 	docker build -t $(name) .
 
 run: build
-	docker run --rm -it $(name)
+	docker run --cap-add=SYS_PTRACE --rm -i -t $(name)

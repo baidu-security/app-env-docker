@@ -7,7 +7,7 @@ RUN yum install -y epel-release
 RUN yum install -y httpd mariadb-server mariadb \
 	wget curl zip unzip vim bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils \
 	python-pip gettext git file lftp jq \
-	glibc.i686
+	glibc.i686 gdb
 
 # 安装数据库
 RUN mysql_install_db \
