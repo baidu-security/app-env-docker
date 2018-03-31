@@ -14,5 +14,6 @@ fi
 dest="${app_name}/${app_version}"
 
 mkdir -p "$dest"
+cp metinfo/Makefile "${app_name}"/
 cp metinfo/5.3.17/{Dockerfile,Makefile} "$dest"/
 

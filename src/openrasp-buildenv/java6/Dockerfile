@@ -14,7 +14,7 @@ RUN cd /tmp \
 RUN tar -xf /tmp/openrasp-maven-bootstrap.tar.bz2 -C /root/	
 
 # 使用阿里云镜像
-COPY settings.xml /root/.m2/
+COPY maven/*.xml /root/.m2/
 COPY *.sh /root/
 
 # 使用 /root/build.sh 编译
