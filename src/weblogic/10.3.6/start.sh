@@ -9,7 +9,7 @@ nohup /opt/bea/wlserver_10.3/samples/domains/medrec/bin/startWebLogic.sh &> /web
 echo '[-] Waiting for Weblogic server to start ...'
 while true
 do
-	curl -I 127.0.0.1:8080 &>/dev/null && break
+	curl -I 127.0.0.1:7012 &>/dev/null && break
 	sleep 1
 done
 
