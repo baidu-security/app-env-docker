@@ -5,7 +5,7 @@ default: build run
 
 build:
 	$(MAKE) -C $(deps) build
-	cp ../php-centos6-php5.3/build.sh .
+	cp ../php-centos6-php5.3/*.sh .
 	docker build -t $(name) .
 	rm -f build.sh
 
