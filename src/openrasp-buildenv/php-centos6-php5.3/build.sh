@@ -10,7 +10,7 @@ else
 	git clone https://github.com/baidu/openrasp.git /tmp/openrasp
 fi
 
-source /opt/rh/devtoolset-3/enable
+source /opt/rh/devtoolset-4/enable
 time bash /tmp/openrasp/build-php.sh
 
 release=/tmp/rasp-php-$(date +%Y-%m-%d)/
