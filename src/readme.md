@@ -9,6 +9,14 @@
 
 默认开启查询日志，aka `/var/log/mariadb/query.log`
 
+### chanzhi EPS
+
+后台地址
+
+```
+http://127.0.0.1/www/admin.php
+```
+
 ### TPShop
 
 后台地址
