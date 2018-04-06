@@ -12,7 +12,7 @@ RUN yum install -y epel-release \
 RUN yum install -y php55 php55-php php55-php-fpm php55-php-cli \
 	php55-php-mysqlnd php55-php-gd php55-php-soap php55-php-bcmath \
 	php55-php-mcrypt php55-php-mbstring php55-php-xml php55-php-pecl-yaml \
-	php55-php-ioncube-loader
+	php55-php-ioncube-loader php55-php-pecl-xdebug
 
 RUN ln -s /opt/remi/php55/root/bin/php /usr/bin
 
