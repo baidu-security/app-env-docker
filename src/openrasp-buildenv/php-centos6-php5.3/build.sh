@@ -2,7 +2,7 @@
 
 set -ex
 
-use_antlrcpp=1
+use_antlrcpp=0
 extra_config_opt=
 dest=/tmp/openrasp
 

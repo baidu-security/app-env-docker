@@ -6,8 +6,7 @@ COPY sources.list /etc/apt/sources.list
 
 # 安装软件
 RUN apt update \
-	&& apt install -y vim nano wget curl lrzsz python-requests  \
-	&& apt install -y libssl-dev build-essential autoconf bison flex git libprotobuf-dev libtool protobuf-compiler python-pip \
+	&& apt install -y vim nano wget curl lrzsz python-requests git python-pip \
 	&& apt clean all
 
 # 其他配置
