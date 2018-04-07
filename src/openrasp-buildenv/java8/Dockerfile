@@ -1,13 +1,13 @@
-FROM openrasp/java6
+FROM openrasp/java8
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 ADD https://packages.baidu.com/app/openrasp-maven-bootstrap.tar.bz2 /tmp/openrasp-maven-bootstrap.tar.bz2
 
 RUN cd /tmp \
-	&& curl https://packages.baidu.com/app/apache-maven-3.2.3-bin.tar.gz -o mvn.tar.gz \
+	&& curl https://packages.baidu.com/app/apache-maven-3.5.3-bin.tar.gz -o mvn.tar.gz \
 	&& tar -xf mvn.tar.gz \
-	&& mv apache-maven-3.2.3/ /maven \
+	&& mv apache-maven-3.5.3/ /maven \
 	&& rm -f mvn.tar.gz
 
 # 安装需要的 maven 包
