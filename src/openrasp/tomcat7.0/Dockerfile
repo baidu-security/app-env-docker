@@ -15,4 +15,4 @@ RUN cd /tmp \
 	&& /jdk/bin/java -jar rasp-*/RaspInstall.jar /tomcat/ \
 	&& rm -rf rasp-*
 
-
+COPY web/index.jsp /tomcat/webapps/ROOT/
