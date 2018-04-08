@@ -15,7 +15,11 @@ do
 done
 
 echo '[-] Waiting for Tomcat to start ...'
-sleep 3 && curl -I 127.0.0.1
+while true
+do
+	curl -I 127.0.0.1 2>/dev/null && break
+	sleep 1
+done
 
 echo '[-] Dropping shell'
 echo ' -  HostName:   ' $(hostname)
