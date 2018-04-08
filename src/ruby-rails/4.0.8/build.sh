@@ -1,4 +1,5 @@
 #!/bin/bash -x
+# cve-2016-0752 测试环境
 
 cd /
 source /etc/profile.d/rvm.sh
