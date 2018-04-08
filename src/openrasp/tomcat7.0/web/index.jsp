@@ -23,7 +23,7 @@
 				<br>
 				<a href="/fastjson/" class="btn btn-primary btn-lg btn-block" target="_blank">Fastjson 反序列化漏洞测试</a>
 				<br>
-				<a href="/vulns/" class="btn btn-primary btn-lg btn-block" target="_blank">S2-016 - Struts 系列漏洞测试</a>
+				<a href="/S2-016/" class="btn btn-primary btn-lg btn-block" target="_blank">S2-016 - Struts 系列漏洞测试</a>
 				<br>
 			</div>
 		</div>
