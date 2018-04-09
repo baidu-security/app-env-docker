@@ -6,7 +6,7 @@
 * activemq50.docker.openrasp.com
 * ...
 
-市面上常用的方案，是通过不同的子网IP来访问。这个项目采用了一个新的方案，即使用修改过的 socks5 代理，根据子域名来实现自动化的请求转发。
+市面上常用的方案，是通过不同的子网IP来访问，还要修改 hosts DNS。这个项目采用了一个新的方案，即使用修改过的 socks5 代理，根据子域名来实现自动化的请求转发。
 
 比如，我们目前运行着如下镜像:
 
@@ -17,7 +17,7 @@ CONTAINER ID        IMAGE                   COMMAND                  CREATED    
 4f5968e8da6d        openrasp/php5.4         "/bin/bash /root/sta…"   2 hours ago         Up 2 hours          80/tcp              cranky_mccarthy
 ```
 
-当你访问 `nervous_colden.192.168.154.200.xip.io` 时，我们的代理服务会找到你的目标镜像名，即 `nervous_colden`。然后调用 docker HTTP API 查询这个名字对应的IP，如果查到了，就修改 socks5 请求，让你的请求转发到这个地址去。
+当你访问 `nervous_colden.192.168.154.200.xip.io` 时，我们的代理服务会提取你的目标镜像名，即 `nervous_colden`。然后调用 docker HTTP API 查询这个名字对应的IP，如果查到了，就修改 socks5 请求，让你的请求转发到这个地址去。
 
 为了实现这个，我们需要一个简单的管理界面（3081 端口），以及 socks5 代理服务（3080 端口），具体请看 golang 代码。
 
