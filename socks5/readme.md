@@ -13,8 +13,8 @@
    ```
 
 2. 启动一些你需要的镜像
-3. 启动本服务，e.g `./bin/socks5`
-4. 在浏览器里配置 PAC，e.g
+3. 编译，并启动本服务，e.g `/tmp/docker-socks5`
+4. 在浏览器里配置 `PAC` 脚本，e.g
 
    ```
    function FindProxyForURL(url, host) {
@@ -30,7 +30,7 @@
 
 4. 使用 `192.168.154.200.xip.io:3081` 访问虚拟机的主页
 
-另外，对于非HTTP协议的，可以使用 `proxychains-ng` 访问，配置样例
+另外，对于非HTTP协议的，可以使用 `proxychains-ng` 访问，e.g
 
 ```
 strict_chain
@@ -50,8 +50,11 @@ socks5 192.168.154.200 3080
 
 应用界面 - 点击主页面的端口号进入
 
-![screen2](contrib/app.jpg)
+![screen](contrib/app.jpg)
 
+非 HTTP 接口使用方法 - Java RMI 漏洞远程利用
+
+![screen](contrib/proxychains.jpg)
 
 
 
