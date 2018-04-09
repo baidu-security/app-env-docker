@@ -46,9 +46,11 @@ AH00558: httpd: Could not reliably determine the server's fully qualified domain
 [OpenRASP] root@f615004ffa66:/var/www/html #
 ```
 
-## nginx 转发设置 - 样例
+## 自动化代理方案
 
-TODO: 使用 docker api 实现自动转发
+### 方案1 - nginx proxy_pass 方式
+
+比较单一，适合每次只运行一个镜像的场景
 
 ```
 server {
@@ -59,6 +61,10 @@ server {
     }
 }
 ```
+
+### 方案2 - PAC + xip.io 自动化代理方案
+
+具体请参考 [socks5/readme.md](socks5/readme.md)
 
 ## 添加新的应用环境
 
