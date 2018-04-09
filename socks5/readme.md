@@ -12,7 +12,13 @@
    ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375
    ```
 
-2. 启动一些你需要的镜像
+2. 启动一些你需要的镜像，e.g
+   
+   ```
+   make -C src/base/tomcat7.0
+   make -C src/openrasp/php5.3
+   ```
+
 3. 编译，并启动本服务，e.g `/tmp/docker-socks5`
 4. 在浏览器里配置 `PAC` 脚本，e.g
 
