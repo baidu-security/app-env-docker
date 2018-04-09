@@ -27,5 +27,5 @@ RUN chmod +x /tomcat/bin/*.sh /root/*.sh
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
 
-EXPOSE 80
-EXPOSE 8080
+EXPOSE 80 10001
+
