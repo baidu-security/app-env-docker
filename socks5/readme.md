@@ -25,6 +25,18 @@
 
 4. 使用 `192.168.154.200.xip.io:3081` 访问虚拟机的主页
 
+另外，对于非HTTP协议的，可以使用 `proxychains-ng` 访问，配置样例
+
+```
+strict_chain
+proxy_dns
+remote_dns_subnet 224
+tcp_read_time_out 15000
+tcp_connect_time_out 8000
+[ProxyList]
+socks5 192.168.154.200 3080
+```
+
 ## 截图
 
 ![screen](contrib/screenshot.jpg)
