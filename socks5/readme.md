@@ -39,5 +39,14 @@ socks5 192.168.154.200 3080
 
 ## 截图
 
+主界面
+
 ![screen](contrib/screenshot.jpg)
+
+应用界面 - 点击主页面的端口号进入
+
+![screen2](contrib/app.jpg)
+
+
+
 
