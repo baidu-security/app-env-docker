@@ -50,7 +50,7 @@ AH00558: httpd: Could not reliably determine the server's fully qualified domain
 
 ### 方案1 - nginx proxy_pass 方式
 
-比较单一，适合每次只运行一个镜像的场景
+需要设置转发IP，适合每次只运行一个镜像的场景
 
 ```
 server {
