@@ -17,7 +17,7 @@ CONTAINER ID        IMAGE                   COMMAND                  CREATED    
 4f5968e8da6d        openrasp/php5.4         "/bin/bash /root/sta…"   2 hours ago         Up 2 hours          80/tcp              cranky_mccarthy
 ```
 
-当你访问 `nervous_colden.192.168.154.200.xip.io` 时，这个代理服务会提取你的目标镜像名，即 `nervous_colden`。然后调用 docker HTTP API 查询这个名字对应的IP，如果查到了，就修改 socks5 请求，让你的请求转发到这个地址去。
+当你访问 `nervous_colden.192.168.154.200.xip.io` 时，这个代理服务会提取你的目标镜像名，即 `nervous_colden`。然后调用 docker HTTP API 查询这个名字对应的IP。如果查到了，就修改 socks5 请求，让你的请求转发到这个IP去。转发的事后不修改你的目标端口，这样就可以实现全端口的转发。
 
 为了实现这个，我们需要一个简单的管理界面（3081 端口），以及 socks5 代理服务（3080 端口），具体请看 golang 代码。
 
