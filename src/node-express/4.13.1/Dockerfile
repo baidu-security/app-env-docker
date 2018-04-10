@@ -12,3 +12,5 @@ RUN cd /tmp/express-4.13.1/examples/static-files \
 	&& npm install
 
 COPY start.sh /root/
+
+EXPOSE 80
