@@ -8,7 +8,7 @@ ENV install_path /var/www/html
 # 下载
 RUN rm -rf "$install_path" \
 	&& curl "$install_url" -o package.zip \
-	&& unzip package.zip \
+	&& unzip -o -q package.zip \
 	&& rm -f package.tar.gz \
 	&& mv DedeCMS-5.7-UTF8-SP1/uploads "$install_path" \
 	&& chmod 777 -R "$install_path"

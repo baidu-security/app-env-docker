@@ -8,7 +8,7 @@ ENV install_path /var/www/html
 # 下载
 RUN rm -rf "$install_path" \
 	&& curl "$install_url" -o package.zip \
-	&& unzip package.zip \
+	&& unzip -o -q package.zip \
 	&& rm -f package.zip \
 	&& mv chanzhieps "$install_path"
 
