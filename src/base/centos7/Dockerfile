@@ -17,5 +17,3 @@ RUN mysql_install_db \
 COPY *.sh .bash* .vimrc /root/
 COPY httpd.conf /etc/httpd/conf/httpd.conf
 COPY server.cnf /etc/my.cnf.d/
-
-RUN rm -f /anaconda-post.log
