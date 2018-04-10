@@ -2,9 +2,6 @@
 
 export JAVA_HOME=/jdk/
 
-echo '[-] Starting Apache'
-apachectl -k start
-
 echo '[-] Starting MariaDB'
 nohup mysqld_safe --datadir=/var/lib/mysql &>/dev/null &
 
