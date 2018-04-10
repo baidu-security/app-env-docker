@@ -11,6 +11,8 @@ RUN cd /tmp \
 	&& ln -sf /usr/local/nodejs/bin/node /usr/bin \
 	&& ln -sf /usr/local/nodejs/bin/npm /usr/bin
 
+RUN npm config set registry https://registry.npm.taobao.org
+
 # 其他配置
 COPY start.sh /root/
 
