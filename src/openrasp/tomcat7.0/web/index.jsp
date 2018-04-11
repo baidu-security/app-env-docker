@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OpenRASP Java 版本 - 测试用例目录</title>
-  <link rel="stylesheet" href="https://bootswatch.com/3/cosmo/bootstrap.min.css" media="screen">
+  <link rel="stylesheet" href="https://packages.baidu.com/bootswatch/3/cosmo/bootstrap.min.css" media="screen">
   <style>
 
   </style>
