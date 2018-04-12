@@ -21,4 +21,8 @@ COPY *.sh .bash* .vimrc /root/
 COPY httpd.conf /etc/httpd/conf/httpd.conf
 COPY server.cnf /etc/my.cnf.d/
 
+# 启动脚本
+COPY control/*.sh /etc/init.d/
+RUN chmod +x /etc/init.d/*.sh
+
 EXPOSE 80

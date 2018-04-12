@@ -18,4 +18,8 @@ COPY *.sh .bash* .vimrc /root/
 COPY server.cnf /etc/my.cnf.d/
 COPY httpd.conf /etc/httpd/conf/httpd.conf
 
+# 启动脚本
+COPY control/*.sh /etc/init.d/
+RUN chmod +x /etc/init.d/*.sh
+
 EXPOSE 80

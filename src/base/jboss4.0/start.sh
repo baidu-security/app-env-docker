@@ -2,14 +2,8 @@
 
 export JAVA_HOME=/jdk/
 
-echo '[-] Starting MariaDB'
-nohup mysqld_safe --datadir=/var/lib/mysql &>/dev/null &
-
-echo '[-] Waiting for MySQL to start ...'
-while true
-do
-	mysql -uroot -e 'select 1' &>/dev/null && break
-done
+echo '[-] Starting MySQL'
+/etc/init.d/mysql.sh start
 
 echo '[-] Starting JBoss 4.0'
 echo ' -  Logging to /var/log/jboss.log'
