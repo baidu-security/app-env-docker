@@ -9,6 +9,14 @@
 
 默认开启查询日志，aka `/var/log/mariadb/query.log`
 
+### webwolf
+
+默认路径
+
+```
+http://127.0.0.1/login
+```
+
 ### chanzhi EPS
 
 后台地址

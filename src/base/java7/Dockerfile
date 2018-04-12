@@ -13,3 +13,5 @@ RUN curl "$jdk_url" -o jdk.tar.gz \
 
 # 下载 ysoserial
 RUN curl https://packages.baidu.com/app/ysoserial-0.0.6-SNAPSHOT-all.jar -o /tmp/ysoserial.jar
+
+EXPOSE 8080

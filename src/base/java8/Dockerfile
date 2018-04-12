@@ -9,4 +9,3 @@ RUN cd /tmp \
 	&& tar -xf package.tar.gz \
 	&& rm -f package.tar.gz \
 	&& mv jdk1.8* /jdk/
-

@@ -3,8 +3,8 @@
 export JAVA_HOME=/jdk/
 
 echo '[-] Starting SpringBoot server ..'
-echo '    - Logging to /var/log/springboot.log'
-nohup /jdk/bin/java -jar /root/springboot.jar --server.port=80 --server.address=0.0.0.0 &> /var/log/sprintboot.log &
+echo '    - Logging to /springboot.log'
+nohup /jdk/bin/java -jar /root/springboot.jar --server.port=80 --server.address=0.0.0.0 --debug --trace &> /sprintboot.log &
 
 while true
 do
@@ -12,13 +12,11 @@ do
 	sleep 1
 done
 
+echo
 echo '[-] Dropping shell'
 echo ' -  HostName:   ' $(hostname)
 echo ' -  IP address: ' $(ifconfig eth0 | awk '/inet / {print $2}')
 echo
-
-echo '[-] Exploit script'
-echo ' -  python /root/run.py http://127.0.0.1 "cat /etc/hosts"'
 
 cd /root/
 /bin/bash

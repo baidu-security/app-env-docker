@@ -17,3 +17,5 @@ RUN mysql_install_db \
 COPY *.sh .bash* .vimrc /root/
 COPY server.cnf /etc/my.cnf.d/
 COPY httpd.conf /etc/httpd/conf/httpd.conf
+
+EXPOSE 80
