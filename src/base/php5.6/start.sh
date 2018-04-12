@@ -4,6 +4,7 @@ echo '[-] Starting Apache'
 apachectl -k start
 
 echo '[-] Starting MariaDB'
+chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
 nohup mysqld_safe --datadir=/var/lib/mysql &>/dev/null &
 
 echo '[-] Waiting for MySQL to start ...'
