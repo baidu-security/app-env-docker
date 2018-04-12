@@ -10,6 +10,7 @@ echo '[-] Waiting for MySQL to start ...'
 while true
 do
 	mysql -uroot -e 'select 1' &>/dev/null && break
+	sleep 1
 done
 
 echo '[-] Accessing 127.0.0.1 for the first time'

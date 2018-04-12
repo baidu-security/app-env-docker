@@ -14,8 +14,7 @@ RUN yum install -y http://dev.mysql.com/get/mysql-community-release-el7-5.noarch
 	&& yum install -y mysql-community-server
 
 # 安装数据库
-RUN mysql_install_db \
-	&& chown mysql -R /var/lib/mysql
+RUN mysql_install_db --user=mysql --explicit_defaults_for_timestamp
 
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
