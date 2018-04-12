@@ -13,8 +13,9 @@ RUN yum install -y httpd sendmail redis \
 RUN yum install -y http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm \
 	&& yum install -y mysql-community-server
 
-# 安装数据库
-RUN mysql_install_db --user=mysql --explicit_defaults_for_timestamp
+# 初始化数据库
+RUN mysql_install_db --user=mysql --explicit_defaults_for_timestamp \
+	&& chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
 
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
