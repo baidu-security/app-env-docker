@@ -13,10 +13,13 @@ RUN curl -sS https://getcomposer.org/installer | php \
 COPY index.php /var/www/html/index.php
 
 # 其他配置
-COPY start.sh /root/
+COPY *.sh /root/
 COPY php.ini /etc/
 COPY extensions/* /usr/lib64/php/modules/
 
-ENTRYPOINT ["/bin/bash", "/root/start.sh"]
+# 下载 OpenRASP 安装脚本
+ADD https://raw.githubusercontent.com/baidu/openrasp/master/rasp-install/remote/linux/centos-php.sh /root/install-openrasp.sh
+RUN chmod +x /root/*.sh
 
+ENTRYPOINT ["/bin/bash", "/root/start.sh"]
 EXPOSE 80

@@ -22,6 +22,9 @@ COPY start.sh /root/
 COPY bin/* /tomcat/bin/
 COPY conf/* /tomcat/conf/
 
+# 下载 OpenRASP 安装脚本
+ADD https://raw.githubusercontent.com/baidu/openrasp/master/rasp-install/remote/linux/centos-java.sh /root/install-openrasp.sh
+
 # 执行权限
 RUN chmod +x /tomcat/bin/*.sh /root/*.sh
 
