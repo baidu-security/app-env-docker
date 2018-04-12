@@ -1,4 +1,4 @@
-FROM openrasp/centos6
+FROM openrasp/centos7
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
