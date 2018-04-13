@@ -1,12 +1,12 @@
 #!/bin/bash
 
-tomcat_base=/tomcat/
+tomcat_base=/tomcat
 chmod +x "$tomcat_base"/bin/*.sh
 
 case "$1" in
     start)
 		echo '[-] Starting Tomcat'
-        "$tomcat_base"/bin/startup.sh
+        bash "$tomcat_base"/bin/startup.sh
 
         echo '[-] Waiting for Tomcat to start'
 		while true
@@ -17,7 +17,7 @@ case "$1" in
     ;;
     stop)
 		echo '[-] Stopping Tomcat'
-        "$tomcat_base"/bin/shutdown.sh
+        bash "$tomcat_base"/bin/shutdown.sh
     ;;
     restart)
 		$0 stop
