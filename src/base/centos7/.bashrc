@@ -6,6 +6,6 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ll='ls -lah --color=auto'
 alias l='ll'
-alias rasp-install='curl -sS https://raw.githubusercontent.com/baidu/openrasp/master/rasp-install/remote/linux/app-env-docker.sh | bash'
+alias rasp-install='curl -sS https://raw.githubusercontent.com/baidu/openrasp/master/rasp-install/remote/linux/app-env-docker.sh?_=$(date +%s) | bash'
 
 shopt -s autocd
