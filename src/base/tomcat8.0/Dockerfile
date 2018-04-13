@@ -14,11 +14,7 @@ RUN curl "$tomcat_url" -o package.tar.gz \
 COPY conf/* /tomcat/conf/
 COPY *.sh /root/
 
-# 下载 OpenRASP 安装脚本
-ADD https://raw.githubusercontent.com/baidu/openrasp/master/rasp-install/remote/linux/centos-java.sh /root/install-openrasp.sh
-
 RUN chmod +x /tomcat/bin/*.sh /root/*.sh
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
-
 EXPOSE 80

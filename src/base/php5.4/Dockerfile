@@ -18,9 +18,5 @@ COPY *.sh /root/
 COPY php.ini /etc/
 COPY extensions/* /usr/lib64/php/modules/
 
-# 下载 OpenRASP 安装脚本
-ADD https://raw.githubusercontent.com/baidu/openrasp/master/rasp-install/remote/linux/centos-php.sh /root/install-openrasp.sh
-RUN chmod +x /root/*.sh
-
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
 EXPOSE 80
