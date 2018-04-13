@@ -1,14 +1,12 @@
 #!/bin/bash
 
-export JAVA_HOME=/jdk/
+export JAVA_HOME=/jdk
 
 case "$1" in
     start)
-        echo
         echo '[-] Starting Apache ActiveMQ'
         /activemq/bin/activemq start
 
-        echo
         echo '[-] Waiting for ActiveMQ to start'
         while true
         do
