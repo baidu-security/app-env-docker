@@ -9,10 +9,4 @@ echo '[-] Starting MySQL'
 echo '[-] Accessing 127.0.0.1 for the first time'
 curl 127.0.0.1 &>/dev/null
 
-echo '[-] Dropping shell'
-echo ' -  HostName:   ' $(hostname)
-echo ' -  IP address: ' $(ifconfig eth0 | awk '/inet / {print $2}')
-echo
-
-cd /var/www/html
-/bin/bash
+exec /etc/init.d/shell.sh /var/www/html

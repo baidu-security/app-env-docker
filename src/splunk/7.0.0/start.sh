@@ -18,10 +18,4 @@ echo '[-] Adding TCP 5140 listener for OpenRASP'
 /splunk/bin/splunk add tcp 5140 -auth admin:admin
 echo
 
-echo '[-] Dropping shell'
-echo ' -  HostName:   ' $(hostname)
-echo ' -  IP address: ' $(ifconfig eth0 | awk '/inet / {print $2}')
-echo
-
-cd /splunk/
-/bin/bash
+exec /etc/init.d/shell.sh /splunk

@@ -20,11 +20,4 @@ EOF
 mysql -uroot < /tmp/test.sql
 rm -f /tmp/test.sql
 
-echo '[-] Dropping shell'
-echo ' -  HostName:   ' $(hostname)
-echo ' -  IP address: ' $(ifconfig eth0 | awk '/inet / {print $2}')
-echo
-
-cd /var/www/html
-/bin/bash
-
+exec /etc/init.d/shell.sh /var/www/html

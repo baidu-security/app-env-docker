@@ -12,11 +12,4 @@ do
 	sleep 1
 done
 
-echo
-echo '[-] Dropping shell'
-echo ' -  HostName:   ' $(hostname)
-echo ' -  IP address: ' $(ifconfig eth0 | awk '/inet / {print $2}')
-echo
-
-cd /root/
-/bin/bash
+exec /etc/init.d/shell.sh /root/

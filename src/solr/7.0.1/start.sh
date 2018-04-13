@@ -13,10 +13,4 @@ echo '[-] Creating data'
 /solr/bin/solr create -c Urahara -force
 /solr/bin/post -p 80 -c Urahara /solr/example/exampledocs/*.xml
 
-echo '[-] Dropping shell'
-echo ' -  HostName:   ' $(hostname)
-echo ' -  IP address: ' $(ifconfig eth0 | awk '/inet / {print $2}')
-echo
-
-cd /
-/bin/bash
+exec /etc/init.d/shell.sh /

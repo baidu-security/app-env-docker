@@ -12,13 +12,7 @@ do
 	sleep 1
 done
 
-echo '[-] Dropping shell'
-echo ' -  HostName:   ' $(hostname)
-echo ' -  IP address: ' $(ifconfig eth0 | awk '/inet / {print $2}')
-echo
-
 echo '[-] Exploit script'
 echo ' -  python /root/run.py http://127.0.0.1 "cat /etc/hosts"'
 
-cd /root/
-/bin/bash
+exec /etc/init.d/shell.sh /root/

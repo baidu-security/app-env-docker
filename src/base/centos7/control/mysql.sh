@@ -2,6 +2,7 @@
 
 case "$1" in
     start)
+		echo '[-] Starting MySQL'
         chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
 		nohup mysqld_safe --datadir=/var/lib/mysql &>/dev/null &
 
@@ -13,6 +14,7 @@ case "$1" in
 		done
     ;;
     stop)
+		echo '[-] Stopping MySQL'
         killall -9 mysqld
     ;;
     restart)
