@@ -2,7 +2,6 @@
 
 export JAVA_HOME=/jdk/
 
-echo '[-] Starting MySQL'
 /etc/init.d/mysql.sh start
 
 echo '[-] Starting JBoss 4.0'
