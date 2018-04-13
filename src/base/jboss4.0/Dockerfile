@@ -12,7 +12,7 @@ RUN curl "$jboss_url" -o jboss-4.0.5.GA.zip \
 
 # 其他配置
 COPY start.sh /root/
+COPY server.xml /jboss/server/default/deploy/jbossweb-tomcat55.sar/server.xml
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
-
-EXPOSE 8080
+EXPOSE 80

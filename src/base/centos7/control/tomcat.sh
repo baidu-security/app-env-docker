@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export JAVA_HOME=/jdk/
+
 tomcat_base=/tomcat
 chmod +x "$tomcat_base"/bin/*.sh
 
