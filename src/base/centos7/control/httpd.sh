@@ -17,13 +17,16 @@ case "$1" in
         done
     ;;
     stop)
+        echo '[-] Stopping Apache'
         apachectl -k stop
     ;;
     reload)
+        echo '[-] Reloading Apache'
         apachectl -k reload
     ;;
     restart)
 		$0 stop
+        sleep 1
 		$0 start
 	;;
     *)
