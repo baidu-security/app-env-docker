@@ -17,4 +17,4 @@ RUN npm config set registry https://registry.npm.taobao.org
 COPY start.sh /root/
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
-EXPOSE 80 3000
+EXPOSE 80
