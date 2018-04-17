@@ -2,7 +2,7 @@ FROM openrasp/tomcat7.0
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-ENV install_url  https://packages.baidu.com/app/jenkins-war-1.645.war
+ENV install_url  https://packages.baidu.com/app/jenkins-war-1.636.war
 ENV install_path /tomcat/webapps/
 
 # 下载
