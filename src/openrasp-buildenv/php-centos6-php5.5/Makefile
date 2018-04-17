@@ -4,7 +4,7 @@ deps=../../base/$(shell head -1 Dockerfile | sed 's~FROM openrasp/~~; s~:~~')
 default: build run
 
 build:
-	cp ../php-centos6-php5.3/*.sh .
+	$(MAKE) -C $(deps) build	
 	docker build -t $(name) .
 	rm -f build.sh
 

@@ -1,11 +1,5 @@
-FROM openrasp/centos6
+FROM openrasp/devtoolset-4
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-RUN yum install -y centos-release-scl \
-	&& yum install -y devtoolset-4-gcc-c++ cmake libuuid-devel libxml2-devel zlib-devel
-
-RUN yum install -y php-devel make re2c php php-curl php-xml php-mysql php-pdo php-json
-
-COPY *.sh /root/
-RUN chmod +x /root/*.sh
+RUN yum install -y php php-devel php-curl php-xml php-mysql php-pdo php-json

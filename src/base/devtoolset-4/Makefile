@@ -6,7 +6,6 @@ default: build run
 build:
 	$(MAKE) -C $(deps) build
 	docker build -t $(name) .
-	rm -f build.sh
 
 run: build
 	docker run --rm --cap-add=SYS_PTRACE -v /tmp:/tmp -it $(name)
