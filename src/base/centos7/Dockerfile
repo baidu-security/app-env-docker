@@ -19,7 +19,10 @@ RUN mysql_install_db --user=mysql --explicit_defaults_for_timestamp
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
 COPY httpd.conf /etc/httpd/conf/httpd.conf
-COPY server.cnf /etc/my.cnf.d/
+COPY mysql-5.6/my.cnf /etc/my.cnf
+
+# 老版本 MySQL 可以使用这个
+# COPY server.cnf /etc/my.cnf.d/
 
 # 启动脚本
 COPY control/*.sh /etc/init.d/

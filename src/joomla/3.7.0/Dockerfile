@@ -2,7 +2,7 @@ FROM openrasp/php5.4
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-ENV install_url  https://packages.baidu.com/app/Joomla_3-8-3-Stable-Full_Package.tar.bz2
+ENV install_url  https://packages.baidu.com/app/Joomla_3.7.0-Stable-Full_Package.tar.bz2
 ENV install_path /var/www/html
 
 # 下载

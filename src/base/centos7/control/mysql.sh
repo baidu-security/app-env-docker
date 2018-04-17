@@ -3,7 +3,8 @@
 case "$1" in
     start)
 		echo '[-] Starting MySQL'
-        chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
+		touch /var/log/mysql-query.log
+        chown -R mysql:mysql /var/lib/mysql /var/run/mysqld /var/log/mysql*
 		nohup mysqld_safe --datadir=/var/lib/mysql &>/dev/null &
 
 		echo '[-] Waiting for MySQL to start ...'
