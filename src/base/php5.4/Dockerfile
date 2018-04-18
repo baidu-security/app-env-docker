@@ -2,7 +2,7 @@ FROM openrasp/centos7
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-RUN yum install -y php php-curl php-soap php-gd php-xml php-mysql \
+RUN yum install -y php php-fpm php-curl php-soap php-gd php-xml php-mysql \
 	php-mbstring php-bcmath php-pdo php-json php-intl \
 	php-pecl-xdebug php-pecl-yaml
 

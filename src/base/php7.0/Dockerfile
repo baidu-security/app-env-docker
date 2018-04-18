@@ -7,7 +7,7 @@ RUN yum install -y epel-release \
 	&& rpm -ivh remi-release-7.rpm \
 	&& rm -f remi-release-7.rpm
 
-RUN yum install -y php70 php70-php php70-php-fpm php70-php-cli \
+RUN yum install -y php70 php70-fpm php70-php php70-php-fpm php70-php-cli \
 	php70-php-mysqlnd php70-php-gd php70-php-soap php70-php-bcmath \
 	php70-php-mcrypt php70-php-mbstring php70-php-xml php70-php-pecl-yaml \
 	php70-php-ioncube-loader php70-php-pecl-xdebug php70-php-intl

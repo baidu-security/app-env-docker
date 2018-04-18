@@ -7,7 +7,7 @@ RUN yum install -y epel-release \
 	&& rpm -ivh remi-release-7.rpm \
 	&& rm -f remi-release-7.rpm
 
-RUN yum install -y php72 php72-php php72-php-fpm php72-php-cli \
+RUN yum install -y php72 php72-fpm php72-php php72-php-fpm php72-php-cli \
 	php72-php-mysqlnd php72-php-gd php72-php-soap php72-php-bcmath \
 	php72-php-mcrypt php72-php-mbstring php72-php-xml php72-php-pecl-yaml \
 	php72-php-ioncube-loader php72-php-pecl-xdebug php72-php-intl
