@@ -15,6 +15,12 @@ RUN yum install -y php56 php56-php php56-php-fpm php56-php-cli \
 RUN ln -s /opt/remi/php56/root/bin/php /usr/bin
 COPY php.ini /opt/remi/php56/root/etc/php.ini
 
+# 替换 mariadb 5.5 为最新的 MySQL 5.6
+RUN yum install -y http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm \
+	&& yum install -y mysql-community-server \
+	&& mysql_install_db --user=mysql --explicit_defaults_for_timestamp
+COPY mysql-5.6/my.cnf /etc/my.cnf	
+
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer | php \
 	&& mv composer.phar /usr/bin/composer
