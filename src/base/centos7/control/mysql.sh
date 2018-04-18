@@ -9,7 +9,7 @@ case "$1" in
 			touch /var/log/mysql-query.log
     	    chown -R mysql:mysql /var/lib/mysql /var/run/mysqld /var/log/mysql*
     	else
-    		chown -R mysql:mysql /var/lib/mysql /var/log/mysql*
+    		chown -R mysql:mysql /var/lib/mysql /var/log/mariadb
     	fi
 
 		nohup mysqld_safe --datadir=/var/lib/mysql &>/dev/null &
