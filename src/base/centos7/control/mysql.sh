@@ -3,8 +3,15 @@
 case "$1" in
     start)
 		echo '[-] Starting MySQL'
-		touch /var/log/mysql-query.log
-        chown -R mysql:mysql /var/lib/mysql /var/run/mysqld /var/log/mysql*
+
+		# MySQL 5.6，创建下 general log 文件
+		if [[ -e /var/run/mysqld ]]; then
+			touch /var/log/mysql-query.log
+    	    chown -R mysql:mysql /var/lib/mysql /var/run/mysqld /var/log/mysql*
+    	else
+    		chown -R mysql:mysql /var/lib/mysql /var/log/mysql*
+    	fi
+
 		nohup mysqld_safe --datadir=/var/lib/mysql &>/dev/null &
 
 		echo '[-] Waiting for MySQL to start ...'
