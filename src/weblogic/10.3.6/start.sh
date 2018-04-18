@@ -3,7 +3,7 @@
 export JAVA_HOME=/jdk/
 
 echo '[-] Starting Weblogic - medrec'
-echo '    - Logging to /weblogic.log'
+echo ' -  Logging to /weblogic.log'
 nohup /opt/bea/wlserver_10.3/samples/domains/medrec/bin/startWebLogic.sh &> /weblogic.log &
 
 echo '[-] Waiting for Weblogic server to start ...'
