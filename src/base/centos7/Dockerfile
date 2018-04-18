@@ -16,6 +16,7 @@ RUN yum install -y mariadb-server mariadb \
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
 COPY httpd.conf /etc/httpd/conf/httpd.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY server.cnf /etc/my.cnf.d/
 
 # 启动脚本
