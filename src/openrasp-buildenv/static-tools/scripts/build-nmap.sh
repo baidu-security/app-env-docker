@@ -16,16 +16,16 @@ function build_nmap()
 	tar -xf nmap.tar.bz2
 
 	cd nmap-*/
-  ln -sf `g++ -print-file-name=libstdc++.a`
-  CC="gcc -fPIC -DLUA_C89_NUMBERS" CXX="g++ -fPIC -DLUA_C89_NUMBERS" LD=ld LDFLAGS="-L/build/ -static-libgcc -L." ./configure -q \
+  	ln -sf `g++ -print-file-name=libstdc++.a`
+  	CC="gcc -fPIC -DLUA_C89_NUMBERS" CXX="g++ -fPIC -DLUA_C89_NUMBERS" LD=ld LDFLAGS="-L/build -static-libgcc -L." ./configure -q \
        --without-ndiff \
        --without-zenmap \
        --without-nping \
        --without-ncat \
        --without-nmap-update \
-       --with-pcap=/build/ \
-       --with-libssh2=/build/ \
-       --with-openssl=/build/ \
+       --with-pcap=/build \
+       --with-libssh2=/build \
+       --with-openssl=/build \
        --with-libdnet=included \
        --prefix /tmp/nmap/
 
