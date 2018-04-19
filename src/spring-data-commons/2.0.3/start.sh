@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export JAVA_HOME=/jdk/
+export JAVA_HOME=/jdk
 
 echo '[-] Starting SpringBoot server ..'
 echo ' -  Logging to /springboot.log'
