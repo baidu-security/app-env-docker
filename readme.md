@@ -11,6 +11,7 @@
 
 * [漏洞列表 - exploits](exploits)
 * [环境列表 - src](src)
+* [编码规范 - wiki](/wiki/)
 
 ## 使用方法
 
@@ -71,16 +72,8 @@ server {
 
 具体请参考 [socks5/readme.md](socks5/readme.md)
 
-## 添加新的应用环境
+界面截屏如下
 
-请参考以下步骤来执行，
+![screen](socks5/contrib/screenshot.jpg)
 
-1. 使用 `CentOS 7` 虚拟机内安装这个应用
-   * 请使用 `root:空密码` 连接 MySQL
-2. 使用 `diff` 找出安装前后的不同之处，比如多了一个 `config.php`、`install.lock`
-3. 打包 MySQL 数据库
-   * 对于 MyIASM，打包指定文件夹，e.g `/var/lib/mysql/joomla`
-   * 对于 InnoDB，需要同时打包 `/var/lib/mysql/ib*`
-4. 参考 [src/zzcms/8.2/Dockerfile](src/zzcms/8.2/Dockerfile) 编写 Dockerfile，写好注释
-5. 测试没问题后，提交 pull request
 
