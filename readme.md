@@ -11,7 +11,7 @@
 
 * [漏洞列表 - exploits](exploits)
 * [环境列表 - src](src)
-* [编码规范 - wiki](/wiki/)
+* [编码规范 - wiki](https://github.com/baidu-security/app-env-docker/wiki)
 
 ## 使用方法
 
