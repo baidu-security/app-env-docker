@@ -8,4 +8,4 @@ build:
 	rm -rf control
 
 run: build
-	docker run --cap-add=SYS_PTRACE --rm -i -t $(name)
+	docker run --cap-add=SYS_PTRACE --rm -v /tmp:/tmp -i -t $(name)

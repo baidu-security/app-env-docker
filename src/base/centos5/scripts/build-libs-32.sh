@@ -4,7 +4,7 @@ set -ex -o pipefail
 
 function build_openssl()
 {
-	if [[ -f /build/lib/libssl.a ]]; then
+	if [[ -f /build32/lib/libssl.a ]]; then
 		echo openssl already built
 		return
 	fi
@@ -16,7 +16,8 @@ function build_openssl()
 	tar -xf openssl.tar.gz
 
 	cd openssl-*/
-	CC='/usr/local/musl/bin/musl-gcc -static -fPIC' ./Configure --prefix=/build/ no-shared linux-x86_64
+	CC="gcc -m32 -fPIC" ./Configure \
+		--prefix=/build32/ no-shared linux-generic32
 
 	make
 	make install
@@ -26,7 +27,7 @@ function build_openssl()
 
 function build_ncurses()
 {
-	if [[ -f /build/lib/libncurses.a ]]; then
+	if [[ -f /build32/lib/libncurses.a ]]; then
 		echo libncurses already built
 		return
 	fi
@@ -38,7 +39,8 @@ function build_ncurses()
 	tar -xf ncurses.tar.gz
 
 	cd ncurses-*/
-	CC='/usr/local/musl/bin/musl-gcc -static' CFLAGS='-fPIC' ./configure -q --prefix /build/ --disable-shared --enable-static
+	CXXFLAGS="-fPIC -m32" CFLAGS="-fPIC -m32" ./configure \
+		-q --prefix /build32/ --disable-shared --enable-static
 
 	make
 	make install
@@ -48,7 +50,7 @@ function build_ncurses()
 
 function build_readline()
 {
-	if [[ -f /build/lib/libreadline.a ]]; then
+	if [[ -f /build32/lib/libreadline.a ]]; then
 		echo libreadline already built
 		return
 	fi
@@ -60,7 +62,8 @@ function build_readline()
 	tar -xf readline.tar.gz
 
 	cd readline-*/
-	CC='/usr/local/musl/bin/musl-gcc -static' CFLAGS='-fPIC' ./configure -q --prefix /build/ --disable-shared --enable-static
+	CXXFLAGS="-fPIC -m32" CFLAGS="-fPIC -m32" ./configure \
+		-q --prefix /build32/ --disable-shared --enable-static
 
 	make
 	make install
@@ -70,7 +73,7 @@ function build_readline()
 
 function build_pcap()
 {
-	if [[ -f /build/lib/libpcap.a ]]; then
+	if [[ -f /build32/lib/libpcap.a ]]; then
 		echo libpcap already built
 		return
 	fi
@@ -82,7 +85,8 @@ function build_pcap()
 	tar -xf libpcap.tar.gz
 
 	cd libpcap-*/
-	CFLAGS='-fPIC' ./configure -q --prefix /build/ --disable-shared
+	CXXFLAGS="-fPIC -m32" CFLAGS="-fPIC -m32" ./configure \
+		-q --prefix /build32/ --disable-shared
 
 	make
 	make install
@@ -92,7 +96,7 @@ function build_pcap()
 
 function build_pcre()
 {
-	if [[ -f /build/lib/libpcre.a ]]; then
+	if [[ -f /build32/lib/libpcre.a ]]; then
 		echo pcre already built
 		return
 	fi
@@ -104,8 +108,8 @@ function build_pcre()
 	tar -xf pcre.tar.bz2
 
 	cd pcre-*/
-	CC='/usr/local/musl/bin/musl-gcc -static' CFLAGS='-fPIC' ./configure -q \
-		--prefix /build/ \
+	CXXFLAGS="-fPIC -m32" CFLAGS="-fPIC -m32" ./configure \
+		-q --prefix /build32/ \
 		--disable-shared --enable-static
 
 	make
@@ -116,7 +120,7 @@ function build_pcre()
 
 function build_libssh2()
 {
-	if [[ -f /build/lib/libssh2.a ]]; then
+	if [[ -f /build32/lib/libssh2.a ]]; then
 		echo libssh2 already built
 		return
 	fi
@@ -128,8 +132,8 @@ function build_libssh2()
 	tar -xf libssh2.tar.gz
 
 	cd libssh2-*/
-	CC='/usr/local/musl/bin/musl-gcc -static' CFLAGS='-fPIC -I/build/include' LDFLAGS="-L/build/lib" ./configure -q \
-		--prefix /build/ \
+	CXXFLAGS="-fPIC -m32 -I/build32/include" CFLAGS="-m32 -fPIC -I/build32/include" LDFLAGS=" -ldl -L/build32/lib" ./configure \
+		-q --prefix /build32/ \
 		--disable-shared --enable-static
 
 	make
@@ -138,36 +142,9 @@ function build_libssh2()
 	cd / && rm -rf "$dest"
 }
 
-function build_musl_gcc()
-{
-	if [[ -f /usr/local/musl/bin/musl-gcc ]]; then
-		echo MUSL gcc already installed, skipping
-		return
-	fi
-
-	dest=$(mktemp -d)
-	cd "$dest"
-
-	curl https://packages.baidu.com/app/musl-1.1.10.tar.gz -o musl.tar.gz
-	tar -xf musl.tar.gz
-
-	cd musl-*/
-
-	# Build
-	./configure -q --prefix=/usr/local/musl/
-
-	make
-	make install
-
-	cd / && rm -rf "$dest"
-}
-
-build_musl_gcc
 build_readline
 build_openssl
 build_ncurses
-build_libssh2
 build_pcap
 build_pcre
-
-
+build_libssh2
