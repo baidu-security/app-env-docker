@@ -8,7 +8,7 @@ COPY repo/* /etc/yum.repos.d/
 
 # 预先下载的 RPM
 ADD https://packages.baidu.com/app/centos5/yum.tar.gz /tmp/yum.tar.gz
-RUN tar -xvf /tmp/yum.tar.gz -C / \
+RUN tar -xf /tmp/yum.tar.gz -C / \
 	&& rm -f /tmp/yum.tar.gz
 
 # 安装软件
@@ -27,3 +27,4 @@ RUN tar -xf /tmp/libs.tar.bz2 -C / \
 
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
+COPY scripts/* /root/scripts/*
