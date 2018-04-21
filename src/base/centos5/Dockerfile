@@ -14,18 +14,20 @@ RUN curl https://packages.baidu.com/app/centos5/yum.tar.gz -o /tmp/yum.tar.gz \
 	&& tar -xf /tmp/yum.tar.gz -C / \
 	&& rm -f /tmp/yum.tar.gz
 
-RUN yum install -y gcc-c++ libstdc++ make autoconf automake binutils bison flex yacc \
+RUN yum install -y gcc-c++ libstdc++ glibc-devel make autoconf automake binutils bison flex yacc \
 	wget zip unzip vim-enhanced bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils \
 	gettext git file lftp psmisc \
 	glibc-devel.i386 libstdc++.i386
 
 # 编译好的静态库，随时更新
-ADD https://packages.baidu.com/app/centos5/libs.tar.bz2 /tmp/libs.tar.bz2
+ADD https://packages.baidu.com/app/centos5/libs64.tar.bz2 /tmp/libs64.tar.bz2
+ADD https://packages.baidu.com/app/centos5/libs32.tar.bz2 /tmp/libs32.tar.bz2
 ADD https://packages.baidu.com/app/centos5/musl-1.1.10.tar.bz2 /tmp/musl.tar.bz2
 
-RUN tar -xf /tmp/libs.tar.bz2 -C / \
+RUN tar -xf /tmp/libs32.tar.bz2 -C / \
+	&& tar -xf /tmp/libs64.tar.bz2 -C / \
 	&& tar -xf /tmp/musl.tar.bz2 -C / \
-	&& rm -f /tmp/libs.tar.bz2 /tmp/musl.tar.bz2
+	&& rm -f /tmp/*.tar.bz2
 
 # 其他配置
 COPY *.sh .bash* .vimrc /root/

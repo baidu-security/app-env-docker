@@ -39,7 +39,7 @@ function build_ncurses()
 	tar -xf ncurses.tar.gz
 
 	cd ncurses-*/
-	CXXFLAGS="-fPIC -m32" CFLAGS="-fPIC -m32" ./configure \
+	CC="gcc -m32 -fPIC" CXXFLAGS="-fPIC -m32" CFLAGS="-fPIC -m32" ./configure \
 		-q --prefix /build32/ --disable-shared --enable-static
 
 	make
@@ -62,7 +62,7 @@ function build_readline()
 	tar -xf readline.tar.gz
 
 	cd readline-*/
-	CXXFLAGS="-fPIC -m32" CFLAGS="-fPIC -m32" ./configure \
+	CC="gcc -m32 -fPIC" CXXFLAGS="-fPIC -m32" CFLAGS="-fPIC -m32" ./configure \
 		-q --prefix /build32/ --disable-shared --enable-static
 
 	make
@@ -143,8 +143,8 @@ function build_libssh2()
 }
 
 build_readline
-build_openssl
 build_ncurses
 build_pcap
 build_pcre
 build_libssh2
+build_openssl
