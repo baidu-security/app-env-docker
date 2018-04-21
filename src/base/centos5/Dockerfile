@@ -31,4 +31,4 @@ RUN tar -xf /tmp/libs32.tar.bz2 -C / \
 
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
-COPY scripts/* /root/scripts/
+COPY scripts/ /root/scripts/
