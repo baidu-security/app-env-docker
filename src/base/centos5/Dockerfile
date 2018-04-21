@@ -6,15 +6,16 @@ MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 RUN  rm -rf /etc/yum.repos.d/* /var/cache/yum/*
 COPY repo/* /etc/yum.repos.d/
 
+# 安装软件
+RUN yum install -y epel-release yum-utils curl
+
 # 预先下载的 RPM
-ADD https://packages.baidu.com/app/centos5/yum.tar.gz /tmp/yum.tar.gz
-RUN tar -xf /tmp/yum.tar.gz -C / \
+RUN curl https://packages.baidu.com/app/centos5/yum.tar.gz -o /tmp/yum.tar.gz \
+	&& tar -xf /tmp/yum.tar.gz -C / \
 	&& rm -f /tmp/yum.tar.gz
 
-# 安装软件
-RUN yum install -y epel-release yum-utils yum-downloadonly wget
 RUN yum install -y gcc-c++ make autoconf automake binutils bison flex yacc \
-	curl zip unzip vim-enhanced bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils \
+	wget zip unzip vim-enhanced bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils \
 	gettext git file lftp psmisc
 
 # 编译好的静态库，随时更新
