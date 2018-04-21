@@ -78,7 +78,7 @@ function build_pcap()
 	dest=$(mktemp -d)
 	cd "$dest"
 
-	curl https://packages.baidu.com/app/libpcap-1.8.1.tar.gz -o libpcap.tar.gz
+	curl https://packages.baidu.com/app/libpcap-1.4.0.tar.gz -o libpcap.tar.gz
 	tar -xf libpcap.tar.gz
 
 	cd libpcap-*/

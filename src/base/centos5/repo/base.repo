@@ -1,0 +1,38 @@
+
+# CentOS-Base.repo
+#
+# Since official repositories are gone, use vault.centos.org instead.
+#
+#
+
+[base]
+name=CentOS-5 - Base
+baseurl=http://vault.centos.org/5.11/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+
+[updates]
+name=CentOS-5 - Updates
+baseurl=http://vault.centos.org/5.11/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+
+[extras]
+name=CentOS-5 - Extras
+baseurl=http://vault.centos.org/5.11/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+
+[centosplus]
+name=CentOS-5 - Plus
+baseurl=http://vault.centos.org/5.11/centosplus/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+
+[contrib]
+name=CentOS-5 - Contrib
+baseurl=http://vault.centos.org/5.11/contrib/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
