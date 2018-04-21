@@ -3,7 +3,6 @@ name=openrasp/centos6
 default: build run
 
 build:
-	cp -R ../centos7/control .
 	docker build -t $(name) .
 	rm -rf control
 
