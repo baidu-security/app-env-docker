@@ -18,12 +18,12 @@ func apiListContainer(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, string(data))
 }
 
-func StartHTTPServer() {
+func StartHTTPServer(addr string) {
 	fs := http.FileServer(http.Dir("web"))
 	http.Handle("/", http.StripPrefix("/", fs))
 
 	http.HandleFunc("/api/list", apiListContainer)
 
 	log.Println("HTTP server listening on 3081")
-	http.ListenAndServe("0.0.0.0:3081", nil)
+	http.ListenAndServe(addr, nil)
 }
