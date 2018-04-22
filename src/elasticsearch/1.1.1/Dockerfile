@@ -2,7 +2,7 @@ FROM openrasp/java7
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-ENV es_url https://packages.baidu.com/app/elasticsearch-1.3.1.tar.gz
+ENV es_url https://packages.baidu.com/app/elasticsearch-1.1.1.tar.gz
 
 RUN curl "$es_url" -o elasticsearch.tar.gz \
 	&& tar xf elasticsearch.tar.gz \
