@@ -6,7 +6,7 @@ case "$1" in
     start)
         echo
         echo '[-] Starting Redis'
-        echo '    - Logging to /var/log/redis.log'
+        echo ' -  Logging to /var/log/redis.log'
         nohup redis-server "$options" &> /var/log/redis.log &
 
         echo
