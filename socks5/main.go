@@ -27,7 +27,7 @@ func main() {
 
 	go docker.StartHTTPServer(*socks5_addr)
 
-	log.Println("Socks5 server listening on 3080")
+	log.Println("Socks5 server listening on", *http_addr)
 	if err := server.ListenAndServe("tcp", *http_addr); err != nil {
 		panic(err)
 	}

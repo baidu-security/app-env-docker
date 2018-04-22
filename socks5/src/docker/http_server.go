@@ -24,6 +24,6 @@ func StartHTTPServer(addr string) {
 
 	http.HandleFunc("/api/list", apiListContainer)
 
-	log.Println("HTTP server listening on 3081")
+	log.Println("HTTP server listening on", addr)
 	http.ListenAndServe(addr, nil)
 }
