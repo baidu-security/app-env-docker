@@ -3,21 +3,17 @@ FROM centos:centos5
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 # 修正 repo
-RUN  rm -rf /etc/yum.repos.d/* /var/cache/yum/*
+RUN rm -rf /etc/yum.repos.d/* /var/cache/yum/* \
+	&& sed 's/enabled=1/enabled=0/' -i /etc/yum/pluginconf.d/fastestmirror.conf
 COPY repo/* /etc/yum.repos.d/
 
 # 安装软件
 RUN yum install -y epel-release yum-utils curl
-
-# 预先下载的 RPM
-RUN curl https://packages.baidu.com/app/centos5/yum.tar.gz -o /tmp/yum.tar.gz \
-	&& tar -xf /tmp/yum.tar.gz -C / \
-	&& rm -f /tmp/yum.tar.gz
-
-RUN yum install -y gcc-c++ libstdc++ glibc-devel make autoconf automake binutils bison flex yacc \
+RUN yum install -y gcc-c++ libstdc++ libstdc++.i386 glibc-devel glibc-devel.i386 \
+	make autoconf automake binutils bison flex \
 	wget zip unzip vim-enhanced bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils \
-	gettext git file lftp psmisc \
-	glibc-devel.i386 libstdc++.i386
+	gettext file lftp psmisc \
+	git yacc
 
 # 编译好的静态库，随时更新
 ADD https://packages.baidu.com/app/centos5/libs64.tar.bz2 /tmp/libs64.tar.bz2
@@ -32,3 +28,5 @@ RUN tar -xf /tmp/libs32.tar.bz2 -C / \
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
 COPY scripts/ /root/scripts/
+
+ENTRYPOINT ["/bin/bash", "/root/start.sh"]

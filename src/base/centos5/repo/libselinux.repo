@@ -2,7 +2,7 @@
 
 [libselinux]
 name=CentOS-5 - libselinux
-baseurl=http://vault.centos.org/5.11/centosplus/$basearch/
+baseurl=https://packages.baidu.com/centos5-vault/5.11/centosplus/$basearch/
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
