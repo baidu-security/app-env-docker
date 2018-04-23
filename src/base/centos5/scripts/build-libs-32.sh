@@ -40,7 +40,11 @@ function build_ncurses()
 
 	cd ncurses-*/
 	CC="gcc -m32 -fPIC" CXXFLAGS="-fPIC -m32" CFLAGS="-fPIC -m32" ./configure \
-		-q --prefix /build32/ --disable-shared --enable-static
+		-q --prefix /build32 \
+		--disable-shared \
+		--enable-static \
+		--with-terminfo-dirs=/usr/share/terminfo \
+		--with-default-terminfo-dir=/usr/share/terminfo
 
 	make
 	make install
@@ -63,7 +67,7 @@ function build_readline()
 
 	cd readline-*/
 	CC="gcc -m32 -fPIC" CXXFLAGS="-fPIC -m32" CFLAGS="-fPIC -m32" ./configure \
-		-q --prefix /build32/ --disable-shared --enable-static
+		-q --prefix /build32 --disable-shared --enable-static
 
 	make
 	make install
@@ -86,7 +90,7 @@ function build_pcap()
 
 	cd libpcap-*/
 	CXXFLAGS="-fPIC -m32" CFLAGS="-fPIC -m32" ./configure \
-		-q --prefix /build32/ --disable-shared
+		-q --prefix /build32 --disable-shared
 
 	make
 	make install
@@ -109,7 +113,7 @@ function build_pcre()
 
 	cd pcre-*/
 	CXXFLAGS="-fPIC -m32" CFLAGS="-fPIC -m32" ./configure \
-		-q --prefix /build32/ \
+		-q --prefix /build32 \
 		--disable-shared --enable-static
 
 	make
@@ -133,7 +137,7 @@ function build_libssh2()
 
 	cd libssh2-*/
 	CXXFLAGS="-fPIC -m32 -I/build32/include" CFLAGS="-m32 -fPIC -I/build32/include" LDFLAGS=" -ldl -L/build32/lib" ./configure \
-		-q --prefix /build32/ \
+		-q --prefix /build32 \
 		--disable-shared --enable-static
 
 	make
@@ -146,5 +150,6 @@ build_readline
 build_ncurses
 build_pcap
 build_pcre
-build_libssh2
+
 build_openssl
+build_libssh2

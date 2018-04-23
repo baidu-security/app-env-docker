@@ -38,7 +38,13 @@ function build_ncurses()
 	tar -xf ncurses.tar.gz
 
 	cd ncurses-*/
-	CC='/usr/local/musl/bin/musl-gcc -static' CFLAGS='-fPIC' ./configure -q --prefix /build/ --disable-shared --enable-static
+	CC='/usr/local/musl/bin/musl-gcc -static' CFLAGS='-fPIC' ./configure \
+		-q \
+		--prefix /build \
+		--disable-shared \
+		--enable-static \
+		--with-terminfo-dirs=/usr/share/terminfo \
+		--with-default-terminfo-dir=/usr/share/terminfo
 
 	make
 	make install
@@ -60,7 +66,7 @@ function build_readline()
 	tar -xf readline.tar.gz
 
 	cd readline-*/
-	CC='/usr/local/musl/bin/musl-gcc -static' CFLAGS='-fPIC' ./configure -q --prefix /build/ --disable-shared --enable-static
+	CC='/usr/local/musl/bin/musl-gcc -static' CFLAGS='-fPIC' ./configure -q --prefix /build --disable-shared --enable-static
 
 	make
 	make install
@@ -82,7 +88,7 @@ function build_pcap()
 	tar -xf libpcap.tar.gz
 
 	cd libpcap-*/
-	CFLAGS='-fPIC' ./configure -q --prefix /build/ --disable-shared
+	CFLAGS='-fPIC' ./configure -q --prefix /build --disable-shared
 
 	make
 	make install
@@ -105,7 +111,7 @@ function build_pcre()
 
 	cd pcre-*/
 	CC='/usr/local/musl/bin/musl-gcc -static' CFLAGS='-fPIC' ./configure -q \
-		--prefix /build/ \
+		--prefix /build \
 		--disable-shared --enable-static
 
 	make
@@ -129,7 +135,7 @@ function build_libssh2()
 
 	cd libssh2-*/
 	CC='/usr/local/musl/bin/musl-gcc -static' CFLAGS='-fPIC -I/build/include' LDFLAGS="-L/build/lib" ./configure -q \
-		--prefix /build/ \
+		--prefix /build \
 		--disable-shared --enable-static
 
 	make
