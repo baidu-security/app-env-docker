@@ -5,7 +5,7 @@ default: build run
 
 build:
 	$(MAKE) -C $(deps) build
-	docker build -t $(name) .
+	docker build --no-cache -t $(name) .
 
 run: build
 	docker run --cap-add=SYS_PTRACE --rm -i -t $(name)
