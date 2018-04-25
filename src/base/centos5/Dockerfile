@@ -16,14 +16,9 @@ RUN yum install -y gcc-c++ libstdc++ libstdc++.i386 glibc-devel glibc-devel.i386
 	git yacc
 
 # 编译好的静态库，随时更新
-ADD https://packages.baidu.com/app/centos5/libs64.tar.bz2 /tmp/libs64.tar.bz2
-ADD https://packages.baidu.com/app/centos5/libs32.tar.bz2 /tmp/libs32.tar.bz2
-ADD https://packages.baidu.com/app/centos5/musl-1.1.10.tar.bz2 /tmp/musl.tar.bz2
-
-RUN tar -xf /tmp/libs32.tar.bz2 -C / \
-	&& tar -xf /tmp/libs64.tar.bz2 -C / \
-	&& tar -xf /tmp/musl.tar.bz2 -C / \
-	&& rm -f /tmp/*.tar.bz2
+ADD https://packages.baidu.com/app/centos5/libs64.tar.bz2 /download/libs64.tar.bz2
+ADD https://packages.baidu.com/app/centos5/libs32.tar.bz2 /download/libs32.tar.bz2
+ADD https://packages.baidu.com/app/centos5/musl-1.1.10.tar.bz2 /download/musl.tar.bz2
 
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
