@@ -1,4 +1,4 @@
-FROM openrasp/tomcat7.0
+FROM openrasp/tomcat6.0
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
@@ -16,4 +16,5 @@ RUN cd /tmp \
 	&& rm -rf rasp-*
 
 RUN rm -rf /tomcat/webapps/ROOT/*
+
 COPY web/index.jsp /tomcat/webapps/ROOT/

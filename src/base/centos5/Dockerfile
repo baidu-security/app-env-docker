@@ -20,6 +20,10 @@ ADD https://packages.baidu.com/app/centos5/libs64.tar.bz2 /download/libs64.tar.b
 ADD https://packages.baidu.com/app/centos5/libs32.tar.bz2 /download/libs32.tar.bz2
 ADD https://packages.baidu.com/app/centos5/musl-1.1.10.tar.bz2 /download/musl.tar.bz2
 
+# 安装 UPX
+RUN curl https://packages.baidu.com/app/upx-3.94-amd64-bin -o /usr/bin/upx \
+	&& chmod +x /usr/bin/upx
+
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
 COPY scripts/ /root/scripts/
