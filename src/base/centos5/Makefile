@@ -1,4 +1,4 @@
-name=openrasp/centos6
+name=openrasp/centos5-64
 
 default: build run
 
