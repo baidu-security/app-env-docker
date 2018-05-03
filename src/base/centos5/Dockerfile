@@ -9,7 +9,8 @@ COPY repo/* /etc/yum.repos.d/
 
 # 安装软件
 RUN yum install -y epel-release yum-utils curl
-RUN yum install -y gcc-c++ libstdc++ libstdc++.i386 glibc-devel glibc-devel.i386 libstdc++-devel libstdc++-devel.i386 \
+RUN yum install -y gcc-c++ libstdc++ libstdc++.i386 glibc-devel glibc-devel.i386 \
+	libstdc++-devel libstdc++-devel.i386 zlib-devel \
 	make autoconf automake binutils bison flex \
 	wget zip unzip vim-enhanced bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils \
 	gettext file lftp psmisc \

@@ -4,6 +4,7 @@ export LANG=en_US.UTF-8
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
 alias ll='ls -lah --color=auto'
 alias l='ll'
 alias wget='wget --no-check-certificate'

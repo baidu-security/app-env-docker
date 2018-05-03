@@ -7,4 +7,8 @@ build:
 	rm -rf control
 
 run: build
-	docker run --cap-add=SYS_PTRACE --rm -v /tmp:/tmp -i -t $(name)
+	docker run --cap-add=SYS_PTRACE --rm \
+		-v /tmp:/tmp \
+		-v /share:/share \
+		-v /pentest:/pentest \
+		-i -t $(name)
