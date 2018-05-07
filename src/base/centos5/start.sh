@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo '[-] Installing libs'
-for x in libs64.tar.bz2 libs32.tar.bz2 python2.7.tar.bz2 
+echo '[-] Downloading libs'
+for x in libs64.tar.bz2 libs32.tar.bz2
 do
 	curl https://packages.baidu.com/app/centos5/$x -o $x
 	tar -xf $x -C /

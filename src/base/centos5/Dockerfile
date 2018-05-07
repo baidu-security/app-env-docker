@@ -20,9 +20,15 @@ RUN yum install -y gcc-c++ \
 	readline-devel readline-devel.i386 \
 	make autoconf automake binutils bison flex yacc pkgconfig strace
 
-# 安装 UPX
-RUN curl https://packages.baidu.com/app/upx-3.94-amd64-bin -o /usr/bin/upx \
-	&& chmod +x /usr/bin/upx
+# 安装 python
+RUN curl https://packages.baidu.com/app/centos5/python2.7.tar.bz2 -o /tmp/python.tar.bz2 \
+	&& tar -xf /tmp/python.tar.bz2 -C / \
+	&& rm -f python.tar.bz2
+
+# musl-gcc
+RUN curl https://packages.baidu.com/app/centos5/musl-1.1.10.tar.bz2 -o /tmp/musl.tar.bz2 \
+	&& tar -xf /tmp/musl.tar.bz2 -C / \
+	&& rm -f musl.tar.bz2	
 
 # 其他配置
 COPY *.sh .bash* .vimrc /root/

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/etc/init.d/shell.sh /root/scripts
+/etc/init.d/shell.sh /root

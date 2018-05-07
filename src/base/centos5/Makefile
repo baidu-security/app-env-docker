@@ -8,7 +8,7 @@ build:
 
 run: build
 	docker run --cap-add=SYS_PTRACE --rm \
-		-v /tmp:/tmp \
+		-v /shm:/shm \
 		-v /share:/share \
 		-v /pentest:/pentest \
 		-i -t $(name)

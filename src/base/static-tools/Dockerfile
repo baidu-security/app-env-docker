@@ -13,7 +13,6 @@ RUN tar -xf /tmp/libs.tar.bz2 -C / \
 	&& rm -f /tmp/libs.tar.bz2 /tmp/musl.tar.bz2
 
 # 其他配置
-COPY scripts /root/scripts/
 COPY start.sh /root/
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
