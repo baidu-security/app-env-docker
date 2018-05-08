@@ -8,4 +8,8 @@ build:
 	docker build -t $(name) .
 
 run: build
-	docker run --cap-add=SYS_PTRACE --rm -i -t $(name)
+	docker run --cap-add=SYS_PTRACE \
+		-v /shm:/shm \
+		-v /share:/share \
+		--rm -i -t $(name)
+
