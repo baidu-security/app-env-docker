@@ -7,7 +7,7 @@ ENV bin_url https://packages.baidu.com/app/spring-boot-2.0.0-websocket-messaging
 RUN curl "$bin_url" -o /root/springboot.jar
 COPY *.sh /root/
 
-COPY start.sh /root/
+COPY *.sh /root/
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
 
 EXPOSE 80
