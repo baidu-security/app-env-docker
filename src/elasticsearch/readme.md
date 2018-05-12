@@ -1,4 +1,4 @@
-### CVE-2015-1427 - ElasticSearch Search Groovy Sandbox Bypass
+## CVE-2015-1427 - ElasticSearch Search Groovy Sandbox Bypass
 
 测试镜像
 
@@ -26,7 +26,7 @@ curl 127.0.0.1:9200/_search --data '{
 }'; echo
 ```
 
-### CVE-2014-3120 - ElasticSearch Dynamic Script Arbitrary Java Execution
+## CVE-2014-3120 - ElasticSearch Dynamic Script Arbitrary Java Execution
 
 Poc
 
