@@ -5,51 +5,7 @@
 1. 后台密码通常为 `admin:admin`
 2. 有的应用默认端口为 `8080、8161` 等等，已经全部改为 `80`
 
-### WebLogic 
-
-12.2.1.3 版本，`weblogic:weblogic1`
-
 ### MySQL
 
 默认开启查询日志，aka `/var/log/mariadb/query.log`
-
-### webwolf
-
-默认路径
-
-```
-http://127.0.0.1/login
-```
-
-### chanzhi EPS
-
-后台地址
-
-```
-http://127.0.0.1/www/admin.php
-```
-
-### TPShop
-
-后台地址
-
-```
-http://127.0.0.1/index.php/Admin/Index/index
-```
-
-### Tomcat
-
-后台密码 `tomcat:tomcat`，监听端口改为 `80`
-
-### Apache
-
-默认开启 `/server-status`
-
-### MetInfo
-
-后台地址
-
-```
-http://127.0.0.1/admin/
-```
 

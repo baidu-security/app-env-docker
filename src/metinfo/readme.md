@@ -1,4 +1,8 @@
-### X-Rewrite-URL SQL注入
+## 特殊说明
+
+后台地址 `http://127.0.0.1/admin/`
+
+## X-Rewrite-URL SQL注入
 
 测试镜像
 

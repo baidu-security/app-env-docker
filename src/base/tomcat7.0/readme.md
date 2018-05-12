@@ -4,6 +4,10 @@
 
 * src/base/tomcat7.0/
 
+后台口令
+
+* tomcat:tomcat
+
 ### 运维安全 - /examples 目录未删除
 
 测试镜像

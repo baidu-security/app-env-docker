@@ -1,4 +1,8 @@
-### CVE-2017-10271 - java.beans.XMLDecoder RCE
+## 特殊说明
+
+12.2.1.3 版本登录密码为 `weblogic:weblogic1`
+
+## CVE-2017-10271 - java.beans.XMLDecoder RCE
 
 测试镜像
 
@@ -19,7 +23,7 @@ curl http://127.0.0.1:7011/wls-wsat/CoordinatorPortType -H 'Content-Type: text/x
 
 * 过滤了 object, new, void, method 等标签
 
-### 运维安全 - weblogic /console/ 弱口令
+## 运维安全 - weblogic /console/ 弱口令
 
 测试镜像
 
