@@ -9,7 +9,6 @@
 
 其他说明文档
 
-* [漏洞列表 - exploits](exploits)
 * [环境列表 - src](src)
 * [编码规范 - wiki](https://github.com/baidu-security/app-env-docker/wiki)
 

@@ -12,6 +12,10 @@ java -jar jboss_exploit_fat.jar -i http://127.0.0.1/invoker/JMXInvokerServlet
 
 ### CVE-2017-12149 - /invoker/readonly 反序列化漏洞
 
+测试镜像
+
+* src/base/jboss4.0
+
 参考文档
 
 * [JBoss反序列化漏洞（CVE-2017-12149）](https://zhuanlan.zhihu.com/p/33532884)

