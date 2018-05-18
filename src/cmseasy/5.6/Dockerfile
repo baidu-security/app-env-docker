@@ -15,15 +15,13 @@ RUN cd /tmp \
 	&& tar -zxf install-package.tar.gz -C "$install_path" \
 	&& rm -f install-package.tar.gz
 
-# 配置
-COPY change-config.sh "$install_path"
-RUN cd "$install_path" \
-	&& chmod +x change-config.sh \
-	&& ./change-config.sh \
-	&& rm -f change-config.sh
-
 # 安装数据库
 COPY mysql.tar.gz /tmp/
 RUN tar -zxf /tmp/mysql.tar.gz -C /var/lib/mysql \
 	&& chown mysql -R /var/lib/mysql \
 	&& rm -f /tmp/mysql.tar.gz
+
+# 配置
+COPY start.sh /root/
+COPY change-config.sh /root/
+RUN chmod +x /root/change-config.sh /root/start.sh

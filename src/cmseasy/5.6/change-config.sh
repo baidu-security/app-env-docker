@@ -8,5 +8,5 @@ replace_config(){
 }
 
 
-replace_config "config/config.php"
-replace_config "celive/include/config.inc.php"
+replace_config "${install_path}/config/config.php"
+replace_config "${install_path}/celive/include/config.inc.php"
