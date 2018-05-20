@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>
+      app-env-docker - container 列表
+    </title>
+    <link rel="stylesheet" href="https://packages.baidu.com/bootswatch/3/cosmo/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/angular.js/1.6.8/angular.min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <div class="container" ng-app="docker" ng-controller="main">
+      <div class="row">
+        <div class="col-xs-12">
+            <h1 class="page-header text-center">Running containers</h1>
+            <br>
+
+            <table class="table table-hover">
+                <thead>
+                    <th>#</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>IP</th>
+                    <th>Ports</th>
+                    <th>Status</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="d in data">
+                        <td>{{$index + 1}}</td>
+                        <td>{{d.Id.substr(0, 12)}}</td>
+                        <td>{{d.Names[0]}}</td>
+                        <td>{{d.Image}}</td>
+                        <td>{{d.NetworkSettings.Networks.bridge.IPAddress}}</td>
+                        <td>
+                            <ul style="list-style-type: none; padding-left: 0; ">
+                                <li ng-repeat="p in d.Ports">
+                                    <a ng-href="http://{{d.Names[0]}}.{{hostname()}}:{{p.PrivatePort}}" target="_blank">{{p.Type}}/{{p.PrivatePort}}</a>
+                                </li>
+                            </ul>                            
+                        </td>
+                        <td>{{d.Status}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

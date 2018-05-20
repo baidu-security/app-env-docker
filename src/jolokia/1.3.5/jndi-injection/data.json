@@ -1,0 +1,8 @@
+{
+   "attribute" : "ThreadCount",
+   "mbean" : "java.lang:type=Threading",
+   "target" : {
+      "url" : "service:jmx:rmi:///jndi/rmi://127.0.0.1:3333/refObj"
+   },
+   "type" : "READ"
+}
