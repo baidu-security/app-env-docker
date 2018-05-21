@@ -22,6 +22,3 @@ COPY mysql.tar.gz /tmp/
 RUN tar -zxf /tmp/mysql.tar.gz -C /var/lib/mysql \
 	&& chown mysql -R /var/lib/mysql \
 	&& rm -f /tmp/mysql.tar.gz
-
-# 配置
-COPY start.sh /root/
