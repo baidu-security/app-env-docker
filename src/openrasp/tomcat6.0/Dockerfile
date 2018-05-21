@@ -12,7 +12,7 @@ ADD https://packages.baidu.com/app/openrasp/fastjson.war /tomcat/webapps/
 
 RUN cd /tmp \
 	&& tar -xf rasp-java.tar.* \
-	&& /jdk/bin/java -jar rasp-*/RaspInstall.jar /tomcat/ \
+	&& /jdk/bin/java -jar rasp-*/RaspInstall.jar -install /tomcat/ \
 	&& rm -rf rasp-*
 
 RUN rm -rf /tomcat/webapps/ROOT/*

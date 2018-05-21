@@ -2,6 +2,8 @@
 
 export JAVA_HOME=/jdk/
 
+# /etc/init.d/mysql.sh start
+
 echo '[-] Starting SpringBoot server ..'
 echo ' -  Logging to /springboot.log'
 nohup bash /root/springboot.sh &> /springboot.log &
