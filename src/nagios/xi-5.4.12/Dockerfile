@@ -9,3 +9,4 @@ RUN cd /tmp \
 	&& curl "$install_url" -o package.tar.gz \
 	&& tar -zxf package.tar.gz \
 	&& rm -f package.tar.gz
+	&& yum install which -y
