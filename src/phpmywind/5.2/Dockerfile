@@ -17,8 +17,8 @@ RUN cd /tmp \
 	&& chmod 777 -R "$install_path"
 
 
-# 安装数据库
-COPY mysql.tar.gz /tmp/
-RUN tar -zxf /tmp/mysql.tar.gz -C /var/lib/mysql \
-	&& chown mysql -R /var/lib/mysql \
-	&& rm -f /tmp/mysql.tar.gz
+# 拷贝数据库文件
+COPY database.sql /root/
+
+# 更新启动脚本
+COPY start.sh /root/
