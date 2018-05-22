@@ -10,7 +10,7 @@ COPY repo/* /etc/yum.repos.d/
 # 安装软件
 RUN yum install -y yum-utils curl wget zip unzip vim-enhanced bzip2 \
 	net-tools iproute lrzsz nc patch nano lsof rsync bind-utils \
-	gettext file lftp psmisc
+	gettext file lftp psmisc which
 
 RUN yum install -y gcc-c++ \
 	glibc-devel glibc-devel.i386 \
