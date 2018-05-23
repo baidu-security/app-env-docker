@@ -14,4 +14,10 @@ do
 	sleep 1
 done
 
+/etc/init.d/mysql.sh start
+
+echo '[-] Importing sql file'
+mysql < /root/database.sql
+rm /root/database.sql
+
 exec /etc/init.d/shell.sh /root/
