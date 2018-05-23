@@ -3,10 +3,9 @@ FROM openrasp/php5.6
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 ENV install_url  https://packages.baidu.com/app/tinyshop-v2.4.tar.gz
-ENV install_path /var/www/html/
+ENV install_path /var/www/html
 
 # 下载
-COPY install-package.tar.gz /tmp/
 RUN cd /tmp \
 	&& curl "$install_url" -o package.tar.gz \
 	&& tar -zxf package.tar.gz -C "$install_path" \

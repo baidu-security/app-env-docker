@@ -54,11 +54,11 @@ Poc
 
 6. 访问页面，在浏览器中随机访问其帮助文件中的列表来生成缓存，例如“用户注册协议”的地址：
 
-`http://192.168.127.130/tinyshop_2.x/index.php?con=index&act=help&id=14`
+`http://172.17.0.2/index.php?con=index&act=help&id=14`
 
 7. 访问对应缓存文件获取shell
 
-`http://192.168.127.130/tinyshop_2.x/cache/368/501/4461.php`
+`http://172.17.0.2/cache/368/501/4461.php`
 
 
 
