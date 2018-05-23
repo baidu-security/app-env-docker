@@ -11,6 +11,7 @@ RUN cd /tmp \
 	&& tar -zxf package.tar.gz -C "$install_path" \
 	&& rm -f package.tar.gz \
 	&& mv "$install_path"/core/install "$install_path"/core/install.bak \
+	&& mv "$install_path"/htaccess.txt "$install_path"/.htaccess \
 	&& chmod 777 -R "$install_path"
 
 COPY config.php "$install_path"/core/includes/config.php

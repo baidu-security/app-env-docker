@@ -7,10 +7,12 @@ ENV install_path /var/www/html
 
 # 下载
 RUN cd /tmp \
+	&& cat /etc/resolv.conf \
 	&& curl "$install_url" -o package.tar.gz \
 	&& tar -zxf package.tar.gz -C "$install_path" \
 	&& rm -f package.tar.gz \
-	&& chmod 777 -R "$install_path"
+	&& chmod 777 -R "$install_path" \
+	&& touch "$install_path"/install/install.lock
 
 # 配置
 COPY config.php "$install_path"/protected/config
