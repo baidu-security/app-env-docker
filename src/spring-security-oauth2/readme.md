@@ -11,6 +11,7 @@
 参考链接
 
 * [RCE with spring-security-oauth2 分析](https://xz.aliyun.com/t/2330)
+* [Beware of the Magic SpEL(L) – Part 2 (CVE-2018-1260)](http://gosecure.net/2018/05/17/beware-of-the-magic-spell-part-2-cve-2018-1260/)
 
 Poc
 
