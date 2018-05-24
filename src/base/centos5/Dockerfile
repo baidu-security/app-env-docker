@@ -19,6 +19,7 @@ RUN yum install -y gcc-c++ \
 	zlib-devel zlib-devel.i386 \
 	readline-devel readline-devel.i386 \
 	bzip2-devel bzip2-devel.i386 \
+	libpcap-devel libpcap-devel.i386 \
 	make autoconf automake binutils bison flex yacc pkgconfig strace
 
 # 安装 python
