@@ -1,5 +1,5 @@
-[testing-devtools-2-centos-$releasever]
-name=testing 2 devtools for CentOS $releasever 
-baseurl=http://people.centos.org/tru/devtools-2/$releasever/$basearch/RPMS
+[testing-devtools-2-centos-5]
+name=testing 2 devtools for CentOS 5
+baseurl=https://packages.baidu.com/centos5-vault/devtools-2/x86_64/RPMS
 gpgcheck=0
 
