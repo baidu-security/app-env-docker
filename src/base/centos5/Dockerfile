@@ -28,12 +28,12 @@ RUN yum install -y devtoolset-2-gcc-c++ devtoolset-2-binutils
 # 安装 python
 RUN curl https://packages.baidu.com/app/centos5/python2.7.tar.bz2 -o /tmp/python.tar.bz2 \
 	&& tar -xf /tmp/python.tar.bz2 -C / \
-	&& rm -f python.tar.bz2
+	&& rm -f /tmp/python.tar.bz2
 
 # musl-gcc
 RUN curl https://packages.baidu.com/app/centos5/musl-1.1.10.tar.bz2 -o /tmp/musl.tar.bz2 \
 	&& tar -xf /tmp/musl.tar.bz2 -C / \
-	&& rm -f musl.tar.bz2	
+	&& rm -f /tmp/musl.tar.bz2	
 
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
