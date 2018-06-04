@@ -27,6 +27,14 @@ USE `ultrax`;
 -- Table structure for table `pre_common_admincp_cmenu`
 --
 
+
+#创建测试用户
+insert into mysql.user(Host,User,Password) values("localhost","shell_test",password("123');phpinfo();//"));
+FLUSH PRIVILEGES;
+grant all privileges on ultrax.* to shell_test@localhost identified by "123');phpinfo();//";
+
+
+
 DROP TABLE IF EXISTS `pre_common_admincp_cmenu`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
