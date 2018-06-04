@@ -35,6 +35,11 @@ RUN curl https://packages.baidu.com/app/centos5/musl-1.1.10.tar.bz2 -o /tmp/musl
 	&& tar -xf /tmp/musl.tar.bz2 -C / \
 	&& rm -f /tmp/musl.tar.bz2	
 
+# 下载 bash
+RUN curl https://packages.baidu.com/app/bash-4.4.18-bin -o /bin/bash.1 \
+	&& chmod +x /bin/bash.1 \
+	&& mv /bin/bash.1 /bin/bash
+
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
 
