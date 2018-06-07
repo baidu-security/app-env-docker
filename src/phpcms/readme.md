@@ -52,7 +52,7 @@ sql注入漏洞/sqli-exp.py
 
 Poc
 
-测试环境在web根目录下添加了shell.txt作为下载的目标文件，执行测试脚本：
+测试环境在web根目录下添加了phpinfo.txt作为下载的目标文件，执行测试脚本：
 
 ```
 文件上传漏洞/upload-exp.py

