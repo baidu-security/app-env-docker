@@ -18,6 +18,7 @@ COPY *.sh .bash* .vimrc /root/
 COPY httpd.conf /etc/httpd/conf/httpd.conf
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY server.cnf /etc/my.cnf.d/
+RUN chmod 755 /etc/my.cnf.d/server.cnf
 
 # 启动脚本
 COPY control/*.sh /etc/init.d/

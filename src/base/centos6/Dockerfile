@@ -16,6 +16,7 @@ RUN mysql_install_db \
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
 COPY server.cnf /etc/my.cnf.d/
+RUN chmod 755 /etc/my.cnf.d/server.cnf
 COPY httpd.conf /etc/httpd/conf/httpd.conf
 
 # 启动脚本

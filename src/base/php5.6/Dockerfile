@@ -24,6 +24,7 @@ RUN yum install -y http://dev.mysql.com/get/mysql-community-release-el7-5.noarch
 	&& mysql_install_db --user=mysql --explicit_defaults_for_timestamp
 
 COPY mysql-5.6/my.cnf /etc/my.cnf
+RUN chmod 755 /etc/my.cnf
 
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer | php \
