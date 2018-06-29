@@ -17,6 +17,6 @@ RUN cd /var/www/html \
 	&& echo '<?php phpinfo(); ?>' > /var/www/html/info.php
 
 # 禁用 xdebug
-RUN mv /etc/php.d/xdebug.ini /etc/php.d/xdebug.ini.bak
+RUN mv /opt/remi/php56/root/etc/php.d/15-xdebug.ini /opt/remi/php56/root/etc/php.d/15-xdebug.ini.bak
 
 COPY start.sh /root/
