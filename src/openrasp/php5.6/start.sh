@@ -1,9 +1,6 @@
 #!/bin/bash
 
-echo '[-] Starting Apache'
-apachectl -k start
-
-echo '[-] Starting MySQL'
+/etc/init.d/httpd.sh start
 /etc/init.d/mysql.sh start
 
 echo '[-] Adding MySQL user test@localhost'
