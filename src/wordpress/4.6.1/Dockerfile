@@ -11,7 +11,8 @@ RUN rm -rf "$install_path" \
 	&& tar xf package.tar.gz \
 	&& rm -f package.tar.gz \
 	&& mv wordpress "$install_path" \
-	&& chmod 777 -R "$install_path" 
+	&& chmod 777 -R "$install_path" \
+	&& echo "test" > "$install_path"/test_del_file.txt
 
 # 安装数据库
 COPY mysql.tar.bz2 /tmp/
