@@ -13,3 +13,5 @@ RUN curl http://rpms.famillecollet.com/enterprise/remi-release-6.rpm -o /tmp/rem
 # 其他配置
 COPY *.sh /root/
 RUN chmod +x /root/*.sh
+
+ENTRYPOINT ["/bin/bash", "/root/start.sh"]
