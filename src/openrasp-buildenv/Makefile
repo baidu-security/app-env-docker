@@ -12,7 +12,7 @@ compile_java:
 	rm -rf $(RELEASE_DIR)/java/
 	make -C java6 compile
 
-# 编译PHP 5.X版本
+# 编译PHP 5.X/7.X 版本
 compile_php:
 	for dir in $(wildcard php*/.); do \
         $(MAKE) -C $$dir compile; \
