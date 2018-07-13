@@ -14,4 +14,5 @@ RUN curl http://rpms.famillecollet.com/enterprise/remi-release-6.rpm -o /tmp/rem
 COPY *.sh /root/
 RUN chmod +x /root/*.sh
 
-ENTRYPOINT ["/bin/bash", "/root/start.sh"]
+# 不能加 entrypoint，否则影响自动发布系统
+# ENTRYPOINT ["/bin/bash", "/root/start.sh"]
