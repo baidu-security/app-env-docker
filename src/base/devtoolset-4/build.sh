@@ -25,9 +25,9 @@ fi
 source /opt/rh/devtoolset-4/enable
 
 if [[ $php_version =~ ^7 ]]; then
-	time bash "$dest"/build-php5.sh
-else
 	time bash "$dest"/build-php7.sh
+else
+	time bash "$dest"/build-php5.sh
 fi
 
 release=/tmp/rasp-php-$(date +%Y-%m-%d)
