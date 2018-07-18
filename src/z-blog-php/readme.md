@@ -43,7 +43,7 @@ http://172.17.0.2/zb_users/plugin/Totoro/evil.php
 
 
 
-## Z-Blog-PHP 1.5.1 CSRF getshell【CVE-2018-9169】
+## Z-Blog-PHP 1.5.1 CSRF getshell【CVE-2018-9153】
 
 测试镜像
 
@@ -65,7 +65,7 @@ Poc
 http://172.17.0.2/zb_system/admin/index.php?act=PluginMng
 ```
 
-在插件上传功能处，上传文件CVE-2018-9169/upload.xml，获得shell
+在插件上传功能处，上传文件CVE-2018-9153/upload.xml，获得shell
 
 ```
 http://172.17.0.2/zb_users/plugin/AppCentre/shell.php
