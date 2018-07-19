@@ -25,6 +25,8 @@
 				<br>
 				<a href="/S2-016/" class="btn btn-primary btn-lg btn-block" target="_blank">S2-016 - Struts 系列漏洞测试</a>
 				<br>
+				<a href="/wxpay-xxe/" class="btn btn-primary btn-lg btn-block" target="_blank">微信SDK XXE漏洞测试</a>
+				<br>				
 			</div>
 		</div>
 	</div>
