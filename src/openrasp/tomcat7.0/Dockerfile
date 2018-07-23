@@ -17,8 +17,7 @@ RUN cd /tmp \
 	&& /jdk/bin/java -jar rasp-*/RaspInstall.jar -install /tomcat/ \
 	&& rm -rf rasp-*
 
-RUN wget https://raw.githubusercontent.com/baidu/openrasp/master/plugins/addons/999-event-logger.js \
-	-P /tomcat/rasp/plugins/
+RUN curl https://packages.baidu.com/app/openrasp/999-event-logger.js -o /tomcat/rasp/plugins/999-event-logger.js
 
 RUN rm -rf /tomcat/webapps/ROOT/*
 COPY web/index.jsp /tomcat/webapps/ROOT/
