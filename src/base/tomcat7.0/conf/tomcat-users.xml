@@ -31,5 +31,5 @@
   examples web application, do not forget to remove the <!.. ..> that surrounds
   them. You will also need to set the passwords to something appropriate.
 -->
-  <user username="tomcat" password="tomcat" roles="manager-gui,manager-script,manager-jmx,manager-status"/>
+  <user username="tomcat" password="tomcat" roles="manager-gui,manager-script,manager-jmx,manager-status,webdav"/>
 </tomcat-users>
