@@ -6,7 +6,7 @@ MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 RUN yum install -y centos-release-scl \
 	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel
 
-RUN curl https://packages.baidu.com/app/devtoolset-4.tar -o devtoolset-4.tar
+RUN curl https://packages.baidu.com/app/devtoolset-4.tar -o devtoolset-4.tar \
 	&& tar -xf devtoolset-4.tar \
 	&& rpm -ivh devtoolset-4/*.rpm \
 	&& rm -rf devtoolset-4*
