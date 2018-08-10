@@ -8,7 +8,8 @@ RUN yum install -y centos-release-scl \
 
 # 安装 REMI 仓库
 RUN curl http://rpms.famillecollet.com/enterprise/remi-release-6.rpm -o /tmp/remi-release-6.rpm \
-	&& rpm -ivh /tmp/remi-release-6.rpm
+	&& rpm -ivh /tmp/remi-release-6.rpm \
+	&& rm -f /tmp/remi-release-6.rpm
 
 # 其他配置
 COPY *.sh /root/
