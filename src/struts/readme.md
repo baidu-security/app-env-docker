@@ -16,6 +16,11 @@ python s2-052.py -u http://127.0.0.1:8080/struts2-rest-showcase/orders/3 -c whoa
 
 * src/struts/2.3.20
 
+参考资料
+
+* [St2-057 Poc Example](https://github.com/jas502n/St2-057)
+* [【Struts2-代码执行漏洞分析系列】S2-057](https://xz.aliyun.com/t/2618)
+
 Poc
 
 ```
