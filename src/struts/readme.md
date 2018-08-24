@@ -12,6 +12,10 @@ python s2-052.py -u http://127.0.0.1:8080/struts2-rest-showcase/orders/3 -c whoa
 
 ## S2-057 struts namespace OGNL 代码执行漏洞
 
+说明
+
+* namespace 里可以出现 `/`，无需编码
+
 测试镜像
 
 * src/struts/2.3.20
