@@ -4,7 +4,7 @@ MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 # WTF，官方只有 devtoolset 6和7了？
 RUN yum install -y centos-release-scl \
-	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel libcurl-devel
+	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel libcurl-devel pcre-devel pcre-static
 
 RUN curl https://packages.baidu.com/app/devtoolset-4.tar -o devtoolset-4.tar \
 	&& tar -xf devtoolset-4.tar \
