@@ -27,6 +27,8 @@
 				<br>
 				<a href="/wxpay-xxe/" class="btn btn-primary btn-lg btn-block" target="_blank">微信SDK XXE漏洞测试</a>
 				<br>				
+				<a href="/webdav-demo/" class="btn btn-primary btn-lg btn-block" target="_blank">WebDAV 测试环境</a>
+				<br>					
 			</div>
 		</div>
 	</div>
