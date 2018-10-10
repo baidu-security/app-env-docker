@@ -18,7 +18,9 @@ touch /splunk/etc/.ui_login
 echo
 
 echo '[-] Installing OpenRASP extension'
+curl https://rasp.baidu.com/download/splunk-app-1.0.zip -o /tmp/splunk-app-1.0.zip
 /splunk/bin/splunk install app /tmp/splunk-app-1.0.zip -auth admin:admin
+rm -f /tmp/splunk-app-1.0.zip
 echo
 
 echo '[-] Adding TCP 5140 listener for OpenRASP'
