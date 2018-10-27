@@ -9,8 +9,8 @@ import (
 )
 
 var (
-	socks5_addr = flag.String("socks5", ":3081", "socks5 listening address")
-	http_addr   = flag.String("http", ":3080", "http server listening address")
+	socks5_addr = flag.String("socks5", ":3080", "socks5 listening address")
+	http_addr   = flag.String("http", ":3081", "http server listening address")
 )
 
 func main() {
