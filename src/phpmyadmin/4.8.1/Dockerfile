@@ -18,10 +18,7 @@ RUN cd /tmp \
 	&& chmod 777 -R "$install_path" \
 	&& chmod 755 "$install_path"/config.inc.php
 
-
-
-# 更新启动脚本
-COPY start.sh /root/
-
 # 更新httpd启动脚本
 COPY httpd.sh /etc/init.d/
+
+RUN chmod +x /etc/init.d/*.sh
