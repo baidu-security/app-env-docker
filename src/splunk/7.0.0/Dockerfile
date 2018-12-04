@@ -13,9 +13,6 @@ RUN echo >> /splunk/etc/splunk-launch.conf \
 	&& echo OPTIMISTIC_ABOUT_FILE_LOCKING=1 >> /splunk/etc/splunk-launch.conf \
 	&& ln -s /splunk/bin/splunk /usr/bin
 
-# 下载 OpenRASP Splunk 扩展
-ADD https://rasp.baidu.com/download/splunk-app-1.0.zip /tmp/splunk-app-1.0.zip
-
 COPY *.sh /root/
 EXPOSE 8000 5140
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]

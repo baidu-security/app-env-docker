@@ -3,7 +3,7 @@ FROM openrasp/centos7
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 RUN yum install -y epel-release \
-	&& curl https://rpms.remirepo.net/enterprise/remi-release-7.rpm -o remi-release-7.rpm \
+	&& curl https://packages.baidu.com/app/remi/remi-release-7.rpm -o remi-release-7.rpm \
 	&& rpm -ivh remi-release-7.rpm \
 	&& rm -f remi-release-7.rpm
 

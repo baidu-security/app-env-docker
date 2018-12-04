@@ -9,8 +9,8 @@ import (
 )
 
 var (
-	socks5_addr = flag.String("socks5", ":3081", "socks5 listening address")
-	http_addr   = flag.String("http", ":3080", "http server listening address")
+	socks5_addr = flag.String("socks5", ":3080", "socks5 listening address")
+	http_addr   = flag.String("http", ":3081", "http server listening address")
 )
 
 func main() {
@@ -25,10 +25,10 @@ func main() {
 		log.Fatal("Can't start socks5 server:", err)
 	}
 
-	go docker.StartHTTPServer(*socks5_addr)
+	go docker.StartHTTPServer(*http_addr)
 
-	log.Println("Socks5 server listening on", *http_addr)
-	if err := server.ListenAndServe("tcp", *http_addr); err != nil {
+	log.Println("Socks5 server listening on", *socks5_addr)
+	if err := server.ListenAndServe("tcp", *socks5_addr); err != nil {
 		panic(err)
 	}
 

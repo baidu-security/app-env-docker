@@ -1,4 +1,6 @@
 #!/bin/bash
+# 在编译机，github 经常无法 pull，需要走代理
+# 所以 docker 内部不再尝试 pull，统一再外部更新
 
 set -ex
 
@@ -7,13 +9,11 @@ php_version=$(echo "<?php echo phpversion(); ?>" | php)
 extra_config_opt=
 dest=/tmp/openrasp
 
-if [[ -d "$dest" ]]; then
-	cd "$dest"
-	git pull
-else
+if ! [[ -d "$dest" ]]; then
 	git clone https://github.com/baidu/openrasp.git "$dest"
 fi
 
+cd "$dest"
 source /opt/rh/devtoolset-4/enable
 
 if [[ $php_version =~ ^7 ]]; then

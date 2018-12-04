@@ -18,5 +18,9 @@ compile_php:
         $(MAKE) -C $$dir compile; \
     done
 
+# 编译管理后台
+compile_panel:
+	$(MAKE) -C panel compile 
+
 # 编译全部
-compile: compile_java compile_php
+compile: compile_java compile_php compile_panel

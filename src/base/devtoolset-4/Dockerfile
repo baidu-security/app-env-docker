@@ -4,7 +4,7 @@ MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 # WTF，官方只有 devtoolset 6和7了？
 RUN yum install -y centos-release-scl \
-	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel libcurl-devel pcre-devel pcre-static
+	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel libcurl-devel pcre-devel
 
 RUN curl https://packages.baidu.com/app/devtoolset-4.tar -o devtoolset-4.tar \
 	&& tar -xf devtoolset-4.tar \
@@ -16,7 +16,7 @@ RUN curl https://packages.baidu.com/app/devtoolset-4.tar -o devtoolset-4.tar \
 # 	&& yum install -y devtoolset-4-gcc-c++ make cmake re2c libuuid-devel libxml2-devel zlib-devel
 
 # 安装 REMI 仓库
-RUN curl http://rpms.famillecollet.com/enterprise/remi-release-6.rpm -o /tmp/remi-release-6.rpm \
+RUN curl https://packages.baidu.com/app/remi/remi-release-6.rpm -o /tmp/remi-release-6.rpm \
 	&& rpm -ivh /tmp/remi-release-6.rpm \
 	&& rm -f /tmp/remi-release-6.rpm
 
