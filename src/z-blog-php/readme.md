@@ -43,7 +43,7 @@ http://172.17.0.2/zb_users/plugin/Totoro/evil.php
 
 
 
-## Z-Blog-PHP 1.5.1 CSRF getshell【CVE-2018-9153】
+## Z-Blog-PHP 1.5.1 文件上传 getshell【CVE-2018-9153】
 
 测试镜像
 
