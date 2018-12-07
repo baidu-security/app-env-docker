@@ -19,7 +19,7 @@ case "$1" in
         done
     ;;
     stop)
-        bash "$jboss_base"/bin/shutdown.sh
+        bash "$jboss_base"/bin/shutdown.sh -S
     ;;
     restart)
 		$0 stop
