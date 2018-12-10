@@ -1,8 +1,6 @@
-FROM openrasp/devtoolset-4
+FROM openrasp/devtoolset-3
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
-
-RUN curl https://packages.baidu.com/app/openrasp/node_modules.tar.gz -o /root/node_modules.tar.gz
 
 RUN cd /tmp \
 	&& curl https://packages.baidu.com/app/node-v10.14.1-linux-x64.tar.xz -o package.tar.xz \
@@ -17,9 +15,9 @@ RUN cd /tmp \
 	&& mv go /usr/local/go \
 	&& ln -s /usr/local/go/bin/go /usr/bin
 
-RUN cd /root \
+RUN cd /root \n
+	&& curl https://packages.baidu.com/app/openrasp/node_modules.tar.gz -o node_modules.tar.gz \
 	&& tar -xf node_modules.tar.gz
 
 COPY *.sh /root/
 RUN chmod +x /root/*.sh
-
