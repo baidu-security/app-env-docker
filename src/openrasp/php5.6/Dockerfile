@@ -18,7 +18,4 @@ RUN cd /var/www/html \
 	&& rm -f php-vulns.tar.gz \
 	&& echo '<?php phpinfo(); ?>' > /var/www/html/info.php
 
-# 禁用 xdebug
-RUN mv /opt/remi/php56/root/etc/php.d/15-xdebug.ini /opt/remi/php56/root/etc/php.d/15-xdebug.ini.bak
-
 COPY start.sh /root/

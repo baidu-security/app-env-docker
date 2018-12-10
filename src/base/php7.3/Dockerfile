@@ -12,6 +12,9 @@ RUN yum install -y php73 php73-fpm php73-php php73-php-fpm php73-php-cli \
 	php73-php-mcrypt php73-php-mbstring php73-php-xml php73-php-pecl-yaml \
 	php73-php-ioncube-loader php73-php-pecl-xdebug php73-php-intl
 
+# 禁用 xdebug
+RUN mv /etc/opt/remi/php73/php.d/15-xdebug.ini /etc/opt/remi/php73/php.d/15-xdebug.ini.bak
+
 RUN ln -s /opt/remi/php73/root/bin/php /usr/bin
 # COPY php.ini /opt/remi/php73/root/etc/php.ini
 

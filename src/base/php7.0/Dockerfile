@@ -12,6 +12,9 @@ RUN yum install -y php70 php70-fpm php70-php php70-php-fpm php70-php-cli \
 	php70-php-mcrypt php70-php-mbstring php70-php-xml php70-php-pecl-yaml \
 	php70-php-ioncube-loader php70-php-pecl-xdebug php70-php-intl
 
+# 禁用 xdebug
+RUN mv /etc/opt/remi/php70/php.d/15-xdebug.ini /etc/opt/remi/php70/php.d/15-xdebug.ini.bak
+
 RUN ln -s /opt/remi/php70/root/bin/php /usr/bin
 # COPY php.ini /opt/remi/php70/root/etc/php.ini
 

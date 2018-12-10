@@ -6,6 +6,9 @@ RUN yum install -y php php-fpm php-curl php-soap php-gd php-xml php-mysql \
 	php-mbstring php-bcmath php-pdo php-json php-intl \
 	php-pecl-xdebug php-pecl-yaml
 
+# 默认禁用 xdebug
+RUN mv /etc/php.d/xdebug.ini /etc/php.d/xdebug.ini.bak
+
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer | php \
 	&& mv composer.phar /usr/bin/composer
@@ -16,7 +19,6 @@ COPY index.php /var/www/html/index.php
 # 其他配置
 COPY *.sh /root/
 COPY php.ini /etc/
-COPY extensions/* /usr/lib64/php/modules/
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
 EXPOSE 80
