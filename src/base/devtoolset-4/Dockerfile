@@ -2,7 +2,6 @@ FROM openrasp/centos6
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-# WTF，官方只有 devtoolset 6和7了？
 RUN yum install -y centos-release-scl \
 	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel libcurl-devel pcre-devel
 
@@ -11,7 +10,7 @@ RUN curl https://packages.baidu.com/app/devtoolset-4.tar -o devtoolset-4.tar \
 	&& rpm -ivh devtoolset-4/*.rpm \
 	&& rm -rf devtoolset-4*
 
-# 原先安装 devtools-4 的方法
+# 原先安装 devtools-4 的方法，官方只有 devtoolset 6和7了，放弃
 # RUN yum install -y centos-release-scl \
 # 	&& yum install -y devtoolset-4-gcc-c++ make cmake re2c libuuid-devel libxml2-devel zlib-devel
 

@@ -1,4 +1,4 @@
-FROM openrasp/devtoolset-4
+FROM openrasp/devtoolset-3
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
