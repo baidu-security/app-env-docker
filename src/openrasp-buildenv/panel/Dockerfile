@@ -15,7 +15,7 @@ RUN cd /tmp \
 	&& mv go /usr/local/go \
 	&& ln -s /usr/local/go/bin/go /usr/bin
 
-RUN cd /root \n
+RUN cd /root \
 	&& curl https://packages.baidu.com/app/openrasp/node_modules.tar.gz -o node_modules.tar.gz \
 	&& tar -xf node_modules.tar.gz
 
