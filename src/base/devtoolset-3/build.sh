@@ -11,6 +11,14 @@ if ! [[ -d "$dest" ]]; then
 	git clone https://github.com/baidu/openrasp.git "$dest"
 fi
 
+# 处理 #if defined(HAVE_BUNDLED_PCRE) || !defined(PHP_VERSION)
+for file in /usr/include/php/main/php_compat.h 
+do
+	if [[ -f "$file" ]]; then
+		sed -i 's~.*defined.*HAVE_BUNDLED_PCRE.*~#ifdef WHATEVER_YOU_LIKE~' "$file"
+	fi
+done
+
 cd "$dest"
 source /opt/rh/devtoolset-3/enable
 
