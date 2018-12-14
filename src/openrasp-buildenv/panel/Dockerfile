@@ -15,9 +15,14 @@ RUN cd /tmp \
 	&& mv go /usr/local/go \
 	&& ln -s /usr/local/go/bin/go /usr/bin
 
+# 下载二进制 node_modules
 RUN cd /root \
 	&& curl https://packages.baidu.com/app/openrasp/node_modules.tar.gz -o node_modules.tar.gz \
 	&& tar -xf node_modules.tar.gz
+
+# 下载二进制的 beego
+RUN cd /root \
+	&& curl https://packages.baidu.com/app/openrasp/bee-bin.tar	-o bee-in.tar
 
 COPY *.sh /root/
 RUN chmod +x /root/*.sh
