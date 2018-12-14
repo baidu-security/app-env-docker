@@ -22,7 +22,7 @@ RUN cd /root \
 
 # 下载二进制的 beego
 RUN cd /root \
-	&& curl https://packages.baidu.com/app/openrasp/bee-bin.tar	-o bee-in.tar
+	&& curl https://packages.baidu.com/app/openrasp/bee-bin.tar	-o bee-bin.tar
 
 COPY *.sh /root/
 RUN chmod +x /root/*.sh
