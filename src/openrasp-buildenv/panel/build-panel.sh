@@ -11,5 +11,6 @@ cd "$dest"
 # rm -rf /tmp/openrasp/rasp-vue/node_modules/
 # ln -sf /root/node_modules/ /tmp/openrasp/rasp-vue/
 
+. /opt/rh/devtoolset-3/enable
 npm config set registry https://registry.npm.taobao.org
 bash /tmp/openrasp/build-cloud.sh
