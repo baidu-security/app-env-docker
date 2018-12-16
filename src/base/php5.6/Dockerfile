@@ -10,7 +10,8 @@ RUN yum install -y epel-release \
 RUN yum install -y php56 php56-fpm php56-php php56-php-fpm php56-php-cli \
 	php56-php-mysqlnd php56-php-gd php56-php-soap php56-php-bcmath \
 	php56-php-mcrypt php56-php-mbstring php56-php-xml php56-php-pecl-yaml \
-	php56-php-ioncube-loader php56-php-pecl-xdebug php56-php-intl php56-php-pecl-redis
+	php56-php-ioncube-loader php56-php-pecl-xdebug php56-php-intl php56-php-pecl-redis \
+	php56-php-imap
 
 # 禁用 xdebug
 RUN mv /opt/remi/php56/root/etc/php.d/15-xdebug.ini /opt/remi/php56/root/etc/php.d/15-xdebug.ini.bak
