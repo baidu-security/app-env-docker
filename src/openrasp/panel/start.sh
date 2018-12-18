@@ -1,20 +1,21 @@
 #!/bin/bash
 
-/etc/init.d/httpd.sh start
-/etc/init.d/mysql.sh start
+export PATH=$PATH:/jdk/bin
 
-echo '[-] Adding MySQL user test@localhost'
-cat > /tmp/test.sql << EOF
-DROP DATABASE IF EXISTS test;
-CREATE DATABASE test;
-grant all privileges on test.* to 'test'@'%' identified by 'test';
-grant all privileges on test.* to 'test'@'localhost' identified by 'test';
-CREATE TABLE test.vuln (id INT, name text);
-INSERT INTO test.vuln values (0, "openrasp");
-INSERT INTO test.vuln values (1, "rocks");
-EOF
+echo '[-] Starting ElasticSearch'
+su - work -c "JAVA_HOME=/jdk /elasticsearch/bin/elasticsearch -d"
 
-mysql -uroot < /tmp/test.sql
-rm -f /tmp/test.sql
+echo '[-] Starting MongoDB'
+su - work -c "/mongodb/bin/mongod --fork --dbpath /mongodb/data/ --logpath /mongodb/log/server"
 
-exec /etc/init.d/shell.sh /var/www/html
+echo '[-] Waiting for ElasticSearch to start'
+while true
+do
+	curl -I 127.0.0.1:9200 2>/dev/null && break
+	sleep 1
+done
+
+echo '[-] Staring RASP panel'
+(cd /rasp-cloud && ./rasp-cloud -d)
+
+exec /etc/init.d/shell.sh /root/
