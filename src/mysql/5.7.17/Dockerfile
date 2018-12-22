@@ -2,6 +2,9 @@ FROM openrasp/centos7
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
+# MySQL audit 官方文档
+# https://github.com/mcafee/mysql-audit/wiki/Installation
+ 
 ENV mysql_url https://packages.baidu.com/app/mysql-5.7.17/mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz
 ENV audit_url https://packages.baidu.com/app/mysql-5.7.17/audit-plugin-mysql-5.7-1.1.6-784-linux-x86_64.zip
 
