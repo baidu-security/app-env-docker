@@ -3,7 +3,7 @@ FROM openrasp/centos7
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 # 下载
-RUN curl https://packages.baidu.com/app/weblogic-bea-10.3.6.tar.bz2 -o bea.tar.bz2 \
+RUN curl https://packages.baidu.com/app/weblogic/weblogic-bea-10.3.6.tar.bz2 -o bea.tar.bz2 \
 	&& tar xf bea.tar.bz2 -C /opt/ \
 	&& rm -f bea.tar.bz2
 
