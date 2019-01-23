@@ -8,3 +8,5 @@ ENV php_remi_ver 73
 RUN yum-config-manager --enable remi-php"$php_remi_ver" \
 	&& yum install -y php php-curl php-soap php-gd php-xml php-mysql php-mbstring php-pdo php-json php-devel
 
+# php7.3 需要 autoconf 2.69+
+RUN rpm -Uvh --force https://packages.baidu.com/app/autoconf-2.69-12.2.noarch.rpm
