@@ -3,7 +3,7 @@ FROM openrasp/centos7
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 ENV jdk_ver 7u17
-ENV jdk_url https://packages.baidu.com/app/jdk-${jdk_ver}-linux-x64.tar.gz
+ENV jdk_url https://packages.baidu.com/app/jdk-1.7/jdk-${jdk_ver}-linux-x64.tar.gz
 
 # 下载 JDK
 RUN curl "$jdk_url" -o jdk.tar.gz \
