@@ -2,7 +2,7 @@ FROM openrasp/java7
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-ENV jboss_url https://packages.baidu.com/app/jboss-5.0.1.GA.zip
+ENV jboss_url https://packages.baidu.com/app/jboss-5/jboss-5.0.1.GA.zip
 
 # 下载JDK、Tomcat
 RUN curl "$jboss_url" -o jboss.zip \
