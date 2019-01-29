@@ -3,7 +3,7 @@ FROM openrasp/java6
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 ENV tomcat_ver 6.0.14
-ENV tomcat_url https://packages.baidu.com/app/apache-tomcat-${tomcat_ver}.tar.gz
+ENV tomcat_url https://packages.baidu.com/app/apache-tomcat-6/apache-tomcat-${tomcat_ver}.tar.gz
 
 # 下载 Tomcat
 RUN curl "$tomcat_url" -o apache-tomcat-${tomcat_ver}.tar.gz \
