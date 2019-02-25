@@ -1,6 +1,6 @@
 #!/bin/bash
 
-options="--port 6379"
+options="--port 6379 --protected-mode no"
 
 case "$1" in
     start)
@@ -16,6 +16,7 @@ case "$1" in
             redis-cli -h 127.0.0.1 ping 2>/dev/null && break
             sleep 1
         done
+        echo
     ;;
     stop)
         killall -9 redis-server
