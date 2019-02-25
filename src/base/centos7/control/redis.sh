@@ -7,7 +7,7 @@ case "$1" in
         echo
         echo '[-] Starting Redis'
         echo ' -  Logging to /var/log/redis.log'
-        nohup redis-server "$options" &> /var/log/redis.log &
+        nohup redis-server $options &> /var/log/redis.log &
 
         echo
         echo '[-] Waiting for redis to start'
