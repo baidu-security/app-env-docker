@@ -1,0 +1,6 @@
+[Xymon]
+name=Xymon-$releasever
+baseurl=http://terabithia.org/rpms/xymon/el$releasever/x86_64/
+gpgcheck=1
+gpgkey=http://terabithia.org/rpms/RPM-GPG-KEY-JCLEAVER
+enabled=1
