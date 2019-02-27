@@ -7,7 +7,7 @@ RUN yum install -y epel-release
 RUN yum install -y httpd nginx sendmail redis \
 	wget curl zip unzip vim bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils \
 	python-pip gettext git file lftp jq psmisc \
-	glibc.i686 gdb python2-crypto
+	glibc.i686 gdb python2-crypto inotify-tools
 
 # 安装 mariadb 5.5
 RUN yum install -y mariadb-server mariadb \
