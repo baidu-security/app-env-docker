@@ -2,12 +2,12 @@ FROM openrasp/java7
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-ENV resin_url https://packages.baidu.com/app/resin-3.1.16.tar.gz
+ENV resin_url https://packages.baidu.com/app/resin-3/resin-3.1.16.zip
 
 # 下载
-RUN curl "$resin_url" -o resin.tar.gz \
-	&& tar -xf resin.tar.gz \
-	&& rm -f resin.tar.gz \
+RUN curl "$resin_url" -o package.zip \
+	&& unzip -qq package.zip \
+	&& rm -f package.zip \
 	&& mv resin-3*/ /resin/
 
 # 其他配置

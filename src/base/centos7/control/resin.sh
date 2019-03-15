@@ -2,7 +2,7 @@
 
 export JAVA_HOME=/jdk/
 
-control=/resin_base/bin/httpd.sh
+control=/resin/bin/httpd.sh
 if [[ ! -f "$control" ]]; then
     control=/resin/bin/resin.sh
 fi
