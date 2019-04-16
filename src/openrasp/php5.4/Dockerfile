@@ -3,7 +3,7 @@ FROM openrasp/php5.4
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 ADD https://packages.baidu.com/app/openrasp/rasp-php-linux.tar.bz2 /tmp
-ADD https://packages.baidu.com/app/openrasp/php-vulns.tar.gz /var/www/html
+ADD https://packages.baidu.com/app/openrasp/testcases/php-vulns.tar.gz /var/www/html
 
 RUN cd /tmp \
 	&& tar -xf rasp-php-linux.tar.bz2 \
