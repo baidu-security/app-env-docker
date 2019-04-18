@@ -12,7 +12,7 @@ if ! [[ -d "$dest" ]]; then
 fi
 
 # 处理 #if defined(HAVE_BUNDLED_PCRE) || !defined(PHP_VERSION)
-for file in /usr/include/php/main/php_compat.h 
+for file in /usr/include/php/main/php_compat.h
 do
 	if [[ -f "$file" ]]; then
 		sed -i 's~.*defined.*HAVE_BUNDLED_PCRE.*~#ifdef WHATEVER_YOU_LIKE~' "$file"
