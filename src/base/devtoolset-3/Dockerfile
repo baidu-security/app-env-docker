@@ -5,6 +5,11 @@ MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 RUN yum install -y centos-release-scl \
 	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel libcurl-devel pcre-devel clang cmake3
 
+# git-lfs
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash \
+	&& yum install -y git-lfs \
+	&& git lfs install
+
 # gcc 4.9.1
 RUN curl https://packages.baidu.com/app/devtoolset-3.tar -o devtoolset-3.tar \
 	&& tar -xf devtoolset-3.tar \
