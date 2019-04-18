@@ -3,7 +3,9 @@ FROM openrasp/centos6
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 RUN yum install -y centos-release-scl \
-	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel libcurl-devel pcre-devel clang cmake3
+	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel libcurl-devel pcre-devel clang cmake3 gcc-c++
+
+RUN ln -s /usr/bin/cmake3 /usr/bin/cmake	
 
 # git-lfs
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash \
