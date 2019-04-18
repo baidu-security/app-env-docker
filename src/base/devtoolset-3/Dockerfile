@@ -3,7 +3,8 @@ FROM openrasp/centos6
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 RUN yum install -y centos-release-scl \
-	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel libcurl-devel pcre-devel clang cmake3 gcc-c++
+	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel libcurl-devel pcre-devel clang cmake3 gcc-c++ \
+	&& rpm -Uvh --force https://packages.baidu.com/app/autoconf-2.69-12.2.noarch.rpm
 
 RUN ln -s /usr/bin/cmake3 /usr/bin/cmake	
 
