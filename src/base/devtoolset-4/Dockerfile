@@ -3,16 +3,21 @@ FROM openrasp/centos6
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 RUN yum install -y centos-release-scl \
-	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel libcurl-devel pcre-devel
+	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel zlib-static libcurl-devel pcre-devel clang cmake3 gcc-c++ \
+	&& rpm -Uvh --force https://packages.baidu.com/app/autoconf-2.69-12.2.noarch.rpm
 
+RUN ln -s /usr/bin/cmake3 /usr/bin/cmake	
+
+# git-lfs
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash \
+	&& yum install -y git-lfs \
+	&& git lfs install
+
+# gcc 5.3
 RUN curl https://packages.baidu.com/app/devtoolset-4.tar -o devtoolset-4.tar \
 	&& tar -xf devtoolset-4.tar \
 	&& rpm -ivh devtoolset-4/*.rpm \
 	&& rm -rf devtoolset-4*
-
-# 原先安装 devtools-4 的方法，官方只有 devtoolset 6和7了，放弃
-# RUN yum install -y centos-release-scl \
-# 	&& yum install -y devtoolset-4-gcc-c++ make cmake re2c libuuid-devel libxml2-devel zlib-devel
 
 # 安装 REMI 仓库
 RUN curl https://packages.baidu.com/app/remi/remi-release-6.rpm -o /tmp/remi-release-6.rpm \
@@ -23,5 +28,3 @@ RUN curl https://packages.baidu.com/app/remi/remi-release-6.rpm -o /tmp/remi-rel
 COPY *.sh /root/
 RUN chmod +x /root/*.sh
 
-# 不能加 entrypoint，否则影响自动发布系统
-# ENTRYPOINT ["/bin/bash", "/root/start.sh"]

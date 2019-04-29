@@ -6,7 +6,7 @@ RUN yum install -y centos-release-scl \
 	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel zlib-static libcurl-devel pcre-devel clang cmake3 gcc-c++ \
 	&& rpm -Uvh --force https://packages.baidu.com/app/autoconf-2.69-12.2.noarch.rpm
 
-RUN ln -s /usr/bin/cmake3 /usr/bin/cmake	
+RUN ln -s /usr/bin/cmake3 /usr/bin/cmake
 
 # git-lfs
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash \
