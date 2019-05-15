@@ -4,7 +4,7 @@ datadir=/data/mysql
 bind-address=0.0.0.0
 log-error=/data/mysqld.log
 
-server-id=1
+server-id=2
 log_bin=/data/binlog/master
 
 plugin-load="libaudit_plugin.so"

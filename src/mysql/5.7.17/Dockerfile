@@ -20,12 +20,13 @@ RUN cd /usr/local/mysql/lib/plugin \
 	&& rm -f audit.zip \
 	&& mv audit-plugin-*/lib/libaudit_plugin.so .
 
-COPY my.cnf /etc/my.cnf
-COPY *.sh /root/
-RUN chmod +x /root/*.sh
+COPY *.cnf /etc/
 
-RUN mkdir -p /data \
+RUN mkdir -p /data/{mysql,binlog} \
 	&& chown mysql -R /usr/local/mysql /data \
 	&& /usr/local/mysql/bin/mysqld --initialize-insecure --user=mysql
+
+COPY *.sh /root/	
+RUN chmod +x /root/*.sh
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
