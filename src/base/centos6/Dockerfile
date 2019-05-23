@@ -7,7 +7,7 @@ RUN yum install -y epel-release yum-utils
 RUN yum install -y httpd mysql-server mysql sendmail redis \
 	wget curl zip unzip vim bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils \
 	python-pip gettext git file lftp psmisc xz \
-	glibc.i686 gdb python2-crypto inotify-tools
+	glibc.i686 gdb python2-crypto inotify-tools libxml2-devel
 
 # 安装数据库
 RUN mysql_install_db \
