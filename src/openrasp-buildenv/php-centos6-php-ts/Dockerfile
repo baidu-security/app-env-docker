@@ -8,3 +8,5 @@ RUN cd /tmp \
 	&& tar -xf all.tar.bz2 -C /usr/local \
 	&& rm -f all.tar.bz2
 
+COPY *.sh /root/
+RUN chmod +x /root/*.sh
