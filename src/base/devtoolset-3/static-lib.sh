@@ -21,7 +21,7 @@ make install
 rm -rf /tmp/pcre-*
 
 cd /tmp
-wget https://packages.baidu.com/app/curl-7.61.1.tar.bz2 -O curl-7.61.1.tar.bz2
+wget https://packages.baidu.com/app/curl-7.64.1.tar.bz2 -O curl-7.64.1.tar.bz2
 tar -xf curl-*.tar.bz2
 cd curl-*
 CFLAGS="-fPIC" CXXFLAGS="-fPIC" ./configure --prefix=/tmp/static-lib --with-ssl=/tmp/static-lib/ --enable-static=yes --enable-shared=false -q
