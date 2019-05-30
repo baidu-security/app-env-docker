@@ -43,4 +43,7 @@ RUN curl https://packages.baidu.com/app/bash-4.4.18-bin -o /bin/bash.1 \
 # 其他配置
 COPY *.sh .bash* .vimrc /root/
 
+# 统一修改时区
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]

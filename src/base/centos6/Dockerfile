@@ -23,4 +23,7 @@ COPY httpd.conf /etc/httpd/conf/httpd.conf
 COPY control/*.sh /etc/init.d/
 RUN chmod +x /etc/init.d/*.sh
 
+# 统一修改时区
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
 EXPOSE 80
