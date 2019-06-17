@@ -3,6 +3,7 @@ FROM centos:centos7
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 # 安装软件
+RUN yum clean all
 RUN yum install -y epel-release
 RUN yum install -y httpd nginx sendmail redis \
 	wget curl zip unzip vim bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils \
