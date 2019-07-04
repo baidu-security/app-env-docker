@@ -1,11 +1,11 @@
 # app-env-docker
 
-基于 Docker 的真实应用测试环境。我们构建这个仓库是为了快速测试大量漏洞，并补充到 [CVE 漏洞覆盖说明](https://rasp.baidu.com/doc/usage/cve.html) 里。和网上已有的 [vulhub](https://github.com/vulhub/vulhub)、[vulapps](https://github.com/Medicean/VulApps) 相比，我们具有如下优势:
+基于 Docker 的真实应用测试环境。我们构建这个仓库是为了验证防护效果，并补充到 [CVE 漏洞覆盖说明](https://rasp.baidu.com/doc/usage/cve.html) 里。和网上已有的 [vulhub](https://github.com/vulhub/vulhub)、[vulapps](https://github.com/Medicean/VulApps) 相比，我们不同之处在于:
 
-1. 下载的资源存储在 [https://packages.baidu.com/app/](https://packages.baidu.com/app/)，更加可靠
-2. 完全基于 `Dockerfile`，可定制化更强；执行 `make` 就可以启动环境，无需修改参数，非常方便
+1. 下载的资源存储在 [https://packages.baidu.com/app/](https://packages.baidu.com/app/)，国内下载快
+2. 完全基于 `Dockerfile`，执行 `make` 启动环境，可定制化强但是首次安装慢
 3. 专注 Web 漏洞，覆盖漏洞更多；可用于扫描器开发或者 OpenRASP 漏洞测试
-4. 使用改造过的 [socks5](socks5/) 代理自动转发请求，更加灵活
+4. 使用改造过的 [socks5](socks5/) 代理自动转发请求，比修改DNS方式安全
 
 其他说明文档
 
