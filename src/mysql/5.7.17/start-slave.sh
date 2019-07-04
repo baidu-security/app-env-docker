@@ -21,3 +21,4 @@ EOF
 
 mysql -uroot < /tmp/slave.sql
 mysql -uroot -e 'SHOW SLAVE STATUS\G'
+
