@@ -8,7 +8,7 @@ RUN yum install -y centos-release-scl \
 
 # cmake
 RUN cd /tmp \
-	&& curl https://packages.baidu.com/app/cmake-3.14.2-Linux-x86_64.tar.gz -o cmake.tar.gz \
+	&& curl https://packages.baidu.com/app/cmake-3.15.0-Linux-x86_64.tar.gz -o cmake.tar.gz \
 	&& tar -xf cmake.tar.gz && rm -f cmake.tar.gz \
 	&& mv cmake-3.14.* /usr/local/cmake \
 	&& ln -s /usr/local/cmake/bin/cmake /usr/bin
