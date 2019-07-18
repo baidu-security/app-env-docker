@@ -3,10 +3,15 @@ FROM openrasp/centos6
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 RUN yum install -y centos-release-scl \
-	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel zlib-static libcurl-devel pcre-devel clang cmake3 gcc-c++ \
+	&& yum install -y scl-utils policycoreutils-python mpfr-devel glibc-devel zlib-static libcurl-devel pcre-devel clang gcc-c++ \
 	&& rpm -Uvh --force https://packages.baidu.com/app/autoconf-2.69-12.2.noarch.rpm
 
-RUN ln -s /usr/bin/cmake3 /usr/bin/cmake	
+# cmake
+RUN cd /tmp \
+	&& curl https://packages.baidu.com/app/cmake-3.14.2-Linux-x86_64.tar.gz -o cmake.tar.gz \
+	&& tar -xf cmake.tar.gz && rm -f cmake.tar.gz \
+	&& mv cmake-3.14.* /usr/local/cmake \
+	&& ln -s /usr/local/cmake/bin/cmake /usr/bin
 
 # git-lfs
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash \
