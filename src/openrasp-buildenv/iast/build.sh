@@ -12,4 +12,5 @@ fi
 cd /tmp/openrasp-iast/
 make build
 
-mv /tmp/openrasp-iast/openrasp_iast/dist/openrasp-iast /tmp/openrasp-iast/openrasp-iast-release
+DATE=$(TZ=UTC-8 date -d @`git log -n 1 --pretty="%cd" --date=raw | cut -d " " -f 1` +'%Y%m%d%H%M%S')
+mv /tmp/openrasp-iast/openrasp_iast/dist/openrasp-iast /tmp/openrasp-iast/openrasp-iast-${DATE}

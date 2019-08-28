@@ -33,8 +33,11 @@ RUN cd /root/Python-3.7.4 && \
 
 RUN pip3 install pyinstaller
 
-COPY build.sh /root/
 COPY requirements.txt /root/
 
 RUN pip3 install -r /root/requirements.txt && \
     rm /root/requirements.txt
+
+COPY build.sh /root/
+
+RUN chmod +x /root/build.sh
