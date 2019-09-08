@@ -6,13 +6,13 @@ echo '[-] Staring slapd'
 slapd -h 'ldapi:/// ldap:/// ldaps:///'
 
 echo '[-] Init LDAP server'
-for x in chrootpw.ldif openssl-lpk.ldif /etc/openldap/schema/{cosine.ldif,nis.ldif,inetorgperson.ldif}
+for x in chrootpw.ldif openssl-lpk.ldif z /etc/openldap/schema/{cosine.ldif,nis.ldif,inetorgperson.ldif} sudo.ldif
 do
     ldapadd -Y EXTERNAL -H ldapi:/// -f "$x"
 done
 
-ldapmodify -Y EXTERNAL -H ldapi:/// -f chdomain.ldif 
-ldapadd -x -w 123456 -D cn=Manager,dc=srv,dc=world -f basedomain.ldif 
+ldapmodify -Y EXTERNAL -H ldapi:/// -f chdomain.ldif
+ldapadd -x -w 123456 -D cn=Manager,dc=srv,dc=world -f basedomain.ldif
 
 echo '[-] Starting rsyslog'
 /usr/sbin/rsyslogd
@@ -27,8 +27,17 @@ echo AuthorizedKeysCommandUser nobody >> /etc/ssh/sshd_config
 /usr/sbin/sshd-keygen
 /usr/sbin/sshd
 
-echo '[-] Adding test user'
+echo '[-] Adding test:test & search:test user'
 cat > ssh-user.ldif << EOF
+cn: role1
+dn: cn=role1,ou=SUDOers,ou=People,dc=srv,dc=world
+objectClass: sudoRole
+objectClass: top
+sudoCommand: ALL
+sudoHost: ALL
+sudoUser: test
+sudoOption: badpass_message=SUDO LDAP does not work, WTF
+
 dn: uid=test,ou=People,dc=srv,dc=world
 cn: Test Account
 uid: test
@@ -41,8 +50,21 @@ objectClass: posixAccount
 objectClass: top
 objectClass: shadowAccount
 objectClass: ldapPublicKey
-userPassword: {SSHA}0Kz3lPob/c6UPpbw7PbyCd02wK0e0Yya
+userPassword: {SSHA}wDaMYB/BsTdOzBgsJN7JdOfEcLRXM6ar
 sshPublicKey: $(cat /root/.ssh/id_rsa.pub)
+
+dn: cn=search,ou=People,dc=srv,dc=world
+cn: search
+gidNumber: 2001
+homeDirectory: /home/clientsearch
+loginShell: /sbin/nologin
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+sn: search
+uid: search
+uidNumber: 2001
+userPassword: {SSHA}wDaMYB/BsTdOzBgsJN7JdOfEcLRXM6ar
 EOF
 ldapadd -x -w 123456 -D cn=Manager,dc=srv,dc=world -f ssh-user.ldif 
 
