@@ -1,21 +1,19 @@
 #!/bin/bash
 
 cd /tmp/ldif
+useradd user1
 
 echo '[-] Staring slapd'
 slapd -h 'ldapi:/// ldap:/// ldaps:///'
 
 echo '[-] Init LDAP server'
-for x in chrootpw.ldif openssl-lpk.ldif z /etc/openldap/schema/{cosine.ldif,nis.ldif,inetorgperson.ldif} sudo.ldif
+for x in chrootpw.ldif /etc/openldap/schema/{sudo.schema,openssh.schema,cosine.ldif,nis.ldif,inetorgperson.ldif} openssh-lpk.ldif sudo.ldif
 do
     ldapadd -Y EXTERNAL -H ldapi:/// -f "$x"
 done
 
 ldapmodify -Y EXTERNAL -H ldapi:/// -f chdomain.ldif
 ldapadd -x -w 123456 -D cn=Manager,dc=srv,dc=world -f basedomain.ldif
-
-echo '[-] Starting rsyslog'
-/usr/sbin/rsyslogd
 
 echo '[-] Staring SSSD'
 /usr/sbin/sssd
@@ -29,7 +27,7 @@ echo AuthorizedKeysCommandUser nobody >> /etc/ssh/sshd_config
 
 echo '[-] Adding test:test & search:test user'
 cat > ssh-user.ldif << EOF
-cn: role1
+cn: SUDO users
 dn: cn=role1,ou=SUDOers,ou=People,dc=srv,dc=world
 objectClass: sudoRole
 objectClass: top
@@ -50,7 +48,7 @@ objectClass: posixAccount
 objectClass: top
 objectClass: shadowAccount
 objectClass: ldapPublicKey
-userPassword: {SSHA}wDaMYB/BsTdOzBgsJN7JdOfEcLRXM6ar
+userPassword: {SSHA}5UtMxV1rgztbZeSpI0TiGgw20sSb7muq
 sshPublicKey: $(cat /root/.ssh/id_rsa.pub)
 
 dn: cn=search,ou=People,dc=srv,dc=world

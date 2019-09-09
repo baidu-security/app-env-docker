@@ -1,8 +1,8 @@
-FROM openrasp/php5.4
+FROM openrasp/centos7
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-RUN yum -y install openldap-servers openldap-clients openssh-server sssd rsyslog sudo
+RUN yum -y install openldap-servers openldap-clients openssh-server sssd sudo oddjob-mkhomedir authconfig
 
 RUN cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG \
 	&& chown ldap /var/lib/ldap/DB_CONFIG
@@ -14,4 +14,5 @@ COPY /root/ /root/
 
 RUN chmod 600 /etc/sssd/sssd.conf
 
+ENTRYPOINT ["/bin/bash", "/root/start.sh"]
 EXPOSE 389
