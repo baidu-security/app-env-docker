@@ -2,15 +2,15 @@
 # This file is auto-generated.
 # User changes will be destroyed the next time authconfig is run.
 auth        required      pam_env.so
-auth        sufficient    pam_sss.so use_first_pass
 auth        sufficient    pam_unix.so try_first_pass nullok
+auth        sufficient    pam_sss.so use_first_pass
 auth        required      pam_deny.so
 
 account     required      pam_unix.so
 
 password    requisite     pam_pwquality.so try_first_pass local_users_only retry=3 authtok_type=
-password    sufficient    pam_sss.so use_authtok
 password    sufficient    pam_unix.so try_first_pass use_authtok nullok sha512 shadow
+password    sufficient    pam_sss.so use_authtok
 password    required      pam_deny.so
 
 session     optional      pam_keyinit.so revoke

@@ -8,7 +8,7 @@ slapd -h 'ldapi:/// ldap:/// ldaps:///'
 # slapd -h 'ldapi:/// ldap:/// ldaps:///' -f /etc/openldap/slapd.conf
 
 echo '[-] Init LDAP server'
-for x in chrootpw.ldif /etc/openldap/schema/{sudo.schema,openssh.schema,cosine.ldif,nis.ldif,inetorgperson.ldif} openssh-lpk.ldif sudo.ldif index.ldif
+for x in chrootpw.ldif /etc/openldap/schema/{cosine.ldif,nis.ldif,inetorgperson.ldif} openssh-lpk.ldif sudo.ldif index.ldif
 do
 	echo "-> $x"
     ldapadd -Y EXTERNAL -H ldapi:/// -f "$x"
@@ -27,13 +27,10 @@ echo AuthorizedKeysCommandUser nobody >> /etc/ssh/sshd_config
 /usr/sbin/sshd-keygen
 /usr/sbin/sshd
 
-mv /etc/pam.d/{system-auth-1,system-auth}
-mv /etc/pam.d/{password-auth-1,password-auth}
-
 echo "Debug sudo /var/log/sudo_debug.log all@debug" >> /etc/sudo.conf
 echo "Debug sudoers.so /var/log/sudo_debug.log all@debug" >> /etc/sudo.conf
 
-echo '[-] Adding test:test & search:test user'
+echo '[-] Adding test/test2/search user (password: test)'
 cat > ssh-user.ldif << EOF
 # sudo config
 dn: cn=defaults,ou=SUDOers,ou=People,dc=srv,dc=world
@@ -51,6 +48,7 @@ sudoUser: test
 sudoHost: ALL
 sudoRunAsUser: ALL
 sudoCommand: ALL
+sudoCommand: !/bin/cp
 
 dn: cn=test2,ou=SUDOers,ou=People,dc=srv,dc=world
 objectClass: top
