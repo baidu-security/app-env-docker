@@ -2,7 +2,8 @@ FROM openrasp/centos7
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-RUN yum -y install openldap-servers openldap-clients openssh-server sssd sudo oddjob-mkhomedir authconfig
+RUN yum -y install openldap-servers openldap-clients openssh-server sssd sudo \
+	oddjob-mkhomedir authconfig nss-pam-ldapd ldb-tools
 
 RUN cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG \
 	&& chown ldap /var/lib/ldap/DB_CONFIG

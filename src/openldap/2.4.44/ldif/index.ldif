@@ -1,0 +1,5 @@
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+replace: olcDbIndex
+olcDbIndex: uid,uidNumber,gidNumber,memberUid,uniqueMember,objectClass,cn eq
+olcDbIndex: sudoUser,sudoHost eq,sub
