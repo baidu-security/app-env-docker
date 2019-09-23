@@ -12,6 +12,7 @@ RUN yum install -y httpd nginx sendmail redis \
 
 # 安装 mariadb 5.5
 RUN yum install -y mariadb-server mariadb \
+	&& ln -s /usr/bin/resolveip /usr/libexec/resolveip \
 	&& mysql_install_db --user=mysql
 
 # 其他配置
