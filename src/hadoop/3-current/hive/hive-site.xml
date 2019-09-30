@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://127.0.0.1/</value>
+        <description>
+        </description>
+    </property>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+        <description>
+        </description>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.address</name>
+        <value>127.0.0.1:8032</value>
+        <description>
+        </description>
+    </property>
+    <property>
+        <name>hive.metastore.warehouse.dir</name>
+        <value>/user/hadoop/warehouse</value>
+        <description>location of default database for the warehouse</description>
+    </property>
+</configuration>

@@ -1,0 +1,14 @@
+<configuration>
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+    </property>
+    <property>
+        <name>dfs.hosts</name>
+        <value>/hadoop/etc/hadoop/datanode-allow</value>
+    </property>
+    <property>
+        <name>dfs.hosts.exclude</name>
+        <value>/hadoop/etc/hadoop/datanode-deny</value>
+    </property>
+</configuration>

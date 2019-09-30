@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<configuration>
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+    <property>
+        <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+        <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.nodes.exclude-path</name>
+        <value>/hadoop/hadoop/etc/hadoop/nodemanager-deny</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.nodes.include-path</name>
+        <value>/hadoop/hadoop/etc/hadoop/nodemanager-allow</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>127.0.0.1</value>
+    </property>
+</configuration>
