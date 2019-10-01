@@ -4,6 +4,7 @@
 ssh-keygen -f ~/.ssh/id_rsa -N ''
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 400 ~/.ssh/authorized_keys
+ssh -oStrictHostKeyChecking=no hadoop@localhost exit
 
 # zk
 mkdir -p /tmp/zookeeper
@@ -22,4 +23,4 @@ hadoop fs -chown hadoop /user/hadoop
 hdfs dfsadmin -setSpaceQuota 1t /user/hadoop
 
 hadoop fs -ls /
-exec /etc/init.d/shell.sh /tmp
+

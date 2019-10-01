@@ -1,8 +1,6 @@
 #!/bin/bash
 
-cat >> /hadoop/etc/hadoop/hadoop-env.sh << 'EOF'
-export JAVA_HOME=/jdk
-EOF
+echo 'export JAVA_HOME=/jdk' >> /hadoop/etc/hadoop/hadoop-env.sh
 
 /usr/sbin/sshd-keygen
 /usr/sbin/sshd
