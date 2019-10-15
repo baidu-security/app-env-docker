@@ -17,6 +17,7 @@
 参考链接
 
 * [Joomla! 3.7 Core SQL Injection (CVE-2017-8917)](https://www.seebug.org/vuldb/ssvid-93113)
+* [XiphosResearch/exploits - Joomblah/joomblah.py](https://github.com/XiphosResearch/exploits/blob/master/Joomblah/joomblah.py)
 
 Poc
 
