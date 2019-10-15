@@ -14,9 +14,9 @@ RUN cd /tmp \
 	&& ln -s /usr/local/cmake/bin/cmake /usr/bin
 
 # git-lfs
-RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash \
-	&& yum install -y git-lfs \
-	&& git lfs install
+# RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash \
+# 	&& yum install -y git-lfs \
+# 	&& git lfs install
 
 # gcc 5.3
 RUN curl https://packages.baidu.com/app/devtoolset-4.tar -o devtoolset-4.tar \

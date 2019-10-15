@@ -9,9 +9,9 @@ RUN yum install -y centos-release-scl \
 RUN ln -s /usr/bin/cmake3 /usr/bin/cmake
 
 # git-lfs
-RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash \
-	&& yum install -y git-lfs \
-	&& git lfs install
+# RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | bash \
+# 	&& yum install -y git-lfs \
+# 	&& git lfs install
 
 # gcc 4.9.1
 RUN curl https://packages.baidu.com/app/devtoolset-3.tar -o devtoolset-3.tar \
