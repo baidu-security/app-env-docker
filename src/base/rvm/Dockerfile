@@ -3,6 +3,7 @@ FROM openrasp/centos7
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg2 --import - \
+	&& curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import - \
 	&& curl -sSL https://get.rvm.io | bash -s stable
 
 COPY *.sh /root/
