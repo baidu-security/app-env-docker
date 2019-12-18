@@ -2,7 +2,7 @@ FROM openrasp/php7.1
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-ADD https://packages.baidu.com/app/openrasp/rasp-php-linux.tar.bz2 /tmp
+ADD https://packages.baidu.com/app/openrasp/release/latest/rasp-php-linux.tar.bz2 /tmp
 ADD https://packages.baidu.com/app/openrasp/testcases/php-vulns.tar.gz /var/www/html
 
 RUN cd /tmp \

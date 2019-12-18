@@ -2,7 +2,7 @@ FROM openrasp/php5.4
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
-ADD https://packages.baidu.com/app/openrasp/rasp-php-linux.tar.bz2 /tmp
+ADD https://packages.baidu.com/app/openrasp/release/latest/rasp-php-linux.tar.bz2 /tmp
 ADD https://packages.baidu.com/app/bWAPP_latest.zip /tmp/package.zip
 
 # 安装 DVWA

@@ -3,7 +3,7 @@ FROM openrasp/tomcat8.0
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 # RASP 安装包
-ADD https://packages.baidu.com/app/openrasp/rasp-java.tar.gz /tmp
+ADD https://packages.baidu.com/app/openrasp/release/latest/rasp-java.tar.gz /tmp
 
 # 测试用例
 ADD https://packages.baidu.com/app/openrasp/testcases/vulns.war /tomcat/webapps/
