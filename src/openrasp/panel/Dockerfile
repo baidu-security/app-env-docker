@@ -19,7 +19,7 @@ RUN cd / \
 	&& mkdir /mongodb/data/ /mongodb/log/ \
 	&& chown work -R /mongodb/
 
-ADD https://packages.baidu.com/app/openrasp/rasp-cloud.tar.gz /tmp
+ADD https://packages.baidu.com/app/openrasp/release/latest/rasp-cloud.tar.gz /tmp
 
 RUN cd /tmp/ \
 	&& tar -xf rasp-cloud.tar.gz \
