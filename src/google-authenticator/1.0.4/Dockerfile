@@ -3,7 +3,7 @@ FROM openrasp/centos7
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
 
 RUN rpm -ivh https://packages.baidu.com/app/google-authenticator-1.04-1.el7.x86_64.rpm
-RUN yum install -y openssh-server
+RUN yum install -y openssh-server oathtool
 
 COPY sshd /etc/pam.d
 COPY sshd_config /etc/ssh/
