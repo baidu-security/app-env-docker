@@ -19,16 +19,7 @@ RUN cd / \
 	&& mkdir /mongodb/data/ /mongodb/log/ \
 	&& chown work -R /mongodb/
 
-ADD https://packages.baidu.com/app/openrasp/release/latest/rasp-cloud.tar.gz /tmp
-
-RUN cd /tmp/ \
-	&& tar -xf rasp-cloud.tar.gz \
-	&& rm -f rasp-cloud.tar.gz \
-	&& mv /tmp/rasp-cloud-*/ /rasp-cloud
-
-COPY app.conf /rasp-cloud/conf/	
-
-COPY *.sh /root/
+COPY app.conf *.sh /root/
 RUN chmod +x /root/*.sh
 
 ENTRYPOINT ["/root/start.sh"]
