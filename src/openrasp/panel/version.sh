@@ -9,7 +9,7 @@ pidof rasp-cloud 1>/dev/null && killall rasp-cloud
 rm -rf /rasp-cloud
 
 mv /tmp/rasp-cloud-*/ /rasp-cloud
-cp /root/app.conf /rasp-cloud
+cp /root/app.conf /rasp-cloud/conf
 
 cd /rasp-cloud
 ./rasp-cloud -d
