@@ -4,7 +4,7 @@ version=${1:-latest}
 shift
 
 echo '[-] Download and install rasp-java'
-rm -rf /tmp/rasp-java*
+rm -rf /tmp/rasp-*
 curl "https://packages.baidu.com/app/openrasp/release/${version}/rasp-java.tar.gz" -o - | tar -xzf - -C /tmp
 
 cd /tmp/rasp-*
