@@ -13,7 +13,7 @@ EOF
 mysql -uroot < /tmp/test.sql
 rm -f /tmp/test.sql
 
-echo '[-] Installing OpenRASP-IAST'
+echo '[-] Installing latest OpenRASP-IAST'
 pip3 install --upgrade git+https://github.com/baidu-security/openrasp-iast
 
 exec /etc/init.d/shell.sh /root
