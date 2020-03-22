@@ -1,0 +1,19 @@
+include /etc/openldap/schema/core.schema
+include /etc/openldap/schema/cosine.schema
+include /etc/openldap/schema/nis.schema
+include /etc/openldap/schema/inetorgperson.schema
+include /etc/openldap/schema/openldap.schema
+include /etc/openldap/schema/dyngroup.schema
+include /etc/openldap/schema/sudo.schema
+include /etc/openldap/schema/openssh.schema
+
+database hdb
+suffix "dc=srv,dc=world"
+directory /var/lib/ldap
+index   objectClass                     eq
+index   cn                              eq,pres,sub
+index   uidNumber,gidNumber,memberUid   eq,pres
+index   uniqueMember                    eq,pres
+index   uid                             pres,sub,eq
+index   sudoUser                        eq,sub
+index   default                         sub

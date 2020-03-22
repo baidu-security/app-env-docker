@@ -7,4 +7,4 @@
 说明
 
 1. 实际使用还得执行下 `authconfig --enablesssd --enablemkhomedir —update`
-
+2. CentOS 6 不支持 hdb，需要用 bdb

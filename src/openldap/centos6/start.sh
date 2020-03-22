@@ -24,8 +24,11 @@ chmod 600 /etc/sssd/sssd.conf
 echo '[-] Starting sshd'
 ssh-keygen -N "" -f /root/.ssh/id_rsa
 echo AuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys >> /etc/ssh/sshd_config
-echo AuthorizedKeysCommandUser nobody >> /etc/ssh/sshd_config
-/usr/sbin/sshd-keygen
+
+# CentOS 6 不支持
+# echo AuthorizedKeysCommandUser nobody >> /etc/ssh/sshd_config
+ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
+
 /usr/sbin/sshd
 
 echo "Debug sudo /var/log/sudo_debug.log all@debug" >> /etc/sudo.conf
@@ -125,5 +128,6 @@ cat << EOF
 
 EOF
 
-/etc/init.d/shell.sh /tmp/ldif
+cd /tmp/ldif
+bash
 
