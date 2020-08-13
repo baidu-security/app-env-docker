@@ -10,7 +10,7 @@ RUN cd /tmp \
 	&& ln -s /usr/local/nodejs/bin/npm /usr/bin
 
 RUN cd /tmp \
-	&& curl https://packages.baidu.com/app/go1.13.7.linux-amd64.tar.gz -o package.tar.xz \
+	&& curl https://packages.baidu.com/app/go/go1.13.7.linux-amd64.tar.gz -o package.tar.xz \
 	&& tar -xf package.tar.xz && rm -f package.tar.xz \
 	&& mv go /usr/local/go \
 	&& ln -s /usr/local/go/bin/go /usr/bin
