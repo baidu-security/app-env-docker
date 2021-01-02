@@ -12,7 +12,7 @@ cd "$dest"
 
 tar -xf /root/bee-bin.tar -C cloud
 mkdir -p /root/go
-curl https://packages.baidu.com/app/openrasp/cloud-files/pkg.tar.gz -o - | tar -xzf - -C /root/go
+curl -L http://packages.baidu.com/app/openrasp/cloud-files/pkg.tar.gz -o - | tar -xzf - -C /root/go
 
 # npm config set registry https://registry.npm.taobao.org
 # rm -rf /tmp/openrasp/rasp-vue/node_modules/
