@@ -43,6 +43,11 @@ RUN cd /tmp \
 	&& mv apache-maven-3.2.3/ /maven \
 	&& rm -f mvn.tar.gz
 
+# 为PHP7.4升级sqlite3
+RUN rpm -Uvh --force \
+	https://packages.baidu.com/app/sqlite/sqlite-3.7.17-4.el6.x86_64.rpm \
+	https://packages.baidu.com/app/sqlite/sqlite-devel-3.7.17-4.el6.x86_64.rpm
+
 # php 二进制释放
 # RUN cd /tmp \
 # 	&& curl https://packages.baidu.com/app/php-ts/all.tar.bz2 -o all.tar.bz2 \
