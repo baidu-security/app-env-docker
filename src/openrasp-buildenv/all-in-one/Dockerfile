@@ -18,7 +18,7 @@ RUN yum install -y yum-utils httpd sendmail redis \
 
 # 为PHP7.4升级sqlite3
 RUN rpm -Uvh --force \
-	https://packages.baidu.com/app/autoconf-2.69-12.2.noarch.rpm
+	https://packages.baidu.com/app/autoconf-2.69-12.2.noarch.rpm \
 	https://packages.baidu.com/app/sqlite/sqlite-3.7.17-4.el6.x86_64.rpm \
 	https://packages.baidu.com/app/sqlite/sqlite-devel-3.7.17-4.el6.x86_64.rpm
 
