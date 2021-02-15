@@ -35,20 +35,20 @@ RUN curl https://packages.baidu.com/app/devtoolset-4.tar -o devtoolset-4.tar \
 	&& rpm -ivh devtoolset-4/*.rpm \
 	&& rm -rf devtoolset-4*
 
-# jdk
+# jdk 6
 RUN curl https://packages.baidu.com/app/jdk1.6.0_45.tar.bz2 -o jdk1.6.0_45.tar.bz2 \
 	&& tar -xf jdk1.6.0_45.tar.bz2 \
 	&& mv jdk1.6.0_45 /jdk/ \
 	&& rm -f jdk1.6.0_45.tar.bz2
 
-# maven
+# maven 3.2.3
 RUN cd /tmp \
 	&& curl https://packages.baidu.com/app/apache-maven-3.2.3-bin.tar.gz -o mvn.tar.gz \
 	&& tar -xf mvn.tar.gz \
 	&& mv apache-maven-3.2.3/ /maven \
 	&& rm -f mvn.tar.gz
 
-# php 二进制释放
+# php 二进制释放: 5.3-5.6, 7.0-7.4, nts + zts
 RUN cd /tmp \
 	&& curl https://packages.baidu.com/app/php-bin-all.tar.gz -o all.tar.gz \
 	&& tar -xf all.tar.gz -C /usr/local \
@@ -63,4 +63,3 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 COPY root /root
 COPY etc /etc
 
-EXPOSE 80
