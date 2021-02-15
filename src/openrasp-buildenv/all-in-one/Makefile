@@ -1,4 +1,4 @@
-name=buildenv/all-in-one
+name=openrasp-buildenv/all-in-one
 
 default: build run
 
