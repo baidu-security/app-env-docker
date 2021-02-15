@@ -15,7 +15,12 @@ RUN yum install -y yum-utils httpd sendmail redis \
 	python-pip gettext git file lftp psmisc xz \
 	glibc.i686 gdb python2-crypto inotify-tools libxml2-devel \
 	scl-utils policycoreutils-python mpfr-devel glibc-devel zlib-static libcurl-devel pcre-devel clang gcc-c++
-RUN rpm -Uvh --force https://packages.baidu.com/app/autoconf-2.69-12.2.noarch.rpm
+
+# 为PHP7.4升级sqlite3
+RUN rpm -Uvh --force \
+	https://packages.baidu.com/app/autoconf-2.69-12.2.noarch.rpm
+	https://packages.baidu.com/app/sqlite/sqlite-3.7.17-4.el6.x86_64.rpm \
+	https://packages.baidu.com/app/sqlite/sqlite-devel-3.7.17-4.el6.x86_64.rpm
 
 # cmake
 RUN cd /tmp \
@@ -43,16 +48,11 @@ RUN cd /tmp \
 	&& mv apache-maven-3.2.3/ /maven \
 	&& rm -f mvn.tar.gz
 
-# 为PHP7.4升级sqlite3
-RUN rpm -Uvh --force \
-	https://packages.baidu.com/app/sqlite/sqlite-3.7.17-4.el6.x86_64.rpm \
-	https://packages.baidu.com/app/sqlite/sqlite-devel-3.7.17-4.el6.x86_64.rpm
-
 # php 二进制释放
-# RUN cd /tmp \
-# 	&& curl https://packages.baidu.com/app/php-ts/all.tar.bz2 -o all.tar.bz2 \
-# 	&& tar -xf all.tar.bz2 -C /usr/local \
-# 	&& rm -f all.tar.bz2
+RUN cd /tmp \
+	&& curl https://packages.baidu.com/app/php-bin-all.tar.gz -o all.tar.gz \
+	&& tar -xf all.tar.gz -C /usr/local \
+	&& rm -f all.tar.gz
 
 # 其他配置
 RUN sed '/^proxy=/d' -i /etc/yum.conf

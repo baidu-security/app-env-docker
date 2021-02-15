@@ -1,4 +1,4 @@
-name=$(shell pwd | perl -lne 'print "openrasp/$$1:$$2" if /([^\/]+)\/([^\/]+)$$/')
+name=buildenv/all-in-one
 
 default: build run
 
