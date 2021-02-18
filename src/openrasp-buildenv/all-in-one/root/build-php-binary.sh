@@ -44,7 +44,7 @@ do
 	fi
 
 	if [[ ! -f /usr/local/php/$ver-ts/bin/php ]]; then
-		build_php $url /usr/local/php/$ver-ts --enable-maintainer-zts
+		build_php $url /usr/local/php/$ver-ts "--enable-maintainer-zts --enable-zts"
 	else
 		echo Skipped existing PHP-TS version $ver
 	fi
