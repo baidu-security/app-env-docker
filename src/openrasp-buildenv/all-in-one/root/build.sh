@@ -24,8 +24,8 @@ fi
 source /opt/rh/devtoolset-4/enable
 set -ex
 
-if [[ $php_version =~ ^7 ]]; then
-	time bash "$dest"/build-php7.sh
-else
+if [[ $php_version =~ ^5 ]]; then
 	time bash "$dest"/build-php5.sh
+else
+	time bash "$dest"/build-php7.sh
 fi

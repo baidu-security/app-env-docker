@@ -54,8 +54,7 @@ RUN cd /tmp \
 # php 二进制释放: 5.3-5.6, 7.0-7.4, nts + zts
 RUN cd /tmp \
 	&& curl https://packages.baidu.com/app/php-bin-all.tar.gz -o all.tar.gz \
-	&& tar -xf all.tar.gz -C /usr/local \
-	&& rm -f all.tar.gz
+	&& tar -xf all.tar.gz -C /usr/local && rm -f all.tar.gz
 
 # 其他配置
 RUN sed '/^proxy=/d' -i /etc/yum.conf
