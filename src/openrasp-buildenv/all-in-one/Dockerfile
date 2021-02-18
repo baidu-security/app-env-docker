@@ -10,17 +10,20 @@ RUN echo proxy=http://192.168.154.200:6666 >> /etc/yum.conf \
 RUN rpm --import https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6
 
 RUN yum clean all
-RUN yum install -y yum-utils httpd sendmail redis \
+RUN yum install -y yum-utils scl-utils \
 	wget curl zip unzip vim bzip2 net-tools iproute lrzsz nc patch nano lsof rsync bind-utils \
-	python-pip gettext git file lftp psmisc xz \
-	glibc.i686 gdb python2-crypto inotify-tools libxml2-devel \
-	scl-utils policycoreutils-python mpfr-devel glibc-devel zlib-static libcurl-devel pcre-devel clang gcc-c++
+	python-pip gettext git file lftp psmisc xz policycoreutils-python inotify-tools \
+	glibc.i686 gdb clang gcc-c++ python2-crypto glibc-devel zlib-static libcurl-devel \
+	readline-devel xz-devel libicu-devel mpfr-devel pcre-devel
 
 # 为PHP7.4升级sqlite3
 RUN rpm -Uvh --force \
 	https://packages.baidu.com/app/autoconf-2.69-12.2.noarch.rpm \
-	https://packages.baidu.com/app/sqlite/sqlite-3.7.17-4.el6.x86_64.rpm \
-	https://packages.baidu.com/app/sqlite/sqlite-devel-3.7.17-4.el6.x86_64.rpm
+	https://packages.baidu.com/app/centos6/sqlite-3.7.17-4.el6.x86_64.rpm \
+	https://packages.baidu.com/app/centos6/sqlite-devel-3.7.17-4.el6.x86_64.rpm \
+	https://packages.baidu.com/app/centos6/libxml2-2.9.4-1.57.el6.x86_64.rpm \
+	https://packages.baidu.com/app/centos6/libxml2-python-2.9.4-1.57.el6.x86_64.rpm \
+	https://packages.baidu.com/app/centos6/libxml2-devel-2.9.4-1.57.el6.x86_64.rpm	
 
 # cmake
 RUN cd /tmp \
