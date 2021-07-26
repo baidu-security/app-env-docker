@@ -1,11 +1,15 @@
 FROM centos:centos6
 
 MAINTAINER OpenRASP <ext_yunfenxi@baidu.com>
+ARG proxy
 
 # 安装软件
 RUN rm -rf /etc/yum.repos.d/*
 COPY root /root
 COPY etc /etc
+
+# 设置代理
+RUN if [[ ! -z "$proxy" ]]; then echo proxy=$proxy >> /etc/yum.conf; cat /etc/yum.conf; fi
 RUN rpm --import https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-6
 
 RUN yum clean all
