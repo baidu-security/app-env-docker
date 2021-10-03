@@ -35,6 +35,6 @@ chmod 640 /etc/svn/*
 /etc/init.d/httpd.sh start
 
 echo '[-] Testing access'
-curl http://user1:123456@127.0.0.1/svn/repo1/
+curl http://user1:123456@127.0.0.1/svn/repo1/; echo
 
 exec /etc/init.d/shell.sh /
