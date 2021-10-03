@@ -28,10 +28,13 @@ repo1_user2=user2
 @repo1_user2=r
 EOF
 
-chown root:apache /etc/svn/svn-auth
+chown root:apache /etc/svn/*
 chmod 640 /etc/svn/*
 
 # start service
 /etc/init.d/httpd.sh start
+
+echo '[-] Testing access'
+curl http://user1:123456@127.0.0.1/svn/repo1/
 
 exec /etc/init.d/shell.sh /
