@@ -17,6 +17,7 @@ RUN curl https://packages.baidu.com/app/groovy-all-2.3.9.jar -o /tomcat/lib/groo
 
 # 启动脚本
 COPY start.sh /root/
+COPY httpd.conf /etc/httpd/conf
 
 # 其他配置
 COPY bin/* /tomcat/bin/
