@@ -11,5 +11,5 @@ RUN sed -i 's#<listen-address/>#<listen-address>0.0.0.0</listen-address>#' /wls1
 
 COPY start.sh /root/
 
-EXPOSE 7001
+EXPOSE 7001 8453
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]

@@ -14,5 +14,5 @@ RUN yum install -y libgcc \
 COPY start.sh /root/
 COPY exploit  /exploit/
 
-EXPOSE 7011 7012
+EXPOSE 7011 7012 8453
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]

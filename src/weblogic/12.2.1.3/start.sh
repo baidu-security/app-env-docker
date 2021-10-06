@@ -4,6 +4,8 @@ export JAVA_HOME=/jdk/
 
 echo '[-] Starting Weblogic - medrec'
 echo ' -  Logging to /weblogic.log'
+
+export debugFlag=true
 nohup /wls12213/domain/base_domain/bin/startWebLogic.sh &> /weblogic.log &
 
 echo '[-] Waiting for Weblogic server to start ... (very slow)'
