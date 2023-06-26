@@ -1,0 +1,14 @@
+; Zone file for example.com.
+$TTL    3600
+@       IN      SOA     localhost.    root.localhost. (
+                     2012033101         ; Serial
+                           3600         ; Refresh
+                           1800         ; Retry
+                         604800         ; Expire
+                          43200 )       ; Negative Cache TTL
+
+@       IN      NS      localhost.
+
+baidu.com     CNAME  .
+www.baidu.com A      192.168.1.1
+bing.com      A      192.168.1.2
